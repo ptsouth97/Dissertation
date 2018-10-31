@@ -85,8 +85,7 @@ def make_supervision_behaviors_list():
 	sup = ['Literature for new competency area', \
            'Professional groups', \
            'Outside training area - credentialing requirements', \
-           'Supervision schedule', \
-           'Supervision training']
+           'Supervision schedule']
 
 	return sup
 
