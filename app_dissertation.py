@@ -152,7 +152,28 @@ def make_supervision_behaviors_list():
 def combine_columns(df):
 	''' Combines columns that have text-based options'''
 
-	df['Area of study'] = (df['Area of study - Selected Choice'].fillna('') + df['Area of study - Other - Text'].fillna('')).str.strip()
+	df['Area of study'] = \
+          (df['Area of study - Selected Choice'].fillna('') + df['Area of study - Other - Text'].fillna('')).str.strip()
+
+	df['Job classification'] = \
+          (df['Job classification - Selected Choice'].fillna('') + df['Job classification - Other - Text'].fillna('')).str.strip()
+
+	df['Place of employment'] = \
+          (df['Place of employment - Selected Choice'].fillna('') + df['Place of employment - Other - Text'].fillna('')).str.strip()
+
+	df['Supervision mode'] = \
+          (df['Supervision mode - Selected Choice'].fillna('') + df['Supervision mode - Other - Text'].fillna('')).str.strip()
+
+	df['Supervision training'] = \
+          (df['Supervision training - Selected Choice'].fillna('') + df['Supervision training - Other - Text'].fillna('')).str.strip()
+
+	df['Supervision resources'] = \
+          (df['Supervision resources - Selected Choice'].fillna('') + df['Supervision resources - Other - Text'].fillna('')).str.strip()
+
+	df['Supervision fieldwork protocol source'] = \
+          (df['Supervision fieldwork protocol source - Selected Choice'].fillna('') + \
+           df['Supervision fieldwork protocol source - Other - Text'].fillna('')).str.strip()
+
 	return df
 
 
