@@ -14,14 +14,17 @@ def main():
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
 
+	# Combine columns with text-based option
+	combined = combine_columns(dataframe)
+
 	# Replace text with integers
-	integers = replace_text(dataframe)
+	integers = replace_text(combined)
 	
-	# Slice all columns that are survey questions
-	sliced = integers.iloc[:, 17:95]
+	# Drop all the survey metadata
+	metadata = drop_metadata(integers)
 
 	# Drop non-supervisor behaviors
-	dropped = drop_bx(sliced)
+	dropped = drop_bx(metadata)
 
 	# RESEARCH QUESTION 1
 	# demographics = question1(dataframe)
@@ -44,8 +47,6 @@ def question1(df):
 
 def question2(df):
 	''' answers research question 2'''
-
-	#behaviors.dropna(axis=1, inplace=True)
 
 	# Run ANOVA
 	data = [behaviors[col].dropna() for col in behaviors]
@@ -74,7 +75,7 @@ def question3(df, demo_lst, bx_lst):
 	for demo in demo_lst:
 		for bx in bx_lst:
 			df.boxplot(column=bx, by=demo)
-			_ = plt.xticks(rotation=90)
+			_ = plt.xticks(rotation=45)
 			_ = plt.grid(b=None)
 			_ = plt.title(demo)
 			_ = plt.xlabel(bx)
@@ -82,6 +83,7 @@ def question3(df, demo_lst, bx_lst):
 			_ = plt.ylim(1, 5)
 			_ = plt.suptitle('')
 			_ = plt.tight_layout()
+			_ = plt.margins(0.2)
 			_ = plt.savefig(demo+'-'+bx+'.png')
 			_ = plt.close()
 			#_ = plt.show()
@@ -126,7 +128,7 @@ def drop_bx(df):
 def make_demographics_list():
 	''' Create list of demographics'''
 
-	demog = ['Area of study - Selected Choice', \
+	demog = ['Area of study', \
              'Job classification - Selected Choice', \
              'Place of employment - Selected Choice', \
              'State', \
@@ -146,6 +148,37 @@ def make_supervision_behaviors_list():
 
 	return sup
 
+
+def combine_columns(df):
+	''' Combines columns that have text-based options'''
+
+	df['Area of study'] = (df['Area of study - Selected Choice'].fillna('') + df['Area of study - Other - Text'].fillna('')).str.strip()
+	return df
+
+
+def drop_metadata(df):
+	''' drops the survey metadata'''
+
+	df.drop(['Start Date', \
+             'End Date', \
+             'Response Type', \
+             'IP Address', \
+             'Progress', \
+             'Duration (in seconds)', \
+             'Finished', \
+             'Recorded Date', \
+             'Response ID', \
+             'Recipient Last Name', \
+             'Recipient First Name', \
+             'Recipient Email', \
+             'External Data Reference', \
+             'Location Latitude', \
+	         'Location Longitude', \
+             'Distribution Channel', \
+             'User Language'], \
+             inplace=True, axis=1)
+
+	return df
 
 if __name__ == '__main__':
 	main()
