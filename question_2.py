@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
+import numpy as np
+import clean_data
+
+
+def main():
+	''' Loads and cleans data for analysis'''
+
+	# Read the survey results file into a pandas dataframe
+	file_name = 'responses.csv'
+	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
+
+	# Drop all the survey metadata
+	metadata = clean_data.drop_metadata(dataframe)
+
+	# Drop non-supervisor behaviors
+	dropped_bx = clean_data.drop_bx(metadata)
+	
+	# Drop demographics
+	dropped_demo = clean_data.drop_demographics(dropped_bx)
+
+	# Replace text with integers
+	integers = clean_data.text_to_int(dropped_demo)
+
+	# RESEARCH QUESTION 2
+	question2(integers)
+	
+
+def question2(df):
+	''' answers research question 2'''
+
+	# change directory
+	os.chdir('./Q2_graphs')	
+
+	# Run ANOVA
+	data = [df[col].dropna() for col in df]
+	f, p = stats.f_oneway(*data)
+	
+	# Make a boxplot	
+	_ = df.boxplot()
+	_ = plt.yticks(np.arange(1, 5, step=1))
+	_ = plt.xticks(rotation=90)
+	_ = plt.xlabel('Individual behaviors')
+	_ = plt.ylabel('Survey response')
+	_ = plt.title('Supervisory Behavior Boxplot')
+	_ = plt.annotate('p='+str(p), xy=(30,1))
+	_ = plt.grid(b=None)
+	#_ = plt.tight_layout()
+	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
+	_ = plt.show()
+
+	os.chdir('..')
+	
+	return
+
+	
+if __name__ == '__main__':
+	main()

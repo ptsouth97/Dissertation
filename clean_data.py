@@ -1,16 +1,11 @@
 #!/usr/bin/python3
 
-import os
-import re
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from scipy import stats
 import numpy as np
 
 
 def main():
-	''' main function'''
+	''' Main function for testing'''
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
@@ -20,119 +15,26 @@ def main():
 	combined = combine_columns(dataframe)
 
 	# Replace text with integers
-	integers = replace_text(combined)
+	integers = text_to_int(combined)
 	
 	# Drop all the survey metadata
 	metadata = drop_metadata(integers)
+
+	# Make a list of all the demographics
+	demo_list = make_demographics_list()
+
+	# Drop demographics
+	no_demo = drop_demographics(metadata, demo_list)
+
+	# Combine columns with text-based option
+	combined = combine_columns()
 
 	# Drop non-supervisor behaviors
 	dropped = drop_bx(metadata)
 	print(dropped)
 
-	# RESEARCH QUESTION 1
-	# demographics = question1(dataframe)
 
-	# RESEARCH QUESTION 2
-	question2(dropped)
-	
-	# RESEARCH QUESTION 3
-	#demo_list = make_demographics_list()
-	#sup_list = make_supervision_behaviors_list()
-	#question3(dropped, demo_list, sup_list)
-
-
-def question1(df):
-	''' answers research question 1'''
-
-	demo = df.iloc[:, 17:32]
-	print(demo)
-
-
-def question2(df):
-	''' answers research question 2'''
-
-	# Run ANOVA
-	data = [df[col].dropna() for col in df]
-	f, p = stats.f_oneway(*data)
-	
-	# Make a boxplot	
-	_ = behaviors.boxplot()
-	_ = plt.xticks(rotation=90)
-	_ = plt.xlabel('Individual behaviors')
-	_ = plt.ylabel('Survey response')
-	_ = plt.title('Supervisory Behavior Boxplot')
-	_ = plt.annotate('p='+str(p), xy=(30,1))
-	_ = plt.grid(b=None)
-	#_ = plt.tight_layout()
-	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
-	_ = plt.show()
-
-	return
-
-	
-def question3(df, demo_lst, bx_lst):
-	''' Answers research question 3'''
-
-	# Change folder for graphs
-	os.chdir('./Q3_graphs')
-
-	# Initialize list to hold p-values
-	p_values = []
-
-	# Loop through each demographic
-	for demo in demo_lst:
-
-		# For each demographic, go through the behaviors			
-		for bx in bx_lst:
-			grouped = df.groupby(demo)
-			groupby_to_df = grouped.describe().squeeze()
-			names = groupby_to_df.index.tolist()
-			length = len(names) + 1
-			positions = list(range(1,length))
-			grouped_list = list(grouped[bx])
-			grouped_df = pd.DataFrame.from_items(grouped_list)
-	
-			n_cols = len(grouped_df.columns)
-			col_list = []			
-
-			for col in range(0, n_cols):
-				column=grouped_df.iloc[:,col].dropna().tolist()
-				col_list.append(column)
-
-			if len(col_list) == 2:
-				f, p = stats.f_oneway(col_list[0], col_list[1])
-
-			elif len(col_list) == 3:
-				f, p = stats.f_oneway(col_list[0], col_list[1], col_list[2])
-
-			elif len(col_list) == 4:
-				f, p = stats.f_oneway(col_list[0], col_list[1], col_list[2], col_list[3])
-
-			p_values.append(p)
-
-			_ = plt.boxplot(col_list)
-			_ = plt.xticks(positions, names, rotation=45)
-			_ = plt.yticks(np.arange(1, 5, step=1))
-			_ = plt.grid(b=None)
-			_ = plt.title(bx)
-			_ = plt.xlabel(demo)
-			_ = plt.ylabel('responses')
-			_ = plt.ylim(1, 5)
-			_ = plt.annotate('p='+str(p), xy=(0.6, 1.5))
-			_ = plt.tight_layout()
-			_ = plt.savefig(demo+'-'+bx+'.png')
-			_ = plt.close()
-
-
-	print('p_values:')
-	print(p_values)
-
-	os.chdir('..')
-
-	return
-
-
-def replace_text(df):
+def text_to_int(df):
 	''' Changes text to integers'''
 
 	df.replace('Almost never (0-20%)', 1, inplace=True)
@@ -168,10 +70,10 @@ def make_demographics_list():
 	''' Create list of demographics'''
 
 	demog = ['Area of study', \
-             'Job classification - Selected Choice', \
-             'Place of employment - Selected Choice', \
+             'Job classification', \
+             'Place of employment', \
              'State', \
-             'Supervision mode - Selected Choice', \
+             'Supervision mode', \
              'Supervision format']
 
 	return demog
@@ -183,7 +85,8 @@ def make_supervision_behaviors_list():
 	sup = ['Literature for new competency area', \
            'Professional groups', \
            'Outside training area - credentialing requirements', \
-           'Supervision schedule']
+           'Supervision schedule', \
+           'Supervision training']
 
 	return sup
 
@@ -245,6 +148,36 @@ def drop_metadata(df):
              inplace=True, axis=1)
 
 	return df
+
+
+def drop_demographics(df):
+	'''drops the demographics columns'''
+
+	df.drop(['BACB requirements', \
+             'Years certified', \
+             'Years supervisor', \
+             'Area of study - Selected Choice', \
+             'Area of study - Other - Text', \
+             'Job classification - Selected Choice', \
+             'Job classification - Other - Text', \
+             'Place of employment - Selected Choice', \
+             'Place of employment - Other - Text', \
+             'State', \
+             'Supervision mode - Selected Choice', \
+             'Supervision mode - Other - Text', \
+             'Supervision format', \
+             'Supervision training - Selected Choice', \
+             'Supervision training - Other - Text', \
+             '100% fieldwork candidates', \
+             '100% fieldwork pass rate', \
+             'Discontinued fieldwork', \
+             'Supervision resources - Selected Choice', \
+             'Supervision resources - Other - Text', \
+             'Q4 - Topics'], \
+             inplace=True, axis=1)
+
+	return df
+
 
 if __name__ == '__main__':
 	main()
