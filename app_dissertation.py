@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
 import os
+import re
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+import numpy as np
 
 
 def main():
@@ -49,7 +51,7 @@ def question2(df):
 	''' answers research question 2'''
 
 	# Run ANOVA
-	data = [behaviors[col].dropna() for col in behaviors]
+	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
 	
 	# Make a boxplot	
@@ -70,26 +72,62 @@ def question2(df):
 def question3(df, demo_lst, bx_lst):
 	''' Answers research question 3'''
 
-	os.chdir('./graphs')
+	# Change folder for graphs
+	os.chdir('./Q3_graphs')
 
+	# Initialize list to hold p-values
+	p_values = []
+
+	# Loop through each demographic
 	for demo in demo_lst:
+
+		# For each demographic, go through the behaviors			
 		for bx in bx_lst:
-			df.boxplot(column=bx, by=demo)
-			_ = plt.xticks(rotation=45)
+			grouped = df.groupby(demo)
+			groupby_to_df = grouped.describe().squeeze()
+			names = groupby_to_df.index.tolist()
+			length = len(names) + 1
+			positions = list(range(1,length))
+			grouped_list = list(grouped[bx])
+			grouped_df = pd.DataFrame.from_items(grouped_list)
+	
+			n_cols = len(grouped_df.columns)
+			col_list = []			
+
+			for col in range(0, n_cols):
+				column=grouped_df.iloc[:,col].dropna().tolist()
+				col_list.append(column)
+
+			if len(col_list) == 2:
+				f, p = stats.f_oneway(col_list[0], col_list[1])
+
+			elif len(col_list) == 3:
+				f, p = stats.f_oneway(col_list[0], col_list[1], col_list[2])
+
+			elif len(col_list) == 4:
+				f, p = stats.f_oneway(col_list[0], col_list[1], col_list[2], col_list[3])
+
+			p_values.append(p)
+
+			_ = plt.boxplot(col_list)
+			_ = plt.xticks(positions, names, rotation=45)
+			_ = plt.yticks(np.arange(1, 5, step=1))
 			_ = plt.grid(b=None)
-			_ = plt.title(demo)
-			_ = plt.xlabel(bx)
+			_ = plt.title(bx)
+			_ = plt.xlabel(demo)
 			_ = plt.ylabel('responses')
 			_ = plt.ylim(1, 5)
-			_ = plt.suptitle('')
+			_ = plt.annotate('p='+str(p), xy=(0.6, 1.5))
 			_ = plt.tight_layout()
-			_ = plt.margins(0.2)
 			_ = plt.savefig(demo+'-'+bx+'.png')
 			_ = plt.close()
-			#_ = plt.show()
+
+
+	print('p_values:')
+	print(p_values)
 
 	os.chdir('..')
-	
+
 	return
 
 
@@ -153,22 +191,28 @@ def combine_columns(df):
 	''' Combines columns that have text-based options'''
 
 	df['Area of study'] = \
-          (df['Area of study - Selected Choice'].fillna('') + df['Area of study - Other - Text'].fillna('')).str.strip()
+          (df['Area of study - Selected Choice'].fillna('') + \
+           df['Area of study - Other - Text'].fillna('')).str.strip()
 
 	df['Job classification'] = \
-          (df['Job classification - Selected Choice'].fillna('') + df['Job classification - Other - Text'].fillna('')).str.strip()
+          (df['Job classification - Selected Choice'].fillna('') + \
+           df['Job classification - Other - Text'].fillna('')).str.strip()
 
 	df['Place of employment'] = \
-          (df['Place of employment - Selected Choice'].fillna('') + df['Place of employment - Other - Text'].fillna('')).str.strip()
+          (df['Place of employment - Selected Choice'].fillna('') + \
+           df['Place of employment - Other - Text'].fillna('')).str.strip()
 
 	df['Supervision mode'] = \
-          (df['Supervision mode - Selected Choice'].fillna('') + df['Supervision mode - Other - Text'].fillna('')).str.strip()
+          (df['Supervision mode - Selected Choice'].fillna('') + \
+           df['Supervision mode - Other - Text'].fillna('')).str.strip()
 
 	df['Supervision training'] = \
-          (df['Supervision training - Selected Choice'].fillna('') + df['Supervision training - Other - Text'].fillna('')).str.strip()
+          (df['Supervision training - Selected Choice'].fillna('') + \
+           df['Supervision training - Other - Text'].fillna('')).str.strip()
 
 	df['Supervision resources'] = \
-          (df['Supervision resources - Selected Choice'].fillna('') + df['Supervision resources - Other - Text'].fillna('')).str.strip()
+          (df['Supervision resources - Selected Choice'].fillna('') + \
+           df['Supervision resources - Other - Text'].fillna('')).str.strip()
 
 	df['Supervision fieldwork protocol source'] = \
           (df['Supervision fieldwork protocol source - Selected Choice'].fillna('') + \
