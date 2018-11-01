@@ -42,15 +42,21 @@ def question2(df):
 	f, p = stats.f_oneway(*data)
 	
 	# Make a boxplot	
-	_ = df.boxplot()
-	_ = plt.yticks(np.arange(1, 5, step=1))
+	color = dict(boxes='black', whiskers='black', medians='white', caps='black')
+	_ = df.plot.box(color=color, patch_artist=True)
+	#_ = df.boxplot(patch_artist=True)
+	_ = plt.yticks(np.arange(1, 5+1, step=1))
 	_ = plt.xticks(rotation=90)
 	_ = plt.xlabel('Individual behaviors')
 	_ = plt.ylabel('Survey response')
-	_ = plt.title('Supervisory Behavior Boxplot')
-	_ = plt.annotate('p='+str(p), xy=(30,1))
-	_ = plt.grid(b=None)
-	#_ = plt.tight_layout()
+	_ = plt.title('Supervisory Behaviors (p='+str(p)+')')
+	#_ = plt.annotate('p='+str(p), xy=(30,1))
+	#_ = plt.grid(b=None)
+	_ = plt.tight_layout()
+
+	# Resize to larger window for bigger graph
+	manager = plt.get_current_fig_manager()
+	manager.resize(*manager.window.maxsize())
 	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
 	_ = plt.show()
 
