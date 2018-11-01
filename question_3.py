@@ -76,7 +76,6 @@ def question3(df, demo_lst, bx_lst):
 			_ = plt.boxplot(col_list)
 			_ = plt.xticks(positions, names, rotation=45)
 			_ = plt.yticks(np.arange(1, 5, step=1))
-			_ = plt.grid(b=None)
 			_ = plt.title(bx)
 			_ = plt.xlabel(demo)
 			_ = plt.ylabel('responses')
