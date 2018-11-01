@@ -35,15 +35,18 @@ def question1(df):
 
 	os.chdir('./Q1_graphs')
 
-	_ = df['State'].value_counts().plot(kind='bar', colormap='gray')
-	_ = plt.title('Demographic: State')
-	_ = plt.xlabel('state')
-	_ = plt.ylabel('number of respondents')
-	_ = plt.xticks(rotation=45)
-	_ = plt.tight_layout()
-	_ = plt.savefig('State.png')
-	_ = plt.show()
-	_ = plt.close()
+	demo_list = clean_data.make_demographics_list()
+
+	for demo in demo_list:
+		_ = df[demo].value_counts().plot(kind='bar', colormap='gray')
+		_ = plt.title('Demographic: ' +demo)
+		_ = plt.xlabel(demo)
+		_ = plt.ylabel('number of responses')
+		_ = plt.xticks(rotation=45)
+		_ = plt.tight_layout()
+		_ = plt.savefig(demo+'.png')
+		_ = plt.show()
+		_ = plt.close()
 
 	os.chdir('..')
 	
