@@ -178,5 +178,17 @@ def drop_demographics(df):
 	return df
 
 
+def get_question4_data():
+	''' returns list of needed column headings for research question 4'''
+
+	q4 = ['100% fieldwork candidates', \
+          '100% fieldwork pass rate', \
+          'Discontinued fieldwork', \
+          'pass rate']
+
+
+	return q4
+
+	
 if __name__ == '__main__':
 	main()
