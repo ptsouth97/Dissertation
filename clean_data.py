@@ -2,6 +2,7 @@
 
 import pandas as pd
 import numpy as np
+import re
 
 
 def main():
@@ -188,6 +189,50 @@ def get_question4_data():
 
 
 	return q4
+
+
+def separate_text(df):
+	''' finds cells with multiple entries and makes new rows for each'''
+
+	# Get the column of interest
+	values = df['Supervision training']
+
+	# Go through each df row
+	for row in range(0, len(values)):
+
+		# Slice the column of interest  
+		# get_values = df['Supervision training']
+
+		print(values.iloc[row])
+		# Separate the strings on the comma
+		split = re.split(',', values.iloc[row])
+
+		# Calculate how many new rows are needed
+		num = len(split)
+
+		if num == 1:
+			continue
+
+		# Make new rows to hold separated text
+		new_rows = pd.DataFrame([df.iloc[row]]*num)
+
+		# Change the values of the new rows to the separated strings
+		for n in range(0,num):
+			print(new_rows.iloc[n, 71])
+			new_rows.iloc[n, 71] = split[n]
+	
+		#print('NEW ROWS')
+		#print(new_rows.loc[:, 'Supervision training'])
+
+		# Append new rows to original dataframe
+		new_df = df.append(new_rows, ignore_index=True)
+
+		# Drop the original row
+		new_df = new_df.drop(row).reset_index()
+	
+	print(new_df.loc[:, 'Supervision training'])  
+  
+	return df
 
 	
 if __name__ == '__main__':

@@ -26,11 +26,15 @@ def main():
 
 	# Drop non-supervisor behaviors
 	dropped = clean_data.drop_bx(metadata)
+
+	# Special cases (multiple answers in one cell)
+	special = clean_data.separate_text(dropped)
+
 	
 	# RESEARCH QUESTION 3
-	demo_list = clean_data.make_demographics_list()
-	sup_list = clean_data.make_supervision_behaviors_list()
-	question3(dropped, demo_list, sup_list)
+	#demo_list = clean_data.make_demographics_list()
+	#sup_list = clean_data.make_supervision_behaviors_list()
+	#question3(dropped, demo_list, sup_list)
 
 
 def question3(df, demo_lst, bx_lst):
