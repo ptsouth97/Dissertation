@@ -44,6 +44,8 @@ def text_to_int(df):
 	df.replace('Usually (61-80%)', 4, inplace=True)
 	df.replace('Almost always (81-100%)', 5, inplace=True)
 
+	df.replace('Performance feedback from another BCBA Supervisor', 'Performance feedback', regex=True, inplace=True)
+
 	return df
 	
 
@@ -191,46 +193,100 @@ def get_question4_data():
 	return q4
 
 
-def separate_text(df):
+def separate_text(df, demographic):
 	''' finds cells with multiple entries and makes new rows for each'''
 
-	# Get the column of interest
-	values = df['Supervision training']
+	print('############################################')
 
-	# Go through each df row
-	for row in range(0, len(values)):
+	
+	# Get the length of the dataframe
+	length = len(df)
 
-		# Slice the column of interest  
-		# get_values = df['Supervision training']
+	# Get the correct column for each demographic
+	if demographic == 'Supervision training':
+		col = 71
 
-		print(values.iloc[row])
+	elif demographic == 'Supervision resources':
+		col = 72
+
+	elif demographic == 'Supervision fieldwork protocol source':
+		col = 73
+
+	# Check the top row of the df of interest 'length' times
+	for row in range(0, length):
+
+        #######################
+		print('Values for the top row:')
+		print(df.iloc[0, col])
+		print('')
+        #######################
+
 		# Separate the strings on the comma
-		split = re.split(',', values.iloc[row])
+		split = re.split(',', df.iloc[0, col])
 
-		# Calculate how many new rows are needed
+		########################################
+		print('Here is the split string:')
+		print(split)
+		print('')
+		########################################
+
+		# Calculate how many new rows need to be appended
 		num = len(split)
 
-		if num == 1:
-			continue
+		# Make a dataframe to hold separated text: new_rows
+		new_rows = pd.DataFrame([df.iloc[0]]*num)
 
-		# Make new rows to hold separated text
-		new_rows = pd.DataFrame([df.iloc[row]]*num)
+		###################################
+		print('Make '+str(num)+' new rows:')
+		print('')
+		###################################
 
 		# Change the values of the new rows to the separated strings
 		for n in range(0,num):
-			print(new_rows.iloc[n, 71])
-			new_rows.iloc[n, 71] = split[n]
+			new_rows.iloc[n, col] = split[n]
+			############################
+			print(new_rows.iloc[n, col])
+			############################
 	
-		#print('NEW ROWS')
-		#print(new_rows.loc[:, 'Supervision training'])
+		# Ignore index just 'pastes' the dataframes together instead of joining on index
+		df = pd.concat([df, new_rows], ignore_index=True)
 
-		# Append new rows to original dataframe
-		new_df = df.append(new_rows, ignore_index=True)
+		print('Here is the first thing:')
+		print(df.iloc[0, 0])
+		print('')
+		#new_df = new_df.reset_index(drop=True)
+		
+		if 'index' in df.columns:
+			df.drop(['index'], inplace=True, axis=1)
 
+		########################################
+		#print('This is the new dataframe:')
+		#print(df)
+		#print('')
+		#print(df.index)
+		########################################
+		print('')
+		print('Here is the appended dataframe:')
+		print(df.iloc[:, col])
+		print('')
+		########################################
+
+		print('I am dropping:')
+		print(df.iloc[0, col])
+		print('')
 		# Drop the original row
-		new_df = new_df.drop(row).reset_index()
+		df = df.drop(0)
+
+		##########################################
+		print('Here is the dropped row dataframe')		
+		print(df.loc[:, demographic])
+		print('')
+		##########################################
 	
-	print(new_df.loc[:, 'Supervision training'])  
+    #################################
+	print('And here is what gets returned...')
+	print(df.loc[:, demographic])
+    #################################  
   
 	return df
 
