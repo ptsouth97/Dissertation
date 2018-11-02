@@ -10,6 +10,12 @@ import clean_data
 def main():
 	''' main function'''
 
+	question1_prep()
+
+
+def q1_prep():
+	''' prepare data for question 1'''
+
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
@@ -19,17 +25,17 @@ def main():
 
 	# Replace text with integers
 	integers = clean_data.text_to_int(combined)
-	
+		
 	# Drop all the survey metadata
 	metadata = clean_data.drop_metadata(integers)
-
+	#print(metadata)
+	
 	# Drop non-supervisor behaviors
-	dropped = clean_data.drop_bx(metadata)
+	#dropped = clean_data.drop_bx(metadata)
 
-	print(dropped.loc[:, 'Supervision resources'])
 	# RESEARCH QUESTION 1
-	#d_list = clean_data.make_demographics_list()
-	#demographics = question1(dropped, d_list)
+	d_list = clean_data.make_demographics_list()
+	demographics = question1(metadata, d_list)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
 	d_list_special = ['Supervision training', \
@@ -37,7 +43,7 @@ def main():
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
-		special = clean_data.separate_text(dropped, item)
+		special = clean_data.separate_text(metadata, item)
 		demographics_special = question1(special, [item])
 		del(special)
 
@@ -56,16 +62,10 @@ def question1(df, demo_list):
 		_ = plt.xlabel(demo)
 		_ = plt.ylabel('number of responses')
 
-		'''
-		if len(demo_list) > 1:
-			_ = plt.tight_layout()
-			_ = plt.xticks(rotation=45)
-		'''
-
 		_ = plt.xticks(rotation=45)
 		_ = plt.tight_layout()
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
-		_ = plt.show()
+		#_ = plt.show()
 		_ = plt.close()
 
 	os.chdir('..')

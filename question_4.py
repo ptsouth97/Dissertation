@@ -12,6 +12,12 @@ from sklearn.linear_model import LinearRegression
 def main():
 	''' main function'''
 
+	q4_prep()
+
+
+def q4_prep():
+	''' Prepares data for research question 4'''
+
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
@@ -90,8 +96,8 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.close()
 
 
-	print('p_values:')
-	print(p_values)
+	#print('p_values:')
+	#print(p_values)
 	
 	os.chdir('..')
 

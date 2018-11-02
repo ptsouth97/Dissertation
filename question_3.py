@@ -11,6 +11,12 @@ import clean_data
 def main():
 	''' main function'''
 
+	q3_prep()
+
+
+def q3_prep():
+	''' prepares data for research question 3'''
+
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
@@ -25,12 +31,12 @@ def main():
 	metadata = clean_data.drop_metadata(integers)
 
 	# Drop non-supervisor behaviors
-	dropped = clean_data.drop_bx(metadata)
+	# dropped = clean_data.drop_bx(metadata)
 
 	# RESEARCH QUESTION 3
-	#demo_list = clean_data.make_demographics_list()
+	demo_list = clean_data.make_demographics_list()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	#question3(dropped, demo_list, sup_list)
+	question3(metadata, demo_list, sup_list)
 
 	# Special cases (multiple answers in one cell)
 	d_list_special = ['Supervision training', \
@@ -38,7 +44,7 @@ def main():
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
-		special = clean_data.separate_text(dropped, item)
+		special = clean_data.separate_text(metadata, item)
 		question3(special, [item], sup_list)
 
 

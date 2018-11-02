@@ -11,6 +11,12 @@ import clean_data
 def main():
 	''' Loads and cleans data for analysis'''
 
+	q2_prep()
+
+
+def q2_prep():
+	''' Prepares data for research question 3'''
+
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
@@ -58,7 +64,7 @@ def question2(df):
 	manager = plt.get_current_fig_manager()
 	manager.resize(*manager.window.maxsize())
 	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
-	_ = plt.show()
+	#_ = plt.show()
 
 	os.chdir('..')
 	

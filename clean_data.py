@@ -45,6 +45,7 @@ def text_to_int(df):
 	df.replace('Almost always (81-100%)', 5, inplace=True)
 
 	df.replace('Performance feedback from another BCBA Supervisor', 'Performance feedback', regex=True, inplace=True)
+	df.replace('Supervise RBTs (yes/no)', 'Supervise RBTs', inplace=True)
 
 	return df
 	
@@ -77,7 +78,14 @@ def make_demographics_list():
              'Place of employment', \
              'State', \
              'Supervision mode', \
-             'Supervision format']
+             'Supervision format', \
+             'Number of candidates', \
+             'Past 12 months candidates', \
+             'Allotted hours', \
+             'Scheduled hours', \
+             'Number of clients', \
+             'Who dictates caseload', \
+             'RBT supervision %']
 
 	return demog
 
@@ -88,7 +96,49 @@ def make_supervision_behaviors_list():
 	sup = ['Literature for new competency area', \
            'Professional groups', \
            'Outside training area - credentialing requirements', \
-           'Supervision schedule']
+           'Supervision schedule', \
+           'Outside training area - training and supervision', \
+           'Supervision schedule', \
+           'Schedule contacts', \
+           '60% fieldwork hours', \
+           'Confirm required skill set', \
+           'Practice skill set', \
+           'Behavior skills training', \
+           'Written supervision contract', \
+           'Supervision termination clause', \
+           'Performance expectations', \
+           'Instructions and demonstration', \
+           'Positive and corrective feedback', \
+           'Written evaluation system', \
+           'Document feedback', \
+           'Immediate feedback', \
+           'Evaluate supervisee performance', \
+           'Evaluate client performance', \
+           'Supervision fidelity', \
+           'Peer evaluate', \
+           'Take baseline', \
+           'Detect barriers to supervision', \
+           'BST case presentation', \
+           'Send agenda', \
+           'Meeting notes', \
+           'Return communications within 48 hours', \
+           'Discourage distractions', \
+           'Observe body language', \
+           'Maintain positive rapport', \
+           'Self-assess interpersonal skills', \
+           'Group supervision', \
+           'Create group activities', \
+           'Include ethics', \
+           'Arrive on time', \
+           'Discuss how to give feedback', \
+           'Schedule direct observations', \
+           'Schedule standing supervision appointments', \
+           'Continue professional relationship', \
+           'Review literature', \
+           'Attend conferences', \
+           'Participate in peer review', \
+           'Seek mentorship', \
+           'Supervisory study groups']
 
 	return sup
 
@@ -196,7 +246,7 @@ def get_question4_data():
 def separate_text(df, demographic):
 	''' finds cells with multiple entries and makes new rows for each'''
 
-	print('############################################')
+	#print('############################################')
 
 	
 	# Get the length of the dataframe
@@ -204,30 +254,30 @@ def separate_text(df, demographic):
 
 	# Get the correct column for each demographic
 	if demographic == 'Supervision training':
-		col = 71
+		col = 83
 
 	elif demographic == 'Supervision resources':
-		col = 72
+		col = 84
 
 	elif demographic == 'Supervision fieldwork protocol source':
-		col = 73
+		col = 85
 
 	# Check the top row of the df of interest 'length' times
 	for row in range(0, length):
 
         #######################
-		print('Values for the top row:')
-		print(df.iloc[0, col])
-		print('')
+		#print('Values for the top row:')
+		#print(df.iloc[0, col])
+		#print('')
         #######################
 
 		# Separate the strings on the comma
 		split = re.split(',', df.iloc[0, col])
 
 		########################################
-		print('Here is the split string:')
-		print(split)
-		print('')
+		#print('Here is the split string:')
+		#print(split)
+		#print('')
 		########################################
 
 		# Calculate how many new rows need to be appended
@@ -237,23 +287,23 @@ def separate_text(df, demographic):
 		new_rows = pd.DataFrame([df.iloc[0]]*num)
 
 		###################################
-		print('Make '+str(num)+' new rows:')
-		print('')
+		#print('Make '+str(num)+' new rows:')
+		#print('')
 		###################################
 
 		# Change the values of the new rows to the separated strings
 		for n in range(0,num):
 			new_rows.iloc[n, col] = split[n]
 			############################
-			print(new_rows.iloc[n, col])
+			#print(new_rows.iloc[n, col])
 			############################
 	
 		# Ignore index just 'pastes' the dataframes together instead of joining on index
 		df = pd.concat([df, new_rows], ignore_index=True)
 
-		print('Here is the first thing:')
-		print(df.iloc[0, 0])
-		print('')
+		#print('Here is the first thing:')
+		#print(df.iloc[0, 0])
+		#print('')
 		#new_df = new_df.reset_index(drop=True)
 		
 		if 'index' in df.columns:
@@ -265,27 +315,27 @@ def separate_text(df, demographic):
 		#print('')
 		#print(df.index)
 		########################################
-		print('')
-		print('Here is the appended dataframe:')
-		print(df.iloc[:, col])
-		print('')
+		#print('')
+		#print('Here is the appended dataframe:')
+		#print(df.iloc[:, col])
+		#print('')
 		########################################
 
-		print('I am dropping:')
-		print(df.iloc[0, col])
-		print('')
+		#print('I am dropping:')
+		#print(df.iloc[0, col])
+		#print('')
 		# Drop the original row
 		df = df.drop(0)
 
 		##########################################
-		print('Here is the dropped row dataframe')		
-		print(df.loc[:, demographic])
-		print('')
+		#print('Here is the dropped row dataframe')		
+		#print(df.loc[:, demographic])
+		#print('')
 		##########################################
 	
     #################################
-	print('And here is what gets returned...')
-	print(df.loc[:, demographic])
+	#print('And here is what gets returned...')
+	#print(df.loc[:, demographic])
     #################################  
   
 	return df
