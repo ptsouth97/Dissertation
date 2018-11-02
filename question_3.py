@@ -39,8 +39,11 @@ def question3(df, demo_lst, bx_lst):
 	# Change folder for graphs
 	os.chdir('./Q3_graphs')
 
+	# Build dataframe to hold p-values
+	results = pd.DataFrame(index=bx_lst, columns=demo_lst)
+
 	# Initialize list to hold p-values
-	p_values = []
+	# p_values = []
 
 	# Loop through each demographic
 	for demo in demo_lst:
@@ -63,8 +66,11 @@ def question3(df, demo_lst, bx_lst):
 				col_list.append(column)
 
 			p = p_value(col_list)
-			p_values.append(p)
+			# p_values.append(p)
 
+			results.loc[bx, demo] = p
+
+			# Create boxplot
 			bp = plt.boxplot(col_list, patch_artist=True)
 
 			# Chance color of boxes
@@ -87,8 +93,11 @@ def question3(df, demo_lst, bx_lst):
 			_ = plt.close()
 
 
-	print('p_values:')
-	print(p_values)
+	#print('p_values:')
+	#print(p_values)
+
+	#print(results)
+	results.to_csv('p-value table.csv')
 
 	os.chdir('..')
 
