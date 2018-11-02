@@ -27,14 +27,19 @@ def main():
 	# Drop non-supervisor behaviors
 	dropped = clean_data.drop_bx(metadata)
 
-	# Special cases (multiple answers in one cell)
-	special = clean_data.separate_text(dropped)
-
-	
 	# RESEARCH QUESTION 3
 	#demo_list = clean_data.make_demographics_list()
-	#sup_list = clean_data.make_supervision_behaviors_list()
+	sup_list = clean_data.make_supervision_behaviors_list()
 	#question3(dropped, demo_list, sup_list)
+
+	# Special cases (multiple answers in one cell)
+	d_list_special = ['Supervision training', \
+                      'Supervision resources', \
+                      'Supervision fieldwork protocol source']
+
+	for item in d_list_special:
+		special = clean_data.separate_text(dropped, item)
+		question3(special, [item], sup_list)
 
 
 def question3(df, demo_lst, bx_lst):
@@ -45,9 +50,6 @@ def question3(df, demo_lst, bx_lst):
 
 	# Build dataframe to hold p-values
 	results = pd.DataFrame(index=bx_lst, columns=demo_lst)
-
-	# Initialize list to hold p-values
-	# p_values = []
 
 	# Loop through each demographic
 	for demo in demo_lst:

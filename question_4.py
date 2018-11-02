@@ -82,10 +82,10 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.xlabel('responses')
 		_ = plt.ylabel('pass rate')
 		#_ = plt.annotate('r^2='+str(r2), xy=(1.5, 0.25))
-		_ = plt.xticks(np.arange(1, 5, 1))
-		_ = plt.ylim(0, 1)
+		_ = plt.xticks(np.arange(1, 5.1, 1))
+		_ = plt.yticks(np.arange(0, 1.1, 0.2))
 		#_ = plt.tight_layout()
-		_ = plt.margins(0.02)
+		#_ = plt.margins(0.02)
 		_ = plt.savefig(bx+'.png')
 		_ = plt.close()
 
