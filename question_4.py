@@ -58,6 +58,10 @@ def question4(df, q4_lst, bx_lst):
 		# Get rid of NAs
 		sample.dropna(inplace=True)
 
+		# Spearman correlation calculates p-value and appends to list
+		p = calculate_spearman(df[bx], df['pass rate'])
+		p_values.append(p)
+
 		# Linear regression
 		reg = LinearRegression()
 		prediction_space = np.linspace(1, 5).reshape(-1,1)
@@ -66,15 +70,18 @@ def question4(df, q4_lst, bx_lst):
 		reg.fit(X, y)
 		y_pred = reg.predict(prediction_space)
 
+		# Calculate r^2 for the regression
 		r2 = reg.score(X, y)
 
+		# Make a scatter plot and line of best fit
 		_ = plt.plot(prediction_space, y_pred, color='black', linewidth=1)
 		_ = plt.scatter(sample[bx], sample['pass rate'], c='k', s=6, clip_on=False)
 		#_ = plt.grid(b=None, axis='both')
-		_ = plt.title(bx)
+		_ = plt.suptitle(bx)
+		_ = plt.title('r^2='+str(r2)+', p='+str(p))
 		_ = plt.xlabel('responses')
 		_ = plt.ylabel('pass rate')
-		_ = plt.annotate('r^2='+str(r2), xy=(1.5, 0.25))
+		#_ = plt.annotate('r^2='+str(r2), xy=(1.5, 0.25))
 		_ = plt.xticks(np.arange(1, 5, 1))
 		_ = plt.ylim(0, 1)
 		#_ = plt.tight_layout()
@@ -83,12 +90,20 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.close()
 
 
-	#print('p_values:')
-	#print(p_values)
+	print('p_values:')
+	print(p_values)
 	
 	os.chdir('..')
 
 	return
+
+
+def calculate_spearman(x, y):
+	''' Calculates p-value from Spearman correlation'''
+
+	rho, pval = stats.spearmanr(x, y)
+
+	return pval
 
 
 if __name__ == '__main__':
