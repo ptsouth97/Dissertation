@@ -36,7 +36,7 @@ def q3_prep():
 	# RESEARCH QUESTION 3
 	demo_list = clean_data.make_demographics_list()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	question3(metadata, demo_list, sup_list)
+	p_val = question3(metadata, demo_list, sup_list)
 
 	# Special cases (multiple answers in one cell)
 	d_list_special = ['Supervision training', \
@@ -45,7 +45,10 @@ def q3_prep():
 
 	for item in d_list_special:
 		special = clean_data.separate_text(metadata, item)
-		question3(special, [item], sup_list)
+		p_val_temp = question3(special, [item], sup_list)
+		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
+
+	p_val.to_csv('p-value table.csv')	
 
 
 def question3(df, demo_lst, bx_lst):
@@ -109,11 +112,11 @@ def question3(df, demo_lst, bx_lst):
 	#print(p_values)
 
 	#print(results)
-	results.to_csv('p-value table.csv')
+	#results.to_csv('p-value table.csv')
 
 	os.chdir('..')
 
-	return
+	return results
 
 
 def p_value(columns):
