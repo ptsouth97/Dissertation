@@ -42,7 +42,7 @@ def question2(df):
 	f, p = stats.f_oneway(*data)
 	
 	# Make a boxplot	
-	color = dict(boxes='black', whiskers='black', medians='white', caps='black')
+	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
 	_ = df.plot.box(color=color, patch_artist=True)
 	#_ = df.boxplot(patch_artist=True)
 	_ = plt.yticks(np.arange(1, 5+1, step=1))
