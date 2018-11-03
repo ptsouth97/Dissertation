@@ -48,6 +48,7 @@ def q3_prep():
 		p_val_temp = question3(special, [item], sup_list)
 		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
 
+	#p_val_styled = (p_val.style.applymap(lambda v: 'background-color %s' % 'gray' if v<='0.25'))
 	p_val.to_csv('p-value table.csv')	
 
 
