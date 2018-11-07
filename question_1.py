@@ -10,7 +10,7 @@ import clean_data
 def main():
 	''' main function'''
 
-	question1_prep()
+	q1_prep()
 
 
 def q1_prep():
@@ -55,7 +55,7 @@ def question1(df, demo_list):
 	os.chdir('./Q1_graphs')
 
 	for demo in demo_list:
-		_ = df[demo].value_counts().plot(kind='bar', colormap='gray')
+		_ = df[demo].value_counts().plot(kind='bar', color='gray')
 		manager = plt.get_current_fig_manager()
 		manager.resize(*manager.window.maxsize())
 		_ = plt.title('Demographic: ' +demo)
