@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 import re
+import matplotlib.pyplot as plt
 
 
 def main():
@@ -98,7 +99,7 @@ def make_supervision_behaviors_list():
            'Outside training area - credentialing requirements', \
            'Supervision schedule', \
            'Outside training area - training and supervision', \
-           'Supervision schedule', \
+           #'Supervision schedule', \
            'Schedule contacts', \
            '60% fieldwork hours', \
            'Confirm required skill set', \
@@ -339,6 +340,53 @@ def separate_text(df, demographic):
     #################################  
   
 	return df
+
+
+def supervision_label_condition(df, sup_list):
+	''' Changes column labels from supervision behavior to the category it falls in'''
+
+	# SUPERVISING WITHIN YOUR SCOPE
+	group1 = (pd.concat([df['Literature for new competency area'], \
+                         df['Supervisory study groups'], \
+                         df['Review literature'], \
+                         df['Attend conferences'], \
+                         df['Participate in peer review'], \
+                         df['Seek mentorship'], \
+                         df['Supervisory study groups']], ignore_index=True)).tolist()
+
+	# SUPERVISORY VOLUME
+
+	group2 = (pd.concat([df['Arrive on time'], \
+                         df['60% fieldwork hours'], \
+                         df['Schedule contacts']], ignore_index=True)).tolist()
+
+	# SUPERVISORY DELEGATION
+	group3 = (pd.concat([df['Confirm required skill set'], \
+                         df['Practice skill set']], ignore_index=True)).tolist()
+
+	# DESIGNING EFFECTIVE TRAINING	
+	group4 = (pd.concat([df['Group supervision'], \
+                         df['Create group activities'], \
+                         df['Include ethics'], \
+                         df['Discuss how to give feedback']], ignore_index=True)).tolist()
+                         
+	# COMMUNICATION OF SUPERVISION CONDITIONS
+	group5 = (pd.concat([df['Send agenda']], ignore_index=True)).tolist()
+
+	# PROVIDING FEEDBACK TO SUPERVISEES
+	group6 = (pd.concat([df['Observe body language'], \
+                         df['Maintain positive rapport']], ignore_index=True)).tolist()
+
+	# EVALUATING THE EFFECTS OF SUPERVISION
+	group7 = (pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)).tolist()
+
+	
+	plt.boxplot([group1, group2, group3, group4, group5, group6, group7])
+ 
+	plt.show()
+ 
+
+	return
 
 	
 if __name__ == '__main__':
