@@ -79,14 +79,28 @@ def question2add(df, sup_list):
 	# EVALUATING THE EFFECTS OF SUPERVISION
 	group7 = pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)
 
+	columns = ['Supervising within your scope', 'Supervisory volume', 'Supervisory delegation', \
+               'Designing effective training', 'Communication of supervision conditions', \
+               'Providing feedback to supervisees', 'Evaluating the effects of supervision']
+
 	df = pd.concat([group1, group2, group3, group4, group5, group6, group7], axis=1, ignore_index=True)
+	df.columns = columns
 
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
  
+	# Boxplot
+	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7], patch_artist=True)
 
-	_ = plt.boxplot([group1, group2, group3, group4, group5, group6, group7])
+	# Chance color of boxes
+	for box in bp['boxes']:
+ 		box.set(facecolor = 'gray')
+ 
+ 	# Change color of median line
+	for median in bp['medians']:
+		median.set(color = 'black')
+
 	_ = plt.suptitle('Responses by Supervision Category')
 	_ = plt.title('p-value='+str(p))
 	_ = plt.xlabel('Supervision categories')
