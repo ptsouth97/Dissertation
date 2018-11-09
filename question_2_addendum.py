@@ -89,9 +89,19 @@ def question2add(df, sup_list):
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
- 
+
 	# Boxplot
-	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7], patch_artist=True)
+	supervision_categories = ['Supervising within your scope', \
+                              'Supervisory volume', \
+                              'Supervisory delegation', \
+                              'Designing effective training', \
+                              'Communication of supervision conditions', \
+                              'Providing feedback to supervisees', \
+                              'Evaluating the effects of supervision']
+
+	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7], \
+                      labels=supervision_categories, \
+                      patch_artist=True)
 
 	# Chance color of boxes
 	for box in bp['boxes']:
@@ -105,6 +115,8 @@ def question2add(df, sup_list):
 	_ = plt.title('p-value='+str(p))
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
+	_ = plt.xticks(rotation=45)
+	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
 
