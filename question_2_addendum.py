@@ -46,44 +46,49 @@ def question2add(df, sup_list):
 	os.chdir('./Q2_addendum_graphs')
 
 	# SUPERVISING WITHIN YOUR SCOPE
-	group1 = (pd.concat([df['Literature for new competency area'], \
-                         df['Supervisory study groups'], \
-                         df['Review literature'], \
-                         df['Attend conferences'], \
-                         df['Participate in peer review'], \
-                         df['Seek mentorship'], \
-                         df['Supervisory study groups']], ignore_index=True)).tolist()
+	group1 = pd.concat([df['Literature for new competency area'], \
+                        df['Supervisory study groups'], \
+                        df['Review literature'], \
+                        df['Attend conferences'], \
+                        df['Participate in peer review'], \
+                        df['Seek mentorship'], \
+                        df['Supervisory study groups']], ignore_index=True)
  
 	# SUPERVISORY VOLUME
-
-	group2 = (pd.concat([df['Arrive on time'], \
-                         df['60% fieldwork hours'], \
-                         df['Schedule contacts']], ignore_index=True)).tolist()
+	group2 = pd.concat([df['Arrive on time'], \
+                        df['60% fieldwork hours'], \
+                        df['Schedule contacts']], ignore_index=True)
  
 	# SUPERVISORY DELEGATION
-	group3 = (pd.concat([df['Confirm required skill set'], \
-                         df['Practice skill set']], ignore_index=True)).tolist()
+	group3 = pd.concat([df['Confirm required skill set'], \
+                        df['Practice skill set']], ignore_index=True)
  
 	# DESIGNING EFFECTIVE TRAINING  
-	group4 = (pd.concat([df['Group supervision'], \
-                         df['Create group activities'], \
-                         df['Include ethics'], \
-                         df['Discuss how to give feedback']], ignore_index=True)).tolist()
+	group4 = pd.concat([df['Group supervision'], \
+                        df['Create group activities'], \
+                        df['Include ethics'], \
+                        df['Discuss how to give feedback']], ignore_index=True)
  
 	# COMMUNICATION OF SUPERVISION CONDITIONS
-	group5 = (pd.concat([df['Send agenda']], ignore_index=True)).tolist()
+	group5 = pd.concat([df['Send agenda']], ignore_index=True)
 
 	# PROVIDING FEEDBACK TO SUPERVISEES
-	group6 = (pd.concat([df['Observe body language'], \
-                         df['Maintain positive rapport']], ignore_index=True)).tolist()
+	group6 = pd.concat([df['Observe body language'], \
+                        df['Maintain positive rapport']], ignore_index=True)
  
 	# EVALUATING THE EFFECTS OF SUPERVISION
-	group7 = (pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)).tolist()
+	group7 = pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)
 
+	df = pd.concat([group1, group2, group3, group4, group5, group6, group7], axis=1, ignore_index=True)
+
+	# Run ANOVA
+	data = [df[col].dropna() for col in df]
+	f, p = stats.f_oneway(*data)
  
+
 	_ = plt.boxplot([group1, group2, group3, group4, group5, group6, group7])
 	_ = plt.suptitle('Responses by Supervision Category')
-	_ = plt.title('p-value=')
+	_ = plt.title('p-value='+str(p))
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
 	_ = plt.savefig('supervision_categories.png')
