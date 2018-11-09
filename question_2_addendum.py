@@ -82,6 +82,10 @@ def question2add(df, sup_list):
 
  
 	_ = plt.boxplot([group1, group2, group3, group4, group5, group6, group7])
+	_ = plt.suptitle('Responses by Supervision Category')
+	_ = plt.title('p-value=')
+	_ = plt.xlabel('Supervision categories')
+	_ = plt.ylabel('responses')
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
 
