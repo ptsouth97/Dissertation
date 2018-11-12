@@ -11,10 +11,10 @@ import clean_data
 def main():
 	''' Loads and cleans data for analysis'''
 
-	q2_prep()
+	q2_add_prep()
 
 
-def q2_prep():
+def q2_add_prep():
 	''' Prepares data for research question 3'''
 
 	# Read the survey results file into a pandas dataframe
@@ -119,6 +119,7 @@ def question2add(df, sup_list):
 	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
+	_ = plt.close()
 
 	os.chdir('..')
 

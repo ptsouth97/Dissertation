@@ -64,7 +64,7 @@ def question2(df):
 	manager = plt.get_current_fig_manager()
 	manager.resize(*manager.window.maxsize())
 	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
-	#_ = plt.show()
+	_ = plt.close()
 
 	os.chdir('..')
 	
