@@ -42,14 +42,16 @@ def q1_prep():
 
 	demographics = question1(metadata, d_list)
 	print('DEMOGRAPHICS')
-	print(demographics)
+	#print(demographics)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
+	print('NOW WORKING ON SPECIAL CASES...')
 	d_list_special = ['Supervision training', \
                       'Supervision resources', \
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
+		#print('NOW WORKING ON ' +item)
 		special = clean_data.separate_text(metadata, item)
 		demographics_special = question1(special, [item])
 		del(special)
@@ -57,21 +59,28 @@ def q1_prep():
 
 
 def question1(df, demo_list):
-	''' answers research question 1'''
+	''' answers research question 1: classify responses by demographic'''
 
 	os.chdir('./Q1_graphs')
-	print('question1 df...')
-	print(df)
+	#print('question1 df...')
+	#print(df)
 
 	for demo in demo_list:
-		_ = df[demo].value_counts().plot(kind='bar', color='gray')
+
+		# replace blank cells with 'NaN'
+		df_current = df.replace('', np.nan)
+
+		# drop rows with NaN values
+		df_current.dropna(subset=[demo], inplace=True)
+
+		_ = df_current[demo].value_counts().plot(kind='bar', color='gray')
 		manager = plt.get_current_fig_manager()
 		manager.resize(*manager.window.maxsize())
 		_ = plt.title('Demographic: ' +demo)
 		_ = plt.xlabel(demo)
 		_ = plt.ylabel('number of responses')
 
-		_ = plt.xticks(rotation=45)
+		_ = plt.xticks(rotation=90)
 		#_ = plt.tight_layout()
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		#_ = plt.show()

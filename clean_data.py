@@ -255,15 +255,15 @@ def separate_text(df, demographic):
 
 	# Get the correct column for each demographic
 	if demographic == 'Supervision training':
-		col = 83
+		col = 82
 
 	elif demographic == 'Supervision resources':
-		col = 84
+		col = 83
 
 	elif demographic == 'Supervision fieldwork protocol source':
-		col = 85
+		col = 84
 
-	# Check the top row of the df of interest 'length' times
+	# Check the top row of the df of interest 'length' number of times
 	for row in range(0, length):
 
         #######################

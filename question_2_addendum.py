@@ -53,31 +53,45 @@ def question2add(df, sup_list):
                         df['Participate in peer review'], \
                         df['Seek mentorship'], \
                         df['Supervisory study groups']], ignore_index=True)
+
+	group1.dropna(inplace=True)
  
 	# SUPERVISORY VOLUME
 	group2 = pd.concat([df['Arrive on time'], \
                         df['60% fieldwork hours'], \
                         df['Schedule contacts']], ignore_index=True)
+
+	group2.dropna(inplace=True)
  
 	# SUPERVISORY DELEGATION
 	group3 = pd.concat([df['Confirm required skill set'], \
                         df['Practice skill set']], ignore_index=True)
+
+	group3.dropna(inplace=True)
  
 	# DESIGNING EFFECTIVE TRAINING  
 	group4 = pd.concat([df['Group supervision'], \
                         df['Create group activities'], \
                         df['Include ethics'], \
                         df['Discuss how to give feedback']], ignore_index=True)
+
+	group4.dropna(inplace=True)
  
 	# COMMUNICATION OF SUPERVISION CONDITIONS
 	group5 = pd.concat([df['Send agenda']], ignore_index=True)
 
+	group5.dropna(inplace=True)
+
 	# PROVIDING FEEDBACK TO SUPERVISEES
 	group6 = pd.concat([df['Observe body language'], \
                         df['Maintain positive rapport']], ignore_index=True)
- 
+	
+	group6.dropna(inplace=True) 
+
 	# EVALUATING THE EFFECTS OF SUPERVISION
 	group7 = pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)
+
+	group7.dropna(inplace=True)
 
 	columns = ['Supervising within your scope', 'Supervisory volume', 'Supervisory delegation', \
                'Designing effective training', 'Communication of supervision conditions', \
@@ -113,9 +127,10 @@ def question2add(df, sup_list):
 
 	_ = plt.suptitle('Responses by Supervision Category')
 	_ = plt.title('p-value='+str(p))
+	_ = plt.ylim(0,5)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
-	_ = plt.xticks(rotation=45)
+	_ = plt.xticks(rotation=90)
 	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
