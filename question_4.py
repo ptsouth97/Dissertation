@@ -51,7 +51,7 @@ def question4(df, q4_lst, bx_lst):
 	os.chdir('./Q4_graphs')
 
 	#df = [df[col].dropna() for col in df]
-	#print(df)
+	print(df)
 
 	# Initialize list to hold p-values
 	p_values = []

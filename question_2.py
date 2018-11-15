@@ -58,7 +58,7 @@ def question2(df):
 	_ = plt.title('Supervisory Behaviors (p='+str(p)+')')
 	#_ = plt.annotate('p='+str(p), xy=(30,1))
 	#_ = plt.grid(b=None)
-	_ = plt.tight_layout()
+	#_ = plt.tight_layout()
 
 	# Resize to larger window for bigger graph
 	manager = plt.get_current_fig_manager()

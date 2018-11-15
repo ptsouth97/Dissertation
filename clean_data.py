@@ -225,8 +225,8 @@ def drop_demographics(df):
              '100% fieldwork pass rate', \
              'Discontinued fieldwork', \
              'Supervision resources - Selected Choice', \
-             'Supervision resources - Other - Text', \
-             'Q4 - Topics'], \
+             'Supervision resources - Other - Text'], \
+             #'Q4 - Topics'], \
              inplace=True, axis=1)
 
 	return df

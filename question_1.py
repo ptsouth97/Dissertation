@@ -19,13 +19,16 @@ def q1_prep():
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
+	#print(dataframe)
 
 	# Combine columns with text-based option
 	combined = clean_data.combine_columns(dataframe)
+	#print(combined)
 
 	# Replace text with integers
 	integers = clean_data.text_to_int(combined)
-		
+	#print(integers)	
+
 	# Drop all the survey metadata
 	metadata = clean_data.drop_metadata(integers)
 	#print(metadata)
@@ -35,7 +38,11 @@ def q1_prep():
 
 	# RESEARCH QUESTION 1
 	d_list = clean_data.make_demographics_list()
+	#print(d_list)
+
 	demographics = question1(metadata, d_list)
+	print('DEMOGRAPHICS')
+	print(demographics)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
 	d_list_special = ['Supervision training', \
@@ -53,6 +60,8 @@ def question1(df, demo_list):
 	''' answers research question 1'''
 
 	os.chdir('./Q1_graphs')
+	print('question1 df...')
+	print(df)
 
 	for demo in demo_list:
 		_ = df[demo].value_counts().plot(kind='bar', color='gray')
@@ -63,7 +72,7 @@ def question1(df, demo_list):
 		_ = plt.ylabel('number of responses')
 
 		_ = plt.xticks(rotation=45)
-		_ = plt.tight_layout()
+		#_ = plt.tight_layout()
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		#_ = plt.show()
 		_ = plt.close()
