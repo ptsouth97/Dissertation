@@ -54,20 +54,27 @@ def q3_prep():
 
 def question3(df, demo_lst, bx_lst):
 	''' Answers research question 3'''
-
+	
 	# Change folder for graphs
 	os.chdir('./Q3_graphs')
-
+	
 	# Build dataframe to hold p-values
 	results = pd.DataFrame(index=bx_lst, columns=demo_lst)
 
 	# Loop through each demographic
 	for demo in demo_lst:
 
+		# replace blank cells with 'Nan'
+		df_current = df.replace('', np.nan)
+
+		# drop rows with NaN values
+		df_current.dropna(subset=[demo], inplace=True)
+
 		# For each demographic, go through the behaviors			
 		for bx in bx_lst:
-			grouped = df.groupby(demo)
+			grouped = df_current.groupby(demo)
 			groupby_to_df = grouped.describe().squeeze()
+			#print(groupby_to_df)
 			names = groupby_to_df.index.tolist()
 			length = len(names) + 1
 			positions = list(range(1,length))
@@ -77,16 +84,23 @@ def question3(df, demo_lst, bx_lst):
 			n_cols = len(grouped_df.columns)
 			col_list = []			
 
+			# Make a list of columns from the dataframe
 			for col in range(0, n_cols):
+				#column=grouped_df.replace('', np.nan)
 				column=grouped_df.iloc[:,col].dropna().tolist()
 				col_list.append(column)
+
+			# Drop empty lists
+			col_list = list(filter(None, col_list))
 
 			p = p_value(col_list)
 			# p_values.append(p)
 
 			results.loc[bx, demo] = p
 
-			# Create boxplot
+			#print(col_list)
+			#print(demo)
+			# Create boxplot from the lists made from the dataframe columns: col_list
 			bp = plt.boxplot(col_list, patch_artist=True)
 
 			# Chance color of boxes

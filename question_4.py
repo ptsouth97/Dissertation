@@ -34,14 +34,17 @@ def q4_prep():
 	# Drop non-supervisor behaviors
 	dropped = clean_data.drop_bx(metadata)
 
-	# Calculate necessary values for question 4
-	dropped['pass rate'] = dropped['100% fieldwork pass rate'] / \
-                          (dropped['100% fieldwork candidates'] - dropped['Discontinued fieldwork'])
+	# Fill in zeroes for missing values
+	zeroed = clean_data.zeroes(dropped)
 
+	# Calculate necessary values for question 4
+	zeroed['pass rate'] = zeroed['100% fieldwork pass rate'] / \
+                          (zeroed['100% fieldwork candidates'] - zeroed['Discontinued fieldwork'])
+	print(zeroed['pass rate'])
 	# RESEARCH QUESTION 4
 	q4_list = clean_data.get_question4_data()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	question4(dropped, q4_list, sup_list)
+	question4(zeroed, q4_list, sup_list)
 
 
 def question4(df, q4_lst, bx_lst):
