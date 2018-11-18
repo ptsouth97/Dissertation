@@ -131,6 +131,11 @@ def question2add(df, sup_list):
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
 	_ = plt.xticks(rotation=90)
+
+	# Resize to larger window for bigger graph
+	manager = plt.get_current_fig_manager()
+	manager.resize(*manager.window.maxsize())
+
 	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
