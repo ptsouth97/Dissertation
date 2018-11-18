@@ -41,12 +41,11 @@ def zeroes(df):
 
 	# Drop rows where BACB requirements are NOT met
 	df = df.drop(df[df['BACB requirements'] == 'No'].index)
-	print(df['BACB requirements'])
 
 	# Fill in zeroes
 	df['100% fieldwork pass rate'].fillna(0, inplace=True)
 	df['100% fieldwork candidates'].fillna(0, inplace=True)
-	print(df['100% fieldwork candidates'])
+
 	return df
 
 

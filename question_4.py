@@ -40,11 +40,16 @@ def q4_prep():
 	# Calculate necessary values for question 4
 	zeroed['pass rate'] = zeroed['100% fieldwork pass rate'] / \
                           (zeroed['100% fieldwork candidates'] - zeroed['Discontinued fieldwork'])
-	print(zeroed['pass rate'])
+
+	no_inf = zeroed.replace([np.inf, -np.inf], np.nan).dropna(subset=['pass rate'], how='all')
+
+	# Filter out responses with pass rates greater than 100% (reponder misread or mis-answered the question)
+	filtered = no_inf[no_inf['pass rate'] <= 1]
+
 	# RESEARCH QUESTION 4
 	q4_list = clean_data.get_question4_data()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	question4(zeroed, q4_list, sup_list)
+	question4(filtered, q4_list, sup_list)
 
 
 def question4(df, q4_lst, bx_lst):
@@ -52,9 +57,6 @@ def question4(df, q4_lst, bx_lst):
 
 	# Change folder for graphs
 	os.chdir('./Q4_graphs')
-
-	#df = [df[col].dropna() for col in df]
-	#print(df)
 
 	# Initialize list to hold p-values
 	p_values = []
@@ -90,19 +92,14 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.title('r^2='+str(r2)+', p='+str(p))
 		_ = plt.xlabel('responses')
 		_ = plt.ylabel('pass rate')
-		#_ = plt.annotate('r^2='+str(r2), xy=(1.5, 0.25))
 		_ = plt.xticks(np.arange(1, 5.1, 1))
-		_ = plt.yticks(np.arange(0, 1.1, 0.2))
+		_ = plt.yticks(np.arange(0, 1.01, 0.2))
 		_ = plt.ylim(0, 1.1)
 		#_ = plt.tight_layout()
 		#_ = plt.margins(0.02)
 		_ = plt.savefig(bx+'.png')
 		_ = plt.close()
 
-
-	#print('p_values:')
-	#print(p_values)
-	
 	os.chdir('..')
 
 	return
