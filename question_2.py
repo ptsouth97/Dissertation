@@ -49,7 +49,7 @@ def question2(df):
 	
 	# Make a boxplot	
 	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
-	_ = df.plot.box(color=color, patch_artist=True)
+	_ = df.plot.box(color=color, patch_artist=True) #notch=1)
 	#_ = df.boxplot(patch_artist=True)
 	_ = plt.yticks(np.arange(1, 5+1, step=1))
 	_ = plt.xticks(rotation=90)
@@ -58,12 +58,13 @@ def question2(df):
 	_ = plt.title('Supervisory Behaviors (p='+str(p)+')')
 	#_ = plt.annotate('p='+str(p), xy=(30,1))
 	#_ = plt.grid(b=None)
-	#_ = plt.tight_layout()
 
 	# Resize to larger window for bigger graph
 	manager = plt.get_current_fig_manager()
 	manager.resize(*manager.window.maxsize())
+	_ = plt.tight_layout()
 	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
+	_ = plt.show()
 	_ = plt.close()
 
 	os.chdir('..')

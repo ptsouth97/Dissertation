@@ -118,7 +118,7 @@ def question3(df, demo_lst, bx_lst):
 			_ = plt.ylabel('responses')
 			_ = plt.ylim(1, 5)
 			#_ = plt.annotate('p='+str(p), xy=(0.6, 1.5))
-			_ = plt.tight_layout()
+			#_ = plt.tight_layout()
 			_ = plt.savefig(demo+'-'+bx+'.png')
 			_ = plt.close()
 
