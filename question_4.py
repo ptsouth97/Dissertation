@@ -70,7 +70,7 @@ def question4(df, q4_lst, bx_lst):
 		sample.dropna(inplace=True)
 
 		# Spearman correlation calculates p-value and appends to list
-		p = calculate_spearman(sample[bx], sample['pass rate'])
+		r, p = calculate_spearman(sample[bx], sample['pass rate'])
 		p_values.append(p)
 
 		# Linear regression
@@ -89,7 +89,7 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.scatter(sample[bx], sample['pass rate'], c='k', s=6, clip_on=False)
 		#_ = plt.grid(b=None, axis='both')
 		_ = plt.suptitle(bx)
-		_ = plt.title('r^2='+str(r2)+', p='+str(p))
+		_ = plt.title('rho='+str(round(r, 3))+', p='+str(round(p, 3)))
 		_ = plt.xlabel('responses')
 		_ = plt.ylabel('pass rate')
 		_ = plt.xticks(np.arange(1, 5.1, 1))
@@ -110,7 +110,7 @@ def calculate_spearman(x, y):
 
 	rho, pval = stats.spearmanr(x, y)
 
-	return pval
+	return rho, pval
 
 
 if __name__ == '__main__':

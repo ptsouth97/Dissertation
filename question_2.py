@@ -46,7 +46,29 @@ def question2(df):
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
-	
+
+	# Account for extremely small p-value
+	if p < 0.001:
+		p = '<.001'
+
+	else:
+		p = '='+str(format(p, '.3e'))
+
+	# Get the number of lists in 'data' then subtract one to get degrees of freedom numerator (dfn)
+	n_lists = len(data)
+	dfn = n_lists - 1
+
+	# Sum up the number of data points in each list then subtract the number of lists to get
+	# degrees of freedom denominator (dfd)
+	dfd = 0
+	for each_list in data:
+		dfd += len(each_list)
+
+	dfd = dfd - n_lists
+
+	# Calculate the critical F value
+	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
+
 	# Make a boxplot	
 	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
 	_ = df.plot.box(color=color, patch_artist=True) #notch=1)
@@ -56,7 +78,7 @@ def question2(df):
 	_ = plt.xlabel('Individual behaviors')
 	_ = plt.ylabel('Survey response')
 	_ = plt.suptitle('Supervisory Behaviors')
-	_ = plt.title('p-value='+str(p))
+	_ = plt.title('F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p'+p)
 	#_ = plt.annotate('p='+str(p), xy=(30,1))
 	#_ = plt.grid(b=None)
 

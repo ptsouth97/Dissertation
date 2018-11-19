@@ -104,7 +104,24 @@ def question2add(df, sup_list):
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
 
-	# Boxplot
+	# Account for extremely small p-value
+	if p < 0.001:
+		p = '<.001'
+
+	else:
+		p = '='+str(format(p, '.3e'))
+	
+	# Get the number of lists in 'data' then subtract one
+	n_lists = len(data)
+	dfn = n_lists - 1
+
+	# Sum up the number of data points in each list then subtract the number of lists
+	dfd = (len(data[0])+len(data[1])+len(data[2])+len(data[3])+len(data[4])+len(data[5])+len(data[6]))-n_lists
+
+	# Calculate the critical F value
+	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
+	
+	# Assign labels for the boxplot
 	supervision_categories = ['Supervising within your scope', \
                               'Supervisory volume', \
                               'Supervisory delegation', \
@@ -113,6 +130,7 @@ def question2add(df, sup_list):
                               'Providing feedback to supervisees', \
                               'Evaluating the effects of supervision']
 
+	# Make the boxplot
 	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7], \
                       labels=supervision_categories, \
                       patch_artist=True)
@@ -126,7 +144,7 @@ def question2add(df, sup_list):
 		median.set(color = 'black')
 
 	_ = plt.suptitle('Responses by Supervision Category')
-	_ = plt.title('p-value='+str(p))
+	_ = plt.title('F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p='+p)
 	_ = plt.ylim(0,5)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
