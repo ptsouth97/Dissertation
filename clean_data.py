@@ -36,6 +36,51 @@ def main():
 	print(dropped)
 
 
+def combine_text(df, demo):
+	''' Replaces user text in Other fields with common values'''
+
+	print(df[demo])
+
+	if demo == 'Supervision mode':
+		df[demo].replace(to_replace='.*[Ss]chool.*', value='School', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*district.*', value='School', inplace=True, regex=True)
+
+	if demo == 'Supervision training':
+		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*employer.*', value='Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*agency.*', value='Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*training at work.*', value='Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*etc.*', value='Other-not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Materials.*', value='Other-not specified', inplace=True, regex=True)
+
+	if demo == 'Supervision resources':
+		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Nn]othing.*', value='None', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*paid.*', value='Monetary compensation', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*funds.*', value='Monetary compensation', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ss]elf.*', value='Self', inplace=True, regex=True)
+
+	if demo == 'Supervision fieldwork protocol source':
+		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True) 
+		df[demo].replace(to_replace='.*lit.*', value='Literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Bb][Aa][Cc][Bb].*', value='BACB materials', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*articles.*', value='Literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]ooper.*', value='Cooper book', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Pp]odcasts.*', value='Podcasts', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]ompany.*', value='Company-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Aa]gency.*', value='Company-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ee]mployer.*', value='Company-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*own.*', value='Company-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*experience.*', value='Self-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*self.*', value='Self-developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='^Other$', value='Other-not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*I did not.*', value='Other-not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Professional.*', value='Professional collaboration', inplace=True, regex=True)
+
+	print(df[demo])
+
+	return df
+
 def zeroes(df):
 	''' fills in zeroes for missing values'''
 
@@ -91,7 +136,6 @@ def make_demographics_list():
              'Job classification', \
              'Place of employment', \
              'State', \
-             'Supervision mode', \
              'Supervision format', \
              'Number of candidates', \
              'Past 12 months candidates', \
@@ -112,7 +156,6 @@ def make_supervision_behaviors_list():
            'Outside training area - credentialing requirements', \
            'Supervision schedule', \
            'Outside training area - training and supervision', \
-           #'Supervision schedule', \
            'Schedule contacts', \
            '60% fieldwork hours', \
            'Confirm required skill set', \
@@ -260,13 +303,13 @@ def get_question4_data():
 def separate_text(df, demographic):
 	''' finds cells with multiple entries and makes new rows for each'''
 
-	#print('############################################')
-
-	
 	# Get the length of the dataframe
 	length = len(df)
 
 	# Get the correct column for each demographic
+	if demographic == 'Supervision mode':
+		col = 81
+
 	if demographic == 'Supervision training':
 		col = 82
 

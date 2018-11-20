@@ -33,27 +33,29 @@ def q1_prep():
 	metadata = clean_data.drop_metadata(integers)
 	#print(metadata)
 	
-	# Drop non-supervisor behaviors
-	#dropped = clean_data.drop_bx(metadata)
+	# Combine similar text from user generated 'Other' fields
+	#combined = clean_data.combine_text(metadata)
+
+	# Make list of demographics
+	d_list = clean_data.make_demographics_list()
 
 	# RESEARCH QUESTION 1
-	d_list = clean_data.make_demographics_list()
-	#print(d_list)
-
 	demographics = question1(metadata, d_list)
 	print('DEMOGRAPHICS')
 	#print(demographics)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
 	print('NOW WORKING ON SPECIAL CASES...')
-	d_list_special = ['Supervision training', \
+	d_list_special = ['Supervision mode', \
+                      'Supervision training', \
                       'Supervision resources', \
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
 		#print('NOW WORKING ON ' +item)
 		special = clean_data.separate_text(metadata, item)
-		demographics_special = question1(special, [item])
+		combined = clean_data.combine_text(special, item)
+		demographics_special = question1(combined, [item])
 		del(special)
 
 
