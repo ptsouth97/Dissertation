@@ -143,17 +143,17 @@ def question2add(df, sup_list):
 	for median in bp['medians']:
 		median.set(color = 'black')
 
-	_ = plt.suptitle('Responses by Supervision Category')
-	_ = plt.title('F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p='+p)
+	_ = plt.title('Responses by Supervision Category, F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p='+p)
 	_ = plt.ylim(0,5)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
 	_ = plt.xticks(rotation=90)
 
 	# Resize to larger window for bigger graph
-	manager = plt.get_current_fig_manager()
-	manager.resize(*manager.window.maxsize())
-
+	#manager = plt.get_current_fig_manager()
+	#manager.resize(*manager.window.maxsize())
+	fig = plt.gcf()
+	fig.set_size_inches(12, 10)
 	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
