@@ -49,7 +49,8 @@ def q4_prep():
 	# RESEARCH QUESTION 4
 	q4_list = clean_data.get_question4_data()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	question4(filtered, q4_list, sup_list)
+	p_val = question4(filtered, q4_list, sup_list)
+	p_val.to_csv('Q4 p-value table.csv')
 
 
 def question4(df, q4_lst, bx_lst):
@@ -58,8 +59,8 @@ def question4(df, q4_lst, bx_lst):
 	# Change folder for graphs
 	os.chdir('./Q4_graphs')
 
-	# Initialize list to hold p-values
-	p_values = []
+	# Initialize dataframe to hold Spearman correlation rho and p-values
+	results = pd.DataFrame(index=bx_lst, columns=['rho', 'p-val'])
 
 	for bx in bx_lst:
 
@@ -69,9 +70,12 @@ def question4(df, q4_lst, bx_lst):
 		# Get rid of NAs
 		sample.dropna(inplace=True)
 
-		# Spearman correlation calculates p-value and appends to list
+		# Spearman correlation calculates rho and p-value and adds to dataframe
 		r, p = calculate_spearman(sample[bx], sample['pass rate'])
-		p_values.append(p)
+		r = str(round(r, 3))
+		p = str(round(p, 3))
+		results.loc[bx, 'rho'] = r
+		results.loc[bx, 'p-val'] = p
 
 		# Linear regression
 		reg = LinearRegression()
@@ -89,7 +93,7 @@ def question4(df, q4_lst, bx_lst):
 		_ = plt.scatter(sample[bx], sample['pass rate'], c='k', s=6, clip_on=False)
 		#_ = plt.grid(b=None, axis='both')
 		_ = plt.suptitle(bx)
-		_ = plt.title('rho='+str(round(r, 3))+', p='+str(round(p, 3)))
+		_ = plt.title('rho=' + r + ', p=' + p)
 		_ = plt.xlabel('responses')
 		_ = plt.ylabel('pass rate')
 		_ = plt.xticks(np.arange(1, 5.1, 1))
@@ -102,7 +106,7 @@ def question4(df, q4_lst, bx_lst):
 
 	os.chdir('..')
 
-	return
+	return results
 
 
 def calculate_spearman(x, y):

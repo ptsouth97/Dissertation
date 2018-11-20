@@ -49,7 +49,7 @@ def q3_prep():
 		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
 
 	#p_val_styled = (p_val.style.applymap(lambda v: 'background-color %s' % 'gray' if v<='0.25'))
-	p_val.to_csv('p-value table.csv')	
+	p_val.to_csv('Q3 p-value table.csv')	
 
 
 def question3(df, demo_lst, bx_lst):
@@ -74,32 +74,54 @@ def question3(df, demo_lst, bx_lst):
 		for bx in bx_lst:
 			grouped = df_current.groupby(demo)
 			groupby_to_df = grouped.describe().squeeze()
-			#print(groupby_to_df)
 			names = groupby_to_df.index.tolist()
 			length = len(names) + 1
 			positions = list(range(1,length))
 			grouped_list = list(grouped[bx])
 			grouped_df = pd.DataFrame.from_items(grouped_list)
 	
+			# How many columns: n_cols
 			n_cols = len(grouped_df.columns)
+			
+			# Intialize empty list to store column data
 			col_list = []			
 
-			# Make a list of columns from the dataframe
+			# Initialize degrees of freedom denominator (dfd)
+			dfd = 0
+
+			# Make a list of columns from the dataframe and add up how many values are in each column (dfd)
 			for col in range(0, n_cols):
-				#column=grouped_df.replace('', np.nan)
 				column=grouped_df.iloc[:,col].dropna().tolist()
 				col_list.append(column)
+				dfd += len(column)
 
 			# Drop empty lists
 			col_list = list(filter(None, col_list))
 
-			p = p_value(col_list)
-			# p_values.append(p)
+			dfd = dfd - len(col_list)
 
-			results.loc[bx, demo] = p
+			# Get the degrees of freedom numerator (dfn)
+			dfn = len(col_list) - 1
 
-			#print(col_list)
-			#print(demo)
+			# Calculate the critical F value
+			Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
+			
+			# Get the F and p values
+			f, p = p_value(col_list)
+				
+			# Assign p value to dataframe position
+			results.loc[bx, demo] = round(p, 3)
+
+			# Handle very small p-values
+			if p < 0.001:
+				p = '<.001' 
+
+			else:
+				p = '='+str(round(p, 3))
+
+			f = str(round(f, 3))
+			
+
 			# Create boxplot from the lists made from the dataframe columns: col_list
 			bp = plt.boxplot(col_list, patch_artist=True)
 
@@ -111,15 +133,26 @@ def question3(df, demo_lst, bx_lst):
 			for median in bp['medians']:
 				median.set(color = 'black')
 
+			#manager = plt.get_current_fig_manager()
+			#manager.resize(*manager.window.maxsize())
+			#fig1 = plt.figure(figsize=(8.0, 5.0))
 			_ = plt.xticks(positions, names, rotation=45)
 			_ = plt.yticks(np.arange(1, 5+1, step=1))
-			_ = plt.title(bx+' (p='+str(p)+')')
+			_ = plt.suptitle(bx)
+			_ = plt.title('F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p)
 			_ = plt.xlabel(demo)
 			_ = plt.ylabel('responses')
 			_ = plt.ylim(1, 5)
 			#_ = plt.annotate('p='+str(p), xy=(0.6, 1.5))
 			#_ = plt.tight_layout()
-			_ = plt.savefig(demo+'-'+bx+'.png')
+			fig = plt.gcf()
+			fig.set_size_inches(12, 10)
+			#fig.subplots_adjust(bottom=0)
+			#fig.subplots_adjust(top=0.5)
+			#fig.subplots_adjust(right=0.5)
+			#fig.subplots_adjust(left=0)
+			_ = plt.savefig(demo+'-'+bx+'.png', dpi=100)
+			#_ = plt.show()
 			_ = plt.close()
 
 
@@ -509,7 +542,7 @@ def p_value(columns):
                               columns[40], columns[41], columns[42], columns[43], columns[44], \
                               columns[45], columns[46], columns[47], columns[48], columns[49])
 
-	return p
+	return f, p
 
 if __name__ == '__main__':
 	main()
