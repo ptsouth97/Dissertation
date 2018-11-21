@@ -77,7 +77,9 @@ def question2(df):
 	_ = plt.xticks(rotation=90)
 	_ = plt.xlabel('Individual behaviors')
 	_ = plt.ylabel('Survey response')
-	_ = plt.title('Supervisory Behaviors, F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p'+p)
+	_ = plt.title('Supervisory Behaviors, F('+str(dfn)+', '+str(dfd)+')=' \
+                  +str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p'+p)
+
 	#_ = plt.annotate('p='+str(p), xy=(30,1))
 	#_ = plt.grid(b=None)
 

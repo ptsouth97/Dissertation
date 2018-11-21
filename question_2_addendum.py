@@ -37,10 +37,10 @@ def q2_add_prep():
 	supervision_list = clean_data.make_supervision_behaviors_list()
 
 	# RESEARCH QUESTION 2 ADDENUM
-	question2add(integers, supervision_list)
+	question2add(integers)
 	
 
-def question2add(df, sup_list):
+def question2add(df):
 	''' Changes column labels from supervision behavior to the category it falls in'''
  
 	os.chdir('./Q2_addendum_graphs')
@@ -48,10 +48,9 @@ def question2add(df, sup_list):
 	# SUPERVISING WITHIN YOUR SCOPE
 	group1 = pd.concat([df['Literature for new competency area'], \
                         df['Supervisory study groups'], \
-                        df['Review literature'], \
-                        df['Attend conferences'], \
-                        df['Participate in peer review'], \
-                        df['Seek mentorship'], \
+                        df['Professional groups'], \
+                        df['Outside training area - credentialing requirements'], \
+                        df['Outside training area - training and supervision'], \
                         df['Supervisory study groups']], ignore_index=True)
 
 	group1.dropna(inplace=True)
@@ -59,6 +58,7 @@ def question2add(df, sup_list):
 	# SUPERVISORY VOLUME
 	group2 = pd.concat([df['Arrive on time'], \
                         df['60% fieldwork hours'], \
+                        df['Supervision schedule'], \
                         df['Schedule contacts']], ignore_index=True)
 
 	group2.dropna(inplace=True)
@@ -73,31 +73,73 @@ def question2add(df, sup_list):
 	group4 = pd.concat([df['Group supervision'], \
                         df['Create group activities'], \
                         df['Include ethics'], \
+                        df['Behavior skills training'], \
                         df['Discuss how to give feedback']], ignore_index=True)
 
 	group4.dropna(inplace=True)
  
 	# COMMUNICATION OF SUPERVISION CONDITIONS
-	group5 = pd.concat([df['Send agenda']], ignore_index=True)
+	group5 = pd.concat([df['Send agenda'], \
+                        df['Performance expectations'], \
+                        df['Written supervision contract'], \
+                        df['Review supervision contract'], \
+                        df['Supervision termination clause']], ignore_index=True)
 
 	group5.dropna(inplace=True)
 
 	# PROVIDING FEEDBACK TO SUPERVISEES
 	group6 = pd.concat([df['Observe body language'], \
-                        df['Maintain positive rapport']], ignore_index=True)
+                        df['Written evaluation system'], \
+                        df['Positive and corrective feedback'], \
+                        df['Document feedback'], \
+                        df['Immediate feedback'], \
+                        df['Instructions and demonstration']], ignore_index=True)
 	
 	group6.dropna(inplace=True) 
 
 	# EVALUATING THE EFFECTS OF SUPERVISION
-	group7 = pd.concat([df['Self-assess interpersonal skills']], ignore_index=True)
+	group7 = pd.concat([df['Self-assess interpersonal skills'], \
+                        df['Supervision fidelity'], \
+                        df['Evaluate client performance'], \
+                        df['Evaluate supervisee performance']], ignore_index=True)
 
 	group7.dropna(inplace=True)
 
+	# MISC
+	group8 = pd.concat([df['Peer evaluate'], \
+                        df['Return communications within 48 hours'], \
+                        df['Take baseline'], \
+                        df['Detect barriers to supervision'], \
+                        df['BST case presentation'], \
+                        df['Send agenda'], \
+                        df['Continue professional relationship'], \
+                        df['Observe body language'], \
+                        df['Maintain positive rapport'], \
+                        df['Self-assess interpersonal skills'], \
+                        df['Group supervision'], \
+                        df['Create group activities'], \
+                        df['Supervisory study groups'], \
+                        df['Include ethics'], \
+                        df['Arrive on time'], \
+                        df['Discuss how to give feedback'], \
+                        df['Schedule direct observations'], \
+                        df['Schedule standing supervision appointments'], \
+                        df['Review literature'], \
+                        df['Meeting notes'], \
+                        df['Attend conferences'], \
+                        df['Participate in peer review'], \
+                        df['Seek mentorship'], \
+                        df['Discourage distractions']], ignore_index=True)
+	
+	group8.dropna(inplace=True)
+
+
 	columns = ['Supervising within your scope', 'Supervisory volume', 'Supervisory delegation', \
                'Designing effective training', 'Communication of supervision conditions', \
-               'Providing feedback to supervisees', 'Evaluating the effects of supervision']
+               'Providing feedback to supervisees', 'Evaluating the effects of supervision', 'Misc']
 
-	df = pd.concat([group1, group2, group3, group4, group5, group6, group7], axis=1, ignore_index=True)
+	
+	df = pd.concat([group1, group2, group3, group4, group5, group6, group7, group8], axis=1, ignore_index=True)
 	df.columns = columns
 
 	# Run ANOVA
@@ -121,18 +163,9 @@ def question2add(df, sup_list):
 	# Calculate the critical F value
 	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
 	
-	# Assign labels for the boxplot
-	supervision_categories = ['Supervising within your scope', \
-                              'Supervisory volume', \
-                              'Supervisory delegation', \
-                              'Designing effective training', \
-                              'Communication of supervision conditions', \
-                              'Providing feedback to supervisees', \
-                              'Evaluating the effects of supervision']
-
 	# Make the boxplot
-	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7], \
-                      labels=supervision_categories, \
+	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7, group8], \
+                      labels=columns, \
                       patch_artist=True)
 
 	# Chance color of boxes
@@ -143,17 +176,17 @@ def question2add(df, sup_list):
 	for median in bp['medians']:
 		median.set(color = 'black')
 
-	_ = plt.title('Responses by Supervision Category, F='+str(round(f, 3))+'(F critical='+str(round(Fcrit, 3))+'), p='+p)
+	_ = plt.title('Responses by Supervision Category, F('+str(dfn)+', '+str(dfd)+ \
+                  ')='+str(round(f, 3))+' (F critical='+str(round(Fcrit, 3))+'), p='+p)
+
 	_ = plt.ylim(0,5)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
 	_ = plt.xticks(rotation=90)
 
-	# Resize to larger window for bigger graph
-	#manager = plt.get_current_fig_manager()
-	#manager.resize(*manager.window.maxsize())
 	fig = plt.gcf()
 	fig.set_size_inches(12, 10)
+
 	_ = plt.tight_layout()
 	_ = plt.savefig('supervision_categories.png')
 	_ = plt.show()
