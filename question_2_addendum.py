@@ -158,7 +158,12 @@ def question2add(df):
 	dfn = n_lists - 1
 
 	# Sum up the number of data points in each list then subtract the number of lists
-	dfd = (len(data[0])+len(data[1])+len(data[2])+len(data[3])+len(data[4])+len(data[5])+len(data[6]))-n_lists
+	dfd = 0
+
+	for col in data:
+		dfd += len(col)
+
+	dfd = dfd - n_lists
 
 	# Calculate the critical F value
 	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
@@ -182,7 +187,7 @@ def question2add(df):
 	_ = plt.ylim(1,5)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
-	_ = plt.xticks(rotation=90)
+	_ = plt.xticks(rotation=45)
 
 	fig = plt.gcf()
 	fig.set_size_inches(12, 10)
