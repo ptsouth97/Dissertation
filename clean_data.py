@@ -39,7 +39,7 @@ def main():
 def combine_text(df, demo):
 	''' Replaces user text in Other fields with common values'''
 
-	print(df[demo])
+	#print(df[demo])
 
 	if demo == 'Supervision mode':
 		df[demo].replace(to_replace='.*[Ss]chool.*', value='School', inplace=True, regex=True)
@@ -77,7 +77,7 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*I did not.*', value='Other-not specified', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*Professional.*', value='Professional collaboration', inplace=True, regex=True)
 
-	print(df[demo])
+	#print(df[demo])
 
 	return df
 

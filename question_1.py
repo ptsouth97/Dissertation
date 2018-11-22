@@ -92,10 +92,208 @@ def question1(df, demo_list):
 		#_ = plt.show()
 		_ = plt.close()
 
+		# Special case: calculate percentage of responders by state 
+		if demo == 'State':
+			grouped = df_current.groupby('State')
+			groupby_to_df = grouped.describe().squeeze()
+			states = groupby_to_df.index.tolist()
+			length = len(states) + 1
+			positions = list(range(1,length))
+			grouped_list = list(grouped['100% fieldwork candidates'])
+			grouped_df = pd.DataFrame.from_items(grouped_list)
+
+			number=[]
+
+			for state in states:
+				column = len(grouped_df[state].dropna())
+				number.append(column)
+			
+			state_calc = pd.DataFrame(number, columns=['Count'], index=states)
+			
+			for state in states:
+				state_calc.loc[state, 'BCBAs'] = get_BCBAs(state)
+				
+
+			state_calc['percentage'] = state_calc.apply(calc_perc , axis=1)
+			state_calc.sort_values(by='percentage', ascending=False, inplace=True)
+			print(state_calc)
+			state_calc.plot.bar(y='percentage')
+			_ = plt.title('Demographic: State by percentage of BCBAs (November 2018)')
+			_ = plt.xlabel('State')
+			_ = plt.ylabel('percentage of BCBA responses')
+			_ = plt.savefig('State by percentage')
+			_ = plt.show()
+			_ = plt.close()
+
 	os.chdir('..')
 	
 
 	return
+
+
+def calc_perc(row):
+	''' calculates percentage'''
+
+	return row['Count'] / row['BCBAs'] * 100
+
+
+def get_BCBAs(st):
+	''' returns number of BCBAs in state'''
+
+	if st == 'Alabama':
+		num = 238
+
+	elif st == 'Alaska':
+		num = 50
+
+	elif st == 'Arizona':
+		num = 363
+
+	elif st == 'Arkansas':
+		num = 72
+
+	elif st == 'California':
+		num = 5154
+
+	elif st == 'Colorado':
+		num = 660
+
+	elif st == 'Connecticut':
+		num = 751
+
+	elif st == 'Delaware':
+		num = 52
+
+	elif st == 'Florida':
+		num = 3296
+
+	elif st == 'Georgia':
+		num = 471
+
+	elif st == 'Hawaii':
+		num = 182
+
+	elif st == 'Idaho':
+		num = 39
+
+	elif st == 'Illinois':
+		num = 960
+
+	elif st == 'Indiana':
+		num = 597
+
+	elif st == 'Iowa':
+		num = 121
+
+	elif st == 'Kansas':
+		num = 164
+
+	elif st == 'Kentucky':
+		num = 247
+
+	elif st == 'Louisiana':
+		num = 286
+
+	elif st == 'Maine':
+		num = 184
+
+	elif st == 'Maryland':
+		num = 449
+
+	elif st == 'Massachusetts':
+		num = 2203
+
+	elif st == 'Michigan':
+		num = 880
+
+	elif st == 'Minnesota':
+		num = 193
+
+	elif st == 'Mississippi':
+		num = 75
+
+	elif st == 'Missouri':
+		num = 455
+
+	elif st == 'Montana':
+		num = 46
+
+	elif st == 'Nebraska':
+		num = 123
+
+	elif st == 'Nevada':
+		num = 192
+
+	elif st == 'New Hampshire':
+		num = 263
+
+	elif st == 'New Jersey':
+		num = 1597
+
+	elif st == 'New Mexico':
+		num = 71
+
+	elif st == 'New York':
+		num = 1823
+
+	elif st == 'North Carolina':
+		num = 434
+
+	elif st == 'North Dakota':
+		num = 28
+
+	elif st == 'Ohio':
+		num = 514
+
+	elif st == 'Oklahoma':
+		num = 87
+
+	elif st == 'Oregon':
+		num = 171
+
+	elif st == 'Pennsylvania':
+		num = 1368
+
+	elif st == 'Rhode Island':
+		num = 188
+
+	elif st == 'South Carolina':
+		num = 301
+
+	elif st == 'South Dakota':
+		num = 33
+	
+	elif st == 'Tennessee':
+		num = 535
+
+	elif st == 'Texas':
+		num = 1646
+
+	elif st == 'Utah':
+		num = 283
+
+	elif st == 'Vermont':
+		num = 137
+
+	elif st == 'Virginia':
+		num = 1040
+
+	elif st == 'Washington':
+		num = 685
+
+	elif st == 'West Virginia':
+		num = 78
+
+	elif st == 'Wisconsin':
+		num = 240
+
+	elif st == 'Wyoming':
+		num = 17
+
+	else: # st == 'I live outside of the United States':
+		num = 495
+
+	return num
 
 
 if __name__ == '__main__':
