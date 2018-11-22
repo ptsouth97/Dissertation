@@ -19,10 +19,13 @@ def q2_prep():
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
-	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
+	df = pd.read_csv(file_name, header=1, skiprows=[2])
+
+	# Drop un-finished responses
+	finished = df.drop(df[df['Finished'] == False].index)
 
 	# Drop all the survey metadata
-	metadata = clean_data.drop_metadata(dataframe)
+	metadata = clean_data.drop_metadata(finished)
 
 	# Drop non-supervisor behaviors
 	dropped_bx = clean_data.drop_bx(metadata)

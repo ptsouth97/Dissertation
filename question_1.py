@@ -18,11 +18,15 @@ def q1_prep():
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
-	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
-	#print(dataframe)
+	df = pd.read_csv(file_name, header=1, skiprows=[2])
+	print('TOTAL RESPONSES = ' + str(len(df)))
+
+	# Drop un-finished responses
+	finished = df.drop(df[df['Finished'] == False].index)
+	print('FINISHED RESPONSES = ' + str(len(finished)))
 
 	# Combine columns with text-based option
-	combined = clean_data.combine_columns(dataframe)
+	combined = clean_data.combine_columns(finished)
 	#print(combined)
 
 	# Replace text with integers

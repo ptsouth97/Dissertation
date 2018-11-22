@@ -19,10 +19,13 @@ def q3_prep():
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
-	dataframe = pd.read_csv(file_name, header=1, skiprows=[2])
+	df = pd.read_csv(file_name, header=1, skiprows=[2])
+
+	# Drop un-finished responses
+	finished = df.drop(df[df['Finished'] == False].index)
 
 	# Combine columns with text-based option
-	combined = clean_data.combine_columns(dataframe)
+	combined = clean_data.combine_columns(finished)
 
 	# Replace text with integers
 	integers = clean_data.text_to_int(combined)

@@ -1,46 +1,46 @@
 ,rho,p-val
-Literature for new competency area,0.004,0.969
-Professional groups,0.008,0.931
-Outside training area - credentialing requirements,0.246,0.282
-Supervision schedule,0.04,0.68
-Outside training area - training and supervision,0.186,0.42
-Schedule contacts,0.082,0.39
-60% fieldwork hours,0.05,0.602
-Confirm required skill set,0.075,0.437
-Practice skill set,0.071,0.458
-Behavior skills training,-0.051,0.597
-Written supervision contract,-0.045,0.637
-Supervision termination clause,0.021,0.831
-Performance expectations,-0.121,0.205
-Instructions and demonstration,0.128,0.179
-Positive and corrective feedback,0.046,0.632
-Written evaluation system,-0.05,0.605
-Document feedback,-0.007,0.941
-Immediate feedback,0.14,0.143
-Evaluate supervisee performance,-0.086,0.368
-Evaluate client performance,-0.14,0.143
-Supervision fidelity,-0.062,0.521
-Peer evaluate,-0.023,0.812
-Take baseline,-0.001,0.994
-Detect barriers to supervision,0.053,0.58
-BST case presentation,-0.173,0.069
-Send agenda,0.005,0.962
-Meeting notes,-0.036,0.704
-Return communications within 48 hours,-0.002,0.98
-Discourage distractions,0.073,0.446
-Observe body language,0.045,0.636
-Maintain positive rapport,-0.051,0.595
-Self-assess interpersonal skills,0.027,0.776
-Group supervision,-0.007,0.939
-Create group activities,0.033,0.73
-Include ethics,0.068,0.477
-Arrive on time,0.106,0.269
-Discuss how to give feedback,0.057,0.549
-Schedule direct observations,0.038,0.69
-Schedule standing supervision appointments,0.128,0.181
-Continue professional relationship,0.11,0.252
-Review literature,0.177,0.063
-Attend conferences,0.058,0.543
-Participate in peer review,0.265,0.031
-Seek mentorship,0.069,0.471
-Supervisory study groups,-0.019,0.841
+Literature for new competency area,0.011,0.891
+Professional groups,0.025,0.762
+Outside training area - credentialing requirements,0.293,0.123
+Supervision schedule,0.019,0.817
+Outside training area - training and supervision,0.399,0.032
+Schedule contacts,0.1,0.229
+60% fieldwork hours,0.035,0.679
+Confirm required skill set,0.07,0.403
+Practice skill set,0.189,0.022
+Behavior skills training,-0.093,0.266
+Written supervision contract,-0.059,0.482
+Supervision termination clause,-0.022,0.793
+Performance expectations,-0.09,0.278
+Instructions and demonstration,0.157,0.058
+Positive and corrective feedback,-0.015,0.857
+Written evaluation system,0.05,0.545
+Document feedback,0.038,0.645
+Immediate feedback,0.133,0.11
+Evaluate supervisee performance,-0.03,0.719
+Evaluate client performance,-0.118,0.155
+Supervision fidelity,-0.025,0.765
+Peer evaluate,-0.064,0.445
+Take baseline,0.052,0.537
+Detect barriers to supervision,0.105,0.206
+BST case presentation,-0.123,0.141
+Send agenda,-0.014,0.864
+Meeting notes,-0.021,0.805
+Return communications within 48 hours,-0.036,0.662
+Discourage distractions,0.023,0.786
+Observe body language,0.095,0.254
+Maintain positive rapport,-0.075,0.371
+Self-assess interpersonal skills,0.071,0.392
+Group supervision,-0.018,0.83
+Create group activities,0.042,0.619
+Include ethics,0.051,0.54
+Arrive on time,0.026,0.752
+Discuss how to give feedback,0.11,0.184
+Schedule direct observations,0.109,0.191
+Schedule standing supervision appointments,0.041,0.624
+Continue professional relationship,0.013,0.878
+Review literature,0.193,0.019
+Attend conferences,0.156,0.06
+Participate in peer review,0.172,0.123
+Seek mentorship,0.087,0.298
+Supervisory study groups,0.034,0.686
