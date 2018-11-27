@@ -22,4 +22,7 @@ The application was tested using Python 3.6.6 running on Ubuntu and relies on:
 	2. Drop all cells that are NaN
 	3. Slice the column of the current demographic
 	4. Count the unique instances in the column
-	5. Make a labelled barplot of the result
+	5. Make a labeled barplot of the result
+9. For the state demographic, make an additional plot that converts the number of raw responses into a percentage by dividing by the total number of BCBAs in each state
+10. For questions that have multiple answers in one cell, separate those answers by splitting on the comma
+11. Send the special cases through the same loop shown in number '8' above
