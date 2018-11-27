@@ -56,13 +56,12 @@ def q4_prep():
 	filtered = no_inf[no_inf['pass rate'] <= 1]
 
 	# RESEARCH QUESTION 4
-	q4_list = clean_data.get_question4_data()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	p_val = question4(filtered, q4_list, sup_list)
+	p_val = question4(filtered, sup_list)
 	p_val.to_csv('Q4 p-value table.csv')
 
 
-def question4(df, q4_lst, bx_lst):
+def question4(df, bx_lst):
 	''' Answers research question 4'''
 
 	# Change folder for graphs
