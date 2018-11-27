@@ -11,7 +11,7 @@ The application was tested using Python 3.6.6 running on Ubuntu and relies on:
 
 ## How it works
 
-1. Export data from Qualtrics as a comma separated (.csv) file
+1. Export survey data from Qualtrics as a comma separated (.csv) file
 2. Use Python to load .csv file into a Pandas dataframe
 3. Drop survey responses that were not finished (i.e., 'Finished'==False)
 4. Combine columns with text-based options. (i.e., include information written by respondents in the 'Other' columns)
