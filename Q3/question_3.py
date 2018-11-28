@@ -39,9 +39,6 @@ def q3_prep():
 	# Drop all the survey metadata
 	metadata = clean_data.drop_metadata(integers)
 
-	# Drop non-supervisor behaviors
-	# dropped = clean_data.drop_bx(metadata)
-
 	# RESEARCH QUESTION 3
 	demo_list = clean_data.make_demographics_list()
 	sup_list = clean_data.make_supervision_behaviors_list()
@@ -57,7 +54,6 @@ def q3_prep():
 		p_val_temp = question3(special, [item], sup_list)
 		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
 
-	#p_val_styled = (p_val.style.applymap(lambda v: 'background-color %s' % 'gray' if v<='0.25'))
 	p_val.to_csv('Q3 p-value table.csv')	
 
 
@@ -142,9 +138,6 @@ def question3(df, demo_lst, bx_lst):
 			for median in bp['medians']:
 				median.set(color = 'black')
 
-			#manager = plt.get_current_fig_manager()
-			#manager.resize(*manager.window.maxsize())
-			#fig1 = plt.figure(figsize=(8.0, 5.0))
 			_ = plt.xticks(positions, names, rotation=45)
 			_ = plt.yticks(np.arange(1, 5+1, step=1))
 			_ = plt.suptitle(bx)
@@ -152,24 +145,10 @@ def question3(df, demo_lst, bx_lst):
 			_ = plt.xlabel(demo)
 			_ = plt.ylabel('responses')
 			_ = plt.ylim(1, 5)
-			#_ = plt.annotate('p='+str(p), xy=(0.6, 1.5))
-			#_ = plt.tight_layout()
 			fig = plt.gcf()
 			fig.set_size_inches(12, 10)
-			#fig.subplots_adjust(bottom=0)
-			#fig.subplots_adjust(top=0.5)
-			#fig.subplots_adjust(right=0.5)
-			#fig.subplots_adjust(left=0)
 			_ = plt.savefig(demo+'-'+bx+'.png', dpi=100)
-			#_ = plt.show()
 			_ = plt.close()
-
-
-	#print('p_values:')
-	#print(p_values)
-
-	#print(results)
-	#results.to_csv('p-value table.csv')
 
 	os.chdir('..')
 
