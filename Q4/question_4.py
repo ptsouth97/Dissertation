@@ -99,7 +99,6 @@ def question4(df, bx_lst):
 		# Make a scatter plot and line of best fit
 		_ = plt.plot(prediction_space, y_pred, color='black', linewidth=1)
 		_ = plt.scatter(sample[bx], sample['pass rate'], c='k', s=6, clip_on=False)
-		#_ = plt.grid(b=None, axis='both')
 		_ = plt.suptitle(bx)
 		_ = plt.title('rho=' + r + ', p=' + p)
 		_ = plt.xlabel('responses')
@@ -107,8 +106,6 @@ def question4(df, bx_lst):
 		_ = plt.xticks(np.arange(1, 5.1, 1))
 		_ = plt.yticks(np.arange(0, 1.01, 0.2))
 		_ = plt.ylim(0, 1.1)
-		#_ = plt.tight_layout()
-		#_ = plt.margins(0.02)
 		_ = plt.savefig(bx+'.png')
 		_ = plt.close()
 
