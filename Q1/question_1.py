@@ -33,26 +33,18 @@ def q1_prep():
 
 	# Combine columns with text-based option
 	combined = clean_data.combine_columns(finished)
-	#print(combined)
 
 	# Replace text with integers
 	integers = clean_data.text_to_int(combined)
-	#print(integers)	
 
 	# Drop all the survey metadata
 	metadata = clean_data.drop_metadata(integers)
-	#print(metadata)
 	
-	# Combine similar text from user generated 'Other' fields
-	#combined = clean_data.combine_text(metadata)
-
 	# Make list of demographics
 	d_list = clean_data.make_demographics_list()
 
 	# RESEARCH QUESTION 1
 	demographics = question1(metadata, d_list)
-	print('DEMOGRAPHICS')
-	#print(demographics)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
 	print('NOW WORKING ON SPECIAL CASES...')
@@ -62,7 +54,6 @@ def q1_prep():
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
-		#print('NOW WORKING ON ' +item)
 		special = clean_data.separate_text(metadata, item)
 		combined = clean_data.combine_text(special, item)
 		demographics_special = question1(combined, [item])
@@ -74,8 +65,6 @@ def question1(df, demo_list):
 	''' answers research question 1: classify responses by demographic'''
 
 	os.chdir('./Q1_graphs')
-	#print('question1 df...')
-	#print(df)
 
 	for demo in demo_list:
 
@@ -85,6 +74,7 @@ def question1(df, demo_list):
 		# drop rows with NaN values
 		df_current.dropna(subset=[demo], inplace=True)
 
+		# make bar plot of current demographic
 		_ = df_current[demo].value_counts().plot(kind='bar', color='gray')
 		manager = plt.get_current_fig_manager()
 		manager.resize(*manager.window.maxsize())
@@ -93,9 +83,7 @@ def question1(df, demo_list):
 		_ = plt.ylabel('number of responses')
 
 		_ = plt.xticks(rotation=90)
-		#_ = plt.tight_layout()
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
-		#_ = plt.show()
 		_ = plt.close()
 
 		# Special case: calculate percentage of responders by state 
@@ -122,14 +110,12 @@ def question1(df, demo_list):
 
 			state_calc['percentage'] = state_calc.apply(calc_perc , axis=1)
 			state_calc.sort_values(by='percentage', ascending=False, inplace=True)
-			print(state_calc)
 			state_calc.plot.bar(y='percentage', color='gray', legend=False)
 			_ = plt.title('Demographic: State by percentage of BCBAs (November 2018)')
 			_ = plt.xlabel('State')
 			_ = plt.ylabel('percentage of BCBA responses')
 			_ = plt.tight_layout()
 			_ = plt.savefig('State by percentage.png')
-			_ = plt.show()
 			_ = plt.close()
 
 	os.chdir('..')
