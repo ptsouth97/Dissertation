@@ -16,20 +16,53 @@ def main():
 def q1_prep():
 	''' prepare data for question 1'''
 
+	# Make dataframe to hold metadata info
+	index = ['Total', 
+             'Finished', 
+             'Met Supervision Requirements', 
+             'Average Time to Complete Survey', 
+             'Median Time to Complete Survey',
+             'Start Date',
+             'End Date',
+             'Total Days']
+
+	columns = ['']
+	data = pd.DataFrame(index=index, columns=columns)
+
 	# Move up one directory level
 	os.chdir('..')
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	df = pd.read_csv(file_name, header=1, skiprows=[2])
-	print('TOTAL RESPONSES = ' + str(len(df)))
-
+	data.iloc[0, 0] = str(len(df)) + ' responses'
+	
 	# Move back into Q1 folder
 	os.chdir('./Q1')
 
 	# Drop un-finished responses
 	finished = df.drop(df[df['Finished'] == False].index)
-	print('FINISHED RESPONSES = ' + str(len(finished)))
+	data.iloc[1, 0] = str(len(finished)) + ' responses'
+
+	# Count responders who answered 'Yes' to meeting BACB requirements for supervision
+	yes = finished.drop(finished[finished['BACB requirements'] == 'No'].index)
+	data.iloc[2, 0] = str(len(yes)) + ' responses'
+
+	# Calculate average time to complete survey
+	avg = round(finished['Duration (in seconds)'].mean() / 60, 1)
+	data.iloc[3, 0] = str(avg) + ' minutes'
+
+	med = round(finished['Duration (in seconds)'].median() / 60, 1)
+	data.iloc[4, 0] = str(med) + ' minutes'
+
+	# Calculate survey start date, end date, and days between
+	data.iloc[5, 0] = finished['Start Date'].min()
+	data.iloc[6, 0] = finished['End Date'].max()
+	data.iloc[7, 0] = pd.to_datetime(data.iloc[6, 0]) - pd.to_datetime(data.iloc[5, 0])
+
+	# Save metadata to .csv
+	print(data)
+	data.to_csv('Survey metadata.csv')
 
 	# Combine columns with text-based option
 	combined = clean_data.combine_columns(finished)
