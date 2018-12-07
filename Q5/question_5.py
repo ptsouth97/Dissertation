@@ -7,9 +7,6 @@ import numpy as np
 import clean_data
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
-from sklearn import datasets
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
 
 
 def main():
@@ -57,7 +54,7 @@ def q5_prep():
 
 
 def question5(df, demo_list, bx_list):
-	''' answers research question 1: classify responses by demographic'''
+	''' BONUS: How accurately can a basic knn model classify the set of survey responses by demographic?'''
 
 	# Build dataframe to hold knn scores
 	scores = pd.DataFrame(index=demo_list)
