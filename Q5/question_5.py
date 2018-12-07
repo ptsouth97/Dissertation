@@ -101,8 +101,15 @@ def question5(df, demo_list, bx_list):
 		# Assign knn score to dataframe position
 		scores.loc[demo, 'score'] = round(ks, 3)
 		
+	# Arrange df in descending order
+	scores.sort_values(by='score', ascending=False, inplace=True)
+
 	# Make a boxplot
-	_ = scores.plot.bar()
+	_ = scores.plot.bar(color='gray', legend=False)
+	_ = plt.title('k-NN Scores by Demographic')
+	_ = plt.xlabel('Demographic')
+	_ = plt.ylabel('k-NN accuracy')
+	_ = plt.tight_layout()
 	_ = plt.savefig('k-NN Scores.png')
 	_ = plt.show()
 
