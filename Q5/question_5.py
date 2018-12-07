@@ -52,58 +52,68 @@ def q5_prep():
 	sup_list = clean_data.make_supervision_behaviors_list()
 
 	# RESEARCH QUESTION 5
-	question5(metadata, sup_list)
+	knn_scores = question5(metadata, d_list, sup_list)
+	knn_scores.to_csv('Q5 knn scores.csv')
 
 
-def question5(df, bx_list):
+def question5(df, demo_list, bx_list):
 	''' answers research question 1: classify responses by demographic'''
+
+	# Build dataframe to hold knn scores
+	scores = pd.DataFrame(index=demo_list)
+
+	for demo in demo_list:
 	
-	# Count number of occurences
-	counts = df['State'].value_counts()
+		# Count number of occurences
+		counts = df[demo].value_counts()
     
-	# Find occurences where counts are less than 2
-	less_than_2 = counts[counts<2]
+		# Find occurences where counts are less than 2
+		less_than_2 = counts[counts<2]
     
-	# Remove rows from df with state counts < 2
-	for state in less_than_2.index:
-		df = df.drop(df[df['State'] == state].index)	
-		print('Removing...' + state)
+		# Remove rows from df with demo counts < 2
+		for item in less_than_2.index:
+			df = df.drop(df[df[demo] == item].index)	
+			#print('Removing...' + state)
 
-	# Create the target array with categorical data
-	y = df['State'].astype('category')
+		# Create the target array with categorical data
+		y = df[demo].astype('category')
 
-	# Encode the target array
-	y = pd.get_dummies(y)
-	print('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY')
-	print(type(y))
-	print(y)
-	print(y.dtypes)
+		# Encode the target array
+		y = pd.get_dummies(y)
+		#print('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY')
+		#print(type(y))
+		#print(y)
+		#print(y.dtypes)
 
-	# Create feature array with categorical data
-	X = df[bx_list]
-	X = X.drop(['Outside training area - credentialing requirements', \
-                'Outside training area - training and supervision', \
-                'Participate in peer review'], axis=1)
+		# Create feature array with categorical data
+		X = df[bx_list]
+		X = X.drop(['Outside training area - credentialing requirements', \
+                    'Outside training area - training and supervision', \
+                    'Participate in peer review'], axis=1)
 	
-	X = X.astype('int64')
+		X = X.astype('int64')
 
-	print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-	print('X is a ' + str(type(X)))
-	print(X)
+		#print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+		#print('X is a ' + str(type(X)))
+		#print(X)
 
-	# Split into training and test set
-	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state=42, stratify=y)
+		# Split into training and test set
+		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state=42, stratify=y)
 
-	# Create a k-NN classifier with 7 neighbors: knn
-	knn = KNeighborsClassifier(n_neighbors=7)
+		# Create a k-NN classifier with 7 neighbors: knn
+		knn = KNeighborsClassifier(n_neighbors=7)
 
-	# Fit the classifier to the training data
-	knn.fit(X_train, y_train)
+		# Fit the classifier to the training data
+		knn.fit(X_train, y_train)
 
-	# Print the accuracy
-	print(knn.score(X_test, y_test))
+		# Print the accuracy
+		ks = knn.score(X_test, y_test)
+		print(ks)
 
-	return
+		# Assign knn score to dataframe position
+		scores.loc[demo, 'score'] = round(ks, 3)
+		
+	return scores
 
 
 if __name__ == '__main__':
