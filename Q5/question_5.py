@@ -70,29 +70,20 @@ def question5(df, demo_list, bx_list):
 		# Remove rows from df with demo counts < 2
 		for item in less_than_2.index:
 			df = df.drop(df[df[demo] == item].index)	
-			#print('Removing...' + state)
 
 		# Create the target array with categorical data
 		y = df[demo].astype('category')
 
 		# Encode the target array
 		y = pd.get_dummies(y)
-		#print('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY')
-		#print(type(y))
-		#print(y)
-		#print(y.dtypes)
 
-		# Create feature array with categorical data
+		# Create feature array with float (int64) data
 		X = df[bx_list]
 		X = X.drop(['Outside training area - credentialing requirements', \
                     'Outside training area - training and supervision', \
                     'Participate in peer review'], axis=1)
 	
 		X = X.astype('int64')
-
-		#print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-		#print('X is a ' + str(type(X)))
-		#print(X)
 
 		# Split into training and test set
 		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state=42, stratify=y)
