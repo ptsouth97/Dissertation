@@ -46,12 +46,13 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*district.*', value='School', inplace=True, regex=True)
 
 	if demo == 'Supervision training':
-		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Literature', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*employer.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*agency.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*training at work.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*etc.*', value='Other-not specified', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*Materials.*', value='Other-not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Jj]ournal.*', value='Literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Other: Literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*employer.*', value='Other: Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*agency.*', value='Other: Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*training at work.*', value='Other: Company-based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*etc.*', value='Other: not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Materials.*', value='Other: not specified', inplace=True, regex=True)
 
 	if demo == 'Supervision resources':
 		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True)

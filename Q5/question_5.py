@@ -57,7 +57,7 @@ def question5(df, demo_list, bx_list):
 	''' BONUS: How accurately can a basic knn model classify the set of survey responses by demographic?'''
 
 	# Build dataframe to hold knn scores
-	scores = pd.DataFrame(index=demo_list)
+	scores = pd.DataFrame(index=demo_list, columns=['score', 'k'])
 
 	for demo in demo_list:
 	
@@ -88,32 +88,79 @@ def question5(df, demo_list, bx_list):
 		# Split into training and test set
 		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state=42, stratify=y)
 
-		# Create a k-NN classifier with 7 neighbors: knn
-		knn = KNeighborsClassifier(n_neighbors=7)
+		# Find out the best k to use for maximum accuracy
+		k = model_complexity(demo, X_train, X_test, y_train, y_test)
 
+		# Create a k-NN classifier with k neighbors: knn
+		knn = KNeighborsClassifier(n_neighbors=k)
+ 
 		# Fit the classifier to the training data
 		knn.fit(X_train, y_train)
 
-		# Print the accuracy
+		# Compute the accuracy on the testing set
 		ks = knn.score(X_test, y_test)
-		print(ks)
 
-		# Assign knn score to dataframe position
+		# Assign knn score and k to dataframe position
 		scores.loc[demo, 'score'] = round(ks, 3)
-		
+		scores.loc[demo, 'k'] = k
+
 	# Arrange df in descending order
 	scores.sort_values(by='score', ascending=False, inplace=True)
 
 	# Make a boxplot
-	_ = scores.plot.bar(color='gray', legend=False)
-	_ = plt.title('k-NN Scores by Demographic (n=7)')
+	_ = scores['score'].plot.bar(color='gray', legend=False)
+	_ = plt.title('k-NN Scores by Demographic')
 	_ = plt.xlabel('Demographic')
 	_ = plt.ylabel('k-NN accuracy')
 	_ = plt.tight_layout()
 	_ = plt.savefig('k-NN Scores.png')
 	_ = plt.show()
-
+	
 	return scores
+
+
+def model_complexity(demo, X_train, X_test, y_train, y_test):
+	''' Find best number of neighbors k for best model accuracy'''
+
+	# Setup arrays to store train and test accuracies
+	neighbors = np.arange(1, 9)
+	train_accuracy = np.empty(len(neighbors))
+	test_accuracy = np.empty(len(neighbors))
+
+	# Loop through different values of k to find best model accuracy
+	for i, k in enumerate(neighbors):
+ 
+		# Create a k-NN classifier with k neighbors: knn
+		knn = KNeighborsClassifier(n_neighbors=k)
+ 
+		# Fit the classifier to the training data
+		knn.fit(X_train, y_train)
+ 
+		# Compute accuracy on the training set
+		train_accuracy[i] = knn.score(X_train, y_train)
+ 
+		# Predict on unlabeled data
+		#prediction = knn.predict(X_test)
+		#print('Prediction for {} = {}'.format(demo, prediction))
+ 
+		# Compute the accuracy on the testing set
+		test_accuracy[i] = knn.score(X_test, y_test)
+		
+		idx = np.argmax(test_accuracy) + 1
+		print(test_accuracy)
+		print('THE BEST K IS: ' + str(idx))
+
+	# Generate plot
+	_ = plt.title(demo + ' k-NN: Varying Number of Neighbors')
+	_ = plt.plot(neighbors, test_accuracy, label='Testing Accuracy')
+	_ = plt.plot(neighbors, train_accuracy, label='Training Accuracy')
+	_ = plt.legend()
+	_ = plt.xlabel('Number of Neighbors')
+	_ = plt.ylabel('Accuracy')
+	_ = plt.show()
+	_ = plt.close()
+
+	return idx
 
 
 if __name__ == '__main__':
