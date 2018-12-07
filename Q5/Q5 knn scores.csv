@@ -1,13 +1,13 @@
 ,score
-Job classification,0.804
-Number of candidates,0.779
-Past 12 months candidates,0.642
-Supervision format,0.6
-Scheduled hours,0.537
-Who dictates caseload,0.442
-Allotted hours,0.305
-RBT supervision %,0.211
-Number of clients,0.189
-Area of study,0.175
-Place of employment,0.103
-State,0.011
+Job classification,0.781
+Number of candidates,0.745
+Supervision format,0.588
+Past 12 months candidates,0.588
+Scheduled hours,0.549
+Who dictates caseload,0.451
+Allotted hours,0.304
+Number of clients,0.216
+RBT supervision %,0.176
+Area of study,0.171
+Place of employment,0.143
+State,0.01

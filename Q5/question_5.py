@@ -106,7 +106,7 @@ def question5(df, demo_list, bx_list):
 
 	# Make a boxplot
 	_ = scores.plot.bar(color='gray', legend=False)
-	_ = plt.title('k-NN Scores by Demographic')
+	_ = plt.title('k-NN Scores by Demographic (n=7)')
 	_ = plt.xlabel('Demographic')
 	_ = plt.ylabel('k-NN accuracy')
 	_ = plt.tight_layout()
