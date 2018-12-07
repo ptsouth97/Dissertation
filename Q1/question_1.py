@@ -64,6 +64,9 @@ def q1_prep():
 	print(data)
 	data.to_csv('Survey metadata.csv')
 
+	# Make a graph showing distribution of when responses were submitted
+	time_graph(finished)
+	
 	# Combine columns with text-based option
 	combined = clean_data.combine_columns(finished)
 
@@ -91,7 +94,7 @@ def q1_prep():
 		combined = clean_data.combine_text(special, item)
 		demographics_special = question1(combined, [item])
 		del(special)
-
+	
 
 
 def question1(df, demo_list):
@@ -153,6 +156,36 @@ def question1(df, demo_list):
 
 	os.chdir('..')
 	
+
+	return
+
+
+def time_graph(df):
+	''' plots a graph of number of survey responses received by day over survey period'''
+
+	# Split the date-time strings on the spaces
+	dt_list = df['End Date'].apply(lambda x: x.split(' '))
+
+	# Get rid of the time part of the date-time string
+	dates = dt_list.apply(lambda x: x.pop(0))
+
+	# Convert to pandas datetime format and grab just the date
+	data = dates.apply(lambda x: pd.to_datetime(x)).dt.date
+
+	# Group data by date
+	grouped = data.value_counts()
+
+	# Order by date
+	grouped.sort_index(ascending=True, inplace=True)
+
+	# Graph results
+	_ = grouped.plot.bar(color='gray', legend=False)
+	_ = plt.title('Dates of submitted surveys')
+	_ = plt.xlabel('Date')
+	_ = plt.ylabel('Number of submitted surveys')
+	_ = plt.tight_layout()
+	_ = plt.savefig('Survey endtimes.png')
+	_ = plt.show()
 
 	return
 
