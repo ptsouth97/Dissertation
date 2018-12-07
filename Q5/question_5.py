@@ -101,6 +101,11 @@ def question5(df, demo_list, bx_list):
 		# Assign knn score to dataframe position
 		scores.loc[demo, 'score'] = round(ks, 3)
 		
+	# Make a boxplot
+	_ = scores.plot.bar()
+	_ = plt.savefig('k-NN Scores.png')
+	_ = plt.show()
+
 	return scores
 
 
