@@ -24,7 +24,8 @@ def q1_prep():
              'Median Time to Complete Survey',
              'Start Date',
              'End Date',
-             'Total Days']
+             'Total Days',
+             'BACB %']
 
 	columns = ['']
 	data = pd.DataFrame(index=index, columns=columns)
@@ -59,6 +60,10 @@ def q1_prep():
 	data.iloc[5, 0] = finished['Start Date'].min()
 	data.iloc[6, 0] = finished['End Date'].max()
 	data.iloc[7, 0] = pd.to_datetime(data.iloc[6, 0]) - pd.to_datetime(data.iloc[5, 0])
+
+	# Calculate overall percentate of BCBAs who responded
+	overall = finished/30,540
+	data.iloc[8, 0] = overall	
 
 	# Save metadata to .csv
 	print(data)
