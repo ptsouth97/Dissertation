@@ -3,6 +3,7 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
 import numpy as np
 import clean_data
 
@@ -62,7 +63,8 @@ def q1_prep():
 	data.iloc[7, 0] = pd.to_datetime(data.iloc[6, 0]) - pd.to_datetime(data.iloc[5, 0])
 
 	# Calculate overall percentate of BCBAs who responded
-	overall = finished/30,540
+	bcbas = float(30540)
+	overall = round(len(finished)/bcbas, 3)*100
 	data.iloc[8, 0] = overall	
 
 	# Save metadata to .csv
@@ -85,7 +87,7 @@ def q1_prep():
 	d_list = clean_data.make_demographics_list()
 
 	# RESEARCH QUESTION 1
-	demographics = question1(metadata, d_list)
+	demographics = question1(metadata, d_list, overall)
 
 	# RESEARCH QUESTION 1 -- Special cases (multiple answers in one cell)
 	print('NOW WORKING ON SPECIAL CASES...')
@@ -97,12 +99,12 @@ def q1_prep():
 	for item in d_list_special:
 		special = clean_data.separate_text(metadata, item)
 		combined = clean_data.combine_text(special, item)
-		demographics_special = question1(combined, [item])
+		demographics_special = question1(combined, [item], overall)
 		del(special)
 	
 
 
-def question1(df, demo_list):
+def question1(df, demo_list, overall):
 	''' answers research question 1: classify responses by demographic'''
 
 	os.chdir('./Q1_graphs')
@@ -155,6 +157,9 @@ def question1(df, demo_list):
 			_ = plt.title('Demographic: State by percentage of BCBAs (November 2018)')
 			_ = plt.xlabel('State')
 			_ = plt.ylabel('percentage of BCBA responses')
+			_ = plt.axhline(y=overall, linestyle='--', color='black')
+			dash = mlines.Line2D([], [], color='black', marker='_', label='Overall BCBA response %')
+			_ = plt.legend(handles=[dash])
 			_ = plt.tight_layout()
 			_ = plt.savefig('State by percentage.png')
 			_ = plt.close()
