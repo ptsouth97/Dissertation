@@ -195,7 +195,7 @@ def question2add(df):
 	_ = plt.title('Responses by Supervision Category, F('+str(dfn)+', '+str(dfd)+ \
                   ')='+str(round(f, 3))+' (F critical='+str(round(Fcrit, 3))+'), p='+p)
 
-	_ = plt.ylim(1,5)
+	_ = plt.ylim(0.9, 5.1)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
 	_ = plt.xticks(rotation=45)
