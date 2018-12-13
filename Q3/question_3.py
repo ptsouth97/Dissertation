@@ -42,7 +42,7 @@ def q3_prep():
 	# RESEARCH QUESTION 3
 	demo_list = clean_data.make_demographics_list()
 	sup_list = clean_data.make_supervision_behaviors_list()
-	p_val = question3(metadata, demo_list, sup_list)
+	p_val = question3(metadata, demo_list, sup_list, 'regular')
 
 	# Special cases (multiple answers in one cell)
 	d_list_special = ['Supervision training', \
@@ -51,13 +51,13 @@ def q3_prep():
 
 	for item in d_list_special:
 		special = clean_data.separate_text(metadata, item)
-		p_val_temp = question3(special, [item], sup_list)
+		p_val_temp = question3(special, [item], sup_list, 'not_regular')
 		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
 
 	p_val.to_csv('Q3 p-value table.csv')	
 
 
-def question3(df, demo_lst, bx_lst):
+def question3(df, demo_lst, bx_lst, plot):
 	''' Answers research question 3'''
 	
 	# Change folder for graphs
@@ -138,14 +138,22 @@ def question3(df, demo_lst, bx_lst):
 			for median in bp['medians']:
 				median.set(color = 'black')
 
-			_ = plt.xticks(positions, names, rotation=45)
+			if plot == 'regular':
+				_ = plt.xticks(positions, names, rotation=45)
+
+			else:
+				_ = plt.xticks(positions, names, rotation=90)
+
 			_ = plt.yticks(np.arange(1, 5+1, step=1))
 			_ = plt.suptitle(bx + ' responses grouped by ' + demo)
 			_ = plt.title('F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p)
 			_ = plt.xlabel(demo)
 			_ = plt.ylabel(bx + ' responses')
-			_ = plt.ylim(1, 5)
-			_ = plt.tight_layout()
+			_ = plt.ylim(0.9, 5.1)
+
+			if plot == 'regular':
+				_ = plt.tight_layout()
+
 			fig = plt.gcf()
 			fig.set_size_inches(12, 10)
 			_ = plt.savefig(demo+'-'+bx+'.png', dpi=100)
