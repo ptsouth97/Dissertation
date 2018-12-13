@@ -105,7 +105,7 @@ def question4(df, bx_lst):
 		_ = plt.ylabel('pass rate')
 		_ = plt.xticks(np.arange(1, 5.1, 1))
 		_ = plt.yticks(np.arange(0, 1.01, 0.2))
-		_ = plt.ylim(0, 1.1)
+		_ = plt.ylim(-0.1, 1.1)
 		_ = plt.savefig(bx+'.png')
 		_ = plt.close()
 
