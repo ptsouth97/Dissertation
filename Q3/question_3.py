@@ -40,17 +40,19 @@ def q3_prep():
 	metadata = clean_data.drop_metadata(integers)
 
 	# RESEARCH QUESTION 3
-	demo_list = clean_data.make_demographics_list()
+	demo_list = clean_data.make_demographics_list() 
 	sup_list = clean_data.make_supervision_behaviors_list()
 	p_val = question3(metadata, demo_list, sup_list, 'regular')
 
 	# Special cases (multiple answers in one cell)
-	d_list_special = ['Supervision training', \
+	d_list_special = ['Supervision mode', \
+                      'Supervision training', \
                       'Supervision resources', \
                       'Supervision fieldwork protocol source']
 
 	for item in d_list_special:
 		special = clean_data.separate_text(metadata, item)
+		merged = clean_data.combine_text(special, item)
 		p_val_temp = question3(special, [item], sup_list, 'not_regular')
 		pd.concat([p_val, p_val_temp], axis=1, ignore_index=True)
 
@@ -68,7 +70,7 @@ def question3(df, demo_lst, bx_lst, plot):
 
 	# Loop through each demographic
 	for demo in demo_lst:
-
+		
 		# replace blank cells with 'Nan'
 		df_current = df.replace('', np.nan)
 
@@ -80,6 +82,7 @@ def question3(df, demo_lst, bx_lst, plot):
 			grouped = df_current.groupby(demo)
 			groupby_to_df = grouped.describe().squeeze()
 			names = groupby_to_df.index.tolist()
+			print(names)
 			length = len(names) + 1
 			positions = list(range(1,length))
 			grouped_list = list(grouped[bx])
@@ -126,6 +129,9 @@ def question3(df, demo_lst, bx_lst, plot):
 
 			f = str(round(f, 3))
 			
+			# Resize to larger window for bigger graph
+			fig = plt.gcf()
+			fig.set_size_inches(12, 10)
 
 			# Create boxplot from the lists made from the dataframe columns: col_list
 			bp = plt.boxplot(col_list, patch_artist=True)
@@ -139,20 +145,21 @@ def question3(df, demo_lst, bx_lst, plot):
 				median.set(color = 'black')
 
 			if plot == 'regular':
-				_ = plt.xticks(positions, names, rotation=45)
+				_ = plt.xticks(positions, names, rotation=90)
 
 			else:
 				_ = plt.xticks(positions, names, rotation=90)
 
 			_ = plt.yticks(np.arange(1, 5+1, step=1))
-			_ = plt.suptitle(bx + ' responses grouped by ' + demo)
-			_ = plt.title('F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p)
+			#_ = plt.suptitle(bx + ' responses grouped by ' + demo)
+			_ = plt.title(bx + ' responses grouped by ' + demo + \
+                          ' (F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p + ')')
 			_ = plt.xlabel(demo)
 			_ = plt.ylabel(bx + ' responses')
 			_ = plt.ylim(0.9, 5.1)
 
-			if plot == 'regular':
-				_ = plt.tight_layout()
+			#if plot == 'regular':
+			_ = plt.tight_layout()
 
 			fig = plt.gcf()
 			fig.set_size_inches(12, 10)

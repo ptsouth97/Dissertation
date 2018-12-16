@@ -98,9 +98,8 @@ def q1_prep():
 
 	for item in d_list_special:
 		special = clean_data.separate_text(metadata, item)
-		combined = clean_data.combine_text(special, item)
-		demographics_special = question1(combined, [item], overall)
-		del(special)
+		merged = clean_data.combine_text(special, item)
+		question1(merged, [item], overall)
 	
 
 
@@ -195,7 +194,7 @@ def time_graph(df):
 	_ = plt.ylabel('Number of submitted surveys')
 	_ = plt.tight_layout()
 	_ = plt.savefig('Survey endtimes.png')
-	_ = plt.show()
+	#_ = plt.show()
 
 	return
 
