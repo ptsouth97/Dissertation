@@ -125,34 +125,7 @@ def question1(df, demo_list, overall):
 		_ = plt.ylabel('number of responses')
 		_ = plt.xticks(rotation=90)
 
-		rects = ax.patches
-
-		# for each bar: place a label
-		for rect in rects:
-			y_value = rect.get_height()
-			x_value = rect.get_x() + rect.get_width() / 2
-
-			# number of points between bar and label
-			space = 2
-			# vertical alignment for positive values
-			va = 'bottom'
-			'''
-			# If value of bar is negative: place label below bar
-			if y_value < 0:
-				space *= -1
-				va = 'top'
-			'''
-			# Use Y value as label and format number with one decimal place
-			label = "{:.0f}".format(y_value)
-
-			# Create annotation
-			plt.annotate(
-				label,
-				(x_value, y_value),
-				xytext=(0, space),
-				textcoords="offset points",
-				ha='center',
-				va=va)
+		_ = bar_label(ax)
 	
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		_ = plt.close()
@@ -192,8 +165,69 @@ def question1(df, demo_list, overall):
 			_ = plt.savefig('State by percentage.png')
 			_ = plt.close()
 
+
+	oddballs = ['Years certified', 'Years supervisor']
+
+	for odd in oddballs:
+	
+		x = df[odd]
+		x = x.dropna()
+		bins = np.linspace(0, 30, 7)
+		_ = plt.hist(x, normed=True, bins=bins, color='gray', histtype='bar', ec='black')
+		_ = plt.xlabel(odd)
+		_ = plt.ylabel('Percentage of responders')
+
+		plt.savefig(odd + '.png')
+		plt.close()
+	'''
+	# Years supervisor
+	x = df['Years supervisor']
+	x = x.dropna()
+	
+	_ = plt.hist(x, normed=True, bins=bins, color='gray', histtype='bar', ec='black')
+	_ = plt.xlabel('Years supervisor')
+	_ = plt.ylabel('Percentage of responders')
+
+	plt.savefig('Years supervisor.png')
+	plt.close()
+	'''
 	os.chdir('..')
 	
+
+	return
+
+
+def bar_label(ax):
+	''' labels bars in bar plot'''
+	
+	rects = ax.patches
+
+	# for each bar: place a label
+	for rect in rects:
+		y_value = rect.get_height()
+		x_value = rect.get_x() + rect.get_width() / 2
+
+		# number of points between bar and label
+		space = 2
+		# vertical alignment for positive values
+		va = 'bottom'
+	
+		# If value of bar is negative: place label below bar
+		if y_value < 0:
+			space *= -1
+			va = 'top'
+	
+		# Use Y value as label and format number with one decimal place
+		label = "{:.0f}".format(y_value)
+
+		# Create annotation
+		plt.annotate(
+			label,
+			(x_value, y_value),
+			xytext=(0, space),
+			textcoords="offset points",
+			ha='center',
+			va=va)
 
 	return
 
