@@ -117,14 +117,43 @@ def question1(df, demo_list, overall):
 		df_current.dropna(subset=[demo], inplace=True)
 
 		# make bar plot of current demographic
-		_ = df_current[demo].value_counts().plot(kind='bar', color='gray')
+		ax = df_current[demo].value_counts().plot(kind='bar', color='gray')
 		manager = plt.get_current_fig_manager()
 		manager.resize(*manager.window.maxsize())
 		_ = plt.title('Demographic: ' +demo)
 		_ = plt.xlabel(demo)
 		_ = plt.ylabel('number of responses')
-
 		_ = plt.xticks(rotation=90)
+
+		rects = ax.patches
+
+		# for each bar: place a label
+		for rect in rects:
+			y_value = rect.get_height()
+			x_value = rect.get_x() + rect.get_width() / 2
+
+			# number of points between bar and label
+			space = 2
+			# vertical alignment for positive values
+			va = 'bottom'
+			'''
+			# If value of bar is negative: place label below bar
+			if y_value < 0:
+				space *= -1
+				va = 'top'
+			'''
+			# Use Y value as label and format number with one decimal place
+			label = "{:.0f}".format(y_value)
+
+			# Create annotation
+			plt.annotate(
+				label,
+				(x_value, y_value),
+				xytext=(0, space),
+				textcoords="offset points",
+				ha='center',
+				va=va)
+	
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		_ = plt.close()
 
