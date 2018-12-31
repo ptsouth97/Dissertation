@@ -101,6 +101,9 @@ def q1_prep():
 		merged = clean_data.combine_text(special, item)
 		question1(merged, [item], overall)
 	
+	# RESEARCH QUESTION 1 -- Oddballs 'Years certified' and 'Years supervisors' need histogram instead
+	print('NOW WORKING ON ODDBALLS')
+	oddballs(metadata)
 
 
 def question1(df, demo_list, overall):
@@ -124,8 +127,9 @@ def question1(df, demo_list, overall):
 		_ = plt.xlabel(demo)
 		_ = plt.ylabel('number of responses')
 		_ = plt.xticks(rotation=90)
-
-		_ = bar_label(ax)
+		
+		rects = ax.patches
+		_ = bar_label(rects, 'bar')
 	
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		_ = plt.close()
@@ -165,6 +169,15 @@ def question1(df, demo_list, overall):
 			_ = plt.savefig('State by percentage.png')
 			_ = plt.close()
 
+	os.chdir('..')
+
+	return
+
+
+def oddballs(df):
+	'''Handles 'Years certified' and 'Years supervisor' that need histogram instead of bar chart'''
+
+	os.chdir('./Q1_graphs')
 
 	oddballs = ['Years certified', 'Years supervisor']
 
@@ -173,62 +186,79 @@ def question1(df, demo_list, overall):
 		x = df[odd]
 		x = x.dropna()
 		bins = np.linspace(0, 30, 7)
-		_ = plt.hist(x, normed=True, bins=bins, color='gray', histtype='bar', ec='black')
+		ax = plt.hist(x, density=False, bins=bins, color='gray', histtype='bar', ec='black')
+		print(ax)
+		_ = bar_label(ax, 'hist')
+		_ = plt.title(odd + ' responses in 5 year bins (N=317)')
 		_ = plt.xlabel(odd)
 		_ = plt.ylabel('Percentage of responders')
 
 		plt.savefig(odd + '.png')
 		plt.close()
-	'''
-	# Years supervisor
-	x = df['Years supervisor']
-	x = x.dropna()
-	
-	_ = plt.hist(x, normed=True, bins=bins, color='gray', histtype='bar', ec='black')
-	_ = plt.xlabel('Years supervisor')
-	_ = plt.ylabel('Percentage of responders')
 
-	plt.savefig('Years supervisor.png')
-	plt.close()
-	'''
 	os.chdir('..')
 	
 
 	return
 
 
-def bar_label(ax):
+def bar_label(rects, plt_type):
 	''' labels bars in bar plot'''
 	
-	rects = ax.patches
+	if plt_type == 'bar':
 
-	# for each bar: place a label
-	for rect in rects:
-		y_value = rect.get_height()
-		x_value = rect.get_x() + rect.get_width() / 2
-
-		# number of points between bar and label
-		space = 2
-		# vertical alignment for positive values
-		va = 'bottom'
+		# for each bar: place a label
+		for rect in rects:
 	
-		# If value of bar is negative: place label below bar
-		if y_value < 0:
-			space *= -1
-			va = 'top'
-	
-		# Use Y value as label and format number with one decimal place
-		label = "{:.0f}".format(y_value)
+			y_value = rect.get_height()
+			x_value = rect.get_x() + rect.get_width() / 2
 
-		# Create annotation
-		plt.annotate(
-			label,
-			(x_value, y_value),
-			xytext=(0, space),
-			textcoords="offset points",
-			ha='center',
-			va=va)
 
+			# number of points between bar and label
+			space = 2
+			# vertical alignment for positive values
+			va = 'bottom'
+
+			# If value of bar is negative: place label below bar
+			if y_value < 0:
+				space *= -1
+				va = 'top'
+
+			# Use Y value as label and format number with one decimal place
+			label = "{:.0f}".format(y_value)
+
+			# Create annotation
+			plt.annotate(
+				label,
+				(x_value, y_value),
+				xytext=(0, space),
+				textcoords="offset points",
+				ha='center',
+				va=va)
+
+	if plt_type == 'hist':
+
+		yvalues = rects[0]
+		xvalues = rects[1]
+
+		for i in range(0, 6):
+			
+			y_value = yvalues[i]
+			x_value = xvalues[i] + 2.5
+
+			space = 2
+			va = 'bottom'
+
+			label = "{:.0f}".format(y_value)
+
+			plt.annotate(
+				label,
+				(x_value, y_value),
+				xytext=(0, space),
+				textcoords="offset points",
+				ha='center',
+				va=va)
+		
 	return
 
 
