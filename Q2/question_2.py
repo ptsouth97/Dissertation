@@ -42,11 +42,14 @@ def q2_prep():
 	# Replace text with integers
 	integers = clean_data.text_to_int(dropped_demo)
 
+	# Make supervison behaviors list
+	sup_list = clean_data.make_supervision_behaviors_list()
+
 	# RESEARCH QUESTION 2
-	question2(integers)
+	question2(integers, sup_list)
 	
 
-def question2(df):
+def question2(df, bx_lst):
 	''' answers research question 2'''
 
 	# change directory
@@ -67,20 +70,35 @@ def question2(df):
 	n_lists = len(data)
 	dfn = n_lists - 1
 
+	# Make a list to hold averages
+	avg_lst = []
+
 	# Sum up the number of data points in each list then subtract the number of lists to get
 	# degrees of freedom denominator (dfd)
 	dfd = 0
 	for each_list in data:
 		dfd += len(each_list)
+		avg_lst.append(round(np.mean(each_list), 3))
+
+
+	# Convert list to dataframe
+	avg = pd.DataFrame({'average':avg_lst}, index=df.columns)
+	avg = avg.sort_values(by='average', ascending=False)
+	print(avg)
+	avg.to_csv('averages.csv')
 
 	dfd = dfd - n_lists
 
 	# Calculate the critical F value
 	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
 
+	# Sort dataframe in descending order
+	df = df.reindex(df.mean().sort_values(ascending=False).index, axis=1)
+
 	# Make a boxplot	
 	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
-	_ = df.plot.box(color=color, patch_artist=True) #notch=1)
+	meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
+	_ = df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
 	_ = plt.yticks(np.arange(1, 5+1, step=1))
 	_ = plt.xticks(rotation=90)
 	_ = plt.xlabel('Individual behaviors')
