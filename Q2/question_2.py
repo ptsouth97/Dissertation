@@ -70,22 +70,26 @@ def question2(df, bx_lst):
 	n_lists = len(data)
 	dfn = n_lists - 1
 
-	# Make a list to hold averages
-	avg_lst = []
+	# Make lists to hold averages, median, and standard deviation
+	avg = []
+	med = []
+	stdev = []
 
 	# Sum up the number of data points in each list then subtract the number of lists to get
 	# degrees of freedom denominator (dfd)
 	dfd = 0
 	for each_list in data:
 		dfd += len(each_list)
-		avg_lst.append(round(np.mean(each_list), 3))
+		avg.append(round(np.mean(each_list), 3))
+		med.append(round(np.median(each_list), 3))
+		stdev.append(round(np.std(each_list), 3))
 
 
-	# Convert list to dataframe
-	avg = pd.DataFrame({'average':avg_lst}, index=df.columns)
-	avg = avg.sort_values(by='average', ascending=False)
-	print(avg)
-	avg.to_csv('averages.csv')
+	# Convert the lists to dataframe
+	statistics = pd.DataFrame({'mean':avg, 'median':med, 'std':stdev}, index=df.columns)
+	statistics = statistics.sort_values(by='mean', ascending=False)
+	print(statistics)
+	statistics.to_csv('stats.csv')
 
 	dfd = dfd - n_lists
 
