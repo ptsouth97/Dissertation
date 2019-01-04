@@ -46,10 +46,29 @@ def q2_prep():
 	sup_list = clean_data.make_supervision_behaviors_list()
 
 	# RESEARCH QUESTION 2
-	question2(integers, sup_list)
+	statistics = question2(integers, sup_list, 100)
+	
+	# RESEARCH QUESTION 2 ... FIGURE OUT WHERE SIGNIFICANCE BEGINS
+	sorted_bx = statistics.index.tolist()
+
+	print(sorted_bx)	
+	for i in range(0,22):
+
+		#Drop the first and last column
+		integers = integers.drop(columns=[sorted_bx[0], sorted_bx[-1]])
+		
+		#Drop the first item in list (highest average)
+		sorted_bx.pop(0)
+
+		# Drop the last item in the list (lowest average)
+		sorted_bx.pop(-1)
+
+		question2(integers, sup_list, i)
+		
+		
 	
 
-def question2(df, bx_lst):
+def question2(df, bx_lst, n):
 	''' answers research question 2'''
 
 	# change directory
@@ -115,13 +134,19 @@ def question2(df, bx_lst):
 	fig = plt.gcf()
 	fig.set_size_inches(12, 10)
 	_ = plt.tight_layout()
-	_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
+
+	if n == 100:
+		_ = plt.savefig('SupervisoryBehaviorsBoxplot.png')
+
+	elif n != 100:
+		_ = plt.savefig('SupervisoryBehaviorsBoxplot_' +str(n)+ '.png')
+
 	_ = plt.show()
 	_ = plt.close()
 
 	os.chdir('..')
 	
-	return
+	return statistics
 
 	
 if __name__ == '__main__':
