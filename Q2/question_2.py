@@ -46,29 +46,51 @@ def q2_prep():
 	sup_list = clean_data.make_supervision_behaviors_list()
 
 	# RESEARCH QUESTION 2
-	statistics = question2(integers, sup_list, 100)
+	statistics, avg  = question2(integers, 100)
 	
 	# RESEARCH QUESTION 2 ... FIGURE OUT WHERE SIGNIFICANCE BEGINS
 	sorted_bx = statistics.index.tolist()
 
-	print(sorted_bx)	
-	for i in range(0,22):
+	# total number of behaviors
+	total = len(sorted_bx)
 
-		#Drop the first and last column
+	# number of behaviors greater than the average
+	statistics_array = np.array(statistics['mean'])
+	less_than = (statistics_array < avg).sum()
+	print('LESS THAN ' +str(less_than))
+
+	num_to_drop = total - (less_than * 2)
+
+	# Slice the columns to drop from the list of behaviors
+	columns_to_drop = sorted_bx[0:num_to_drop]
+
+	# Use the list from previous step to drop the columns that won't be included
+	integers = integers.drop(columns=columns_to_drop)
+
+	# Also remove the corresponding behaviors from the list
+	for i in range(0, len(columns_to_drop)):
+		sorted_bx.pop(0)
+
+	# Figure out how many times to drop columns
+	num_to_process = int(len(sorted_bx) / 2 - 1)
+
+	for i in range(0, num_to_process):
+
+		#Drop the columns corresponding to the first and last items of the behavior list sorted by average
 		integers = integers.drop(columns=[sorted_bx[0], sorted_bx[-1]])
-		
+				
 		#Drop the first item in list (highest average)
 		sorted_bx.pop(0)
 
 		# Drop the last item in the list (lowest average)
 		sorted_bx.pop(-1)
 
-		question2(integers, sup_list, i)
+		question2(integers, i)
 		
 		
 	
 
-def question2(df, bx_lst, n):
+def question2(df, n):
 	''' answers research question 2'''
 
 	# change directory
@@ -108,6 +130,11 @@ def question2(df, bx_lst, n):
 	statistics = pd.DataFrame({'mean':avg, 'median':med, 'std':stdev}, index=df.columns)
 	statistics = statistics.sort_values(by='mean', ascending=False)
 	print(statistics)
+
+	# Find the average of the averages
+	tot_avg = statistics['mean'].mean()
+
+	# Save the stats to a .csv file
 	statistics.to_csv('stats.csv')
 
 	dfd = dfd - n_lists
@@ -121,8 +148,13 @@ def question2(df, bx_lst, n):
 	# Make a boxplot	
 	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
 	meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
+
 	_ = df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
-	_ = plt.yticks(np.arange(1, 5+1, step=1))
+
+	new_ticks = ['Almost never (1)', 'Rarely (2)', 'Sometimes (3)', 'Usually (4)', 'Almost always (5)']
+
+	_ = plt.axhline(y=tot_avg, linestyle='--', color='black')
+	_ = plt.yticks(np.arange(1, 5+1, step=1), new_ticks)
 	_ = plt.xticks(rotation=90)
 	_ = plt.xlabel('Individual behaviors')
 	_ = plt.ylabel('Survey response')
@@ -146,7 +178,7 @@ def question2(df, bx_lst, n):
 
 	os.chdir('..')
 	
-	return statistics
+	return statistics, tot_avg
 
 	
 if __name__ == '__main__':
