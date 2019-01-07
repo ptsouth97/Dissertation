@@ -110,29 +110,33 @@ def question1(df, demo_list, overall):
 	''' answers research question 1: classify responses by demographic'''
 
 	os.chdir('./Q1_graphs')
-
+##############################################################################
 	for demo in demo_list:
-
+		print(demo)
 		# replace blank cells with 'NaN'
 		df_current = df.replace('', np.nan)
 
 		# drop rows with NaN values
 		df_current.dropna(subset=[demo], inplace=True)
+		print(df_current[demo].value_counts())
 
 		# make bar plot of current demographic
 		ax = df_current[demo].value_counts().plot(kind='bar', color='gray')
 		manager = plt.get_current_fig_manager()
 		manager.resize(*manager.window.maxsize())
-		_ = plt.title('Demographic: ' +demo)
 		_ = plt.xlabel(demo)
 		_ = plt.ylabel('number of responses')
 		_ = plt.xticks(rotation=90)
 		
-		rects = ax.patches
-		_ = bar_label(rects, 'bar')
+		#rects = ax.patches
+		#n = bar_label(rects, 'bar')
+		n = len(df_current.index)
 	
+		_ = plt.title('Demographic: ' +demo+ ' (N=' +str(n)+ ')')
 		_ = plt.savefig(demo+'.png', bbox_inches='tight')
 		_ = plt.close()
+
+###############################################################################
 
 		# Special case: calculate percentage of responders by state 
 		if demo == 'State':
@@ -163,7 +167,7 @@ def question1(df, demo_list, overall):
 			_ = plt.xlabel('State')
 			_ = plt.ylabel('percentage of BCBA responses')
 			_ = plt.axhline(y=overall, linestyle='--', color='black')
-			dash = mlines.Line2D([], [], color='black', marker='_', label='Overall BCBA response %')
+			dash = mlines.Line2D([], [], color='black', marker='_', linestyle='--', label='Overall BCBA response %')
 			_ = plt.legend(handles=[dash])
 			_ = plt.tight_layout()
 			_ = plt.savefig('State by percentage.png')
@@ -188,8 +192,8 @@ def oddballs(df):
 		bins = np.linspace(0, 30, 7)
 		ax = plt.hist(x, density=False, bins=bins, color='gray', histtype='bar', ec='black')
 		print(ax)
-		_ = bar_label(ax, 'hist')
-		_ = plt.title(odd + ' responses in 5 year bins (N=317)')
+		n = bar_label(ax, 'hist')
+		_ = plt.title(odd + ' responses in 5 year bins (N=' +str(n)+')')
 		_ = plt.xlabel(odd)
 		_ = plt.ylabel('Percentage of responders')
 
@@ -205,12 +209,15 @@ def oddballs(df):
 def bar_label(rects, plt_type):
 	''' labels bars in bar plot'''
 	
+	n = 0	
+
 	if plt_type == 'bar':
 
 		# for each bar: place a label
 		for rect in rects:
 	
 			y_value = rect.get_height()
+			n += y_value
 			x_value = rect.get_x() + rect.get_width() / 2
 
 
@@ -244,6 +251,7 @@ def bar_label(rects, plt_type):
 		for i in range(0, 6):
 			
 			y_value = yvalues[i]
+			n += y_value
 			x_value = xvalues[i] + 2.5
 
 			space = 2
@@ -259,7 +267,7 @@ def bar_label(rects, plt_type):
 				ha='center',
 				va=va)
 		
-	return
+	return n
 
 
 def time_graph(df):

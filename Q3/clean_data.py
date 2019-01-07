@@ -61,7 +61,7 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*BACB.*', value='Other-BACB requirements', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*Mentoring.*', value='Individual mentoring', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*experience.*', value='Other-personal experience', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*BCBA.*', value='Other-BCBA requirements', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*BCBA.*', value='Other-BACB requirements', inplace=True, regex=True)
 
 	if demo == 'Supervision resources':
 		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True)

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import numpy as np
 import clean_data
+import question_2
 
 
 def main():
@@ -46,7 +47,12 @@ def q2_add_prep():
 	supervision_list = clean_data.make_supervision_behaviors_list()
 
 	# RESEARCH QUESTION 2 ADDENUM
-	question2add(integers)
+	df = question2add(integers)
+
+	# SEND BACK TO ORIGINAL QUESTION
+	statistics, avg = question_2.question2(df, 100)
+		
+	question_2.q2_narrow(df, statistics, avg)
 	
 
 def question2add(df):
@@ -145,14 +151,23 @@ def question2add(df):
 	group8.dropna(inplace=True)
 
 
-	columns = ['Supervising within your scope', 'Supervisory volume', 'Supervisory delegation', \
-               'Designing effective training', 'Communication of supervision conditions', \
-               'Providing feedback to supervisees', 'Evaluating the effects of supervision', 'Misc']
+	columns = ['Supervising within your scope (5.01)', \
+               'Supervisory volume (5.02)', \
+               'Supervisory delegation (5.03)', \
+               'Designing effective training (5.04)', \
+               'Communication of supervision conditions (5.05)', \
+               'Providing feedback to supervisees (5.06)', \
+               'Evaluating the effects of supervision (5.07)', \
+               'Misc']
 
 	
 	df = pd.concat([group1, group2, group3, group4, group5, group6, group7, group8], axis=1, ignore_index=True)
 	df.columns = columns
 
+	os.chdir('..')
+
+	return df
+	'''
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
@@ -168,33 +183,51 @@ def question2add(df):
 	n_lists = len(data)
 	dfn = n_lists - 1
 
+	# Make lists to hold averages, median, and standard deviation
+	avg = []
+	med = []
+	stdev = []
+
 	# Sum up the number of data points in each list then subtract the number of lists
 	dfd = 0
 
 	for col in data:
 		dfd += len(col)
+		avg.append(round(np.mean(col), 3))
+		med.append(round(np.median(col), 3))
+		stdev.append(round(np.std(col), 3))
+
+	# Convert the lists to dataframe
+	statistics = pd.DataFrame({'mean':avg, 'median':med, 'std':stdev}, index=df.columns)
+	statistics = statistics.sort_values(by='mean', ascending=False)
+	print(statistics)
+
+	# Find the average of the averages
+	tot_avg = statistics['mean'].mean()
+
+	# Save the stats to a .csv file
+	statistics.to_csv('addendum_stats.csv')
 
 	dfd = dfd - n_lists
 
 	# Calculate the critical F value
 	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
+
+	# Sort dataframe in descending order
+	df = df.reindex(df.mean().sort_values(ascending=False).index, axis=1)
 	
 	# Make the boxplot
-	bp = plt.boxplot([group1, group2, group3, group4, group5, group6, group7, group8], \
-                      labels=columns, \
-                      patch_artist=True)
+	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
+	meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
 
-	# Chance color of boxes
-	for box in bp['boxes']:
- 		box.set(facecolor = 'gray')
- 
- 	# Change color of median line
-	for median in bp['medians']:
-		median.set(color = 'black')
+	bp = df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
 
 	_ = plt.title('Responses by Supervision Category, F('+str(dfn)+', '+str(dfd)+ \
                   ')='+str(round(f, 3))+' (F critical='+str(round(Fcrit, 3))+'), p='+p)
 
+	new_ticks = ['Almost never (1)', 'Rarely (2)', 'Sometimes (3)', 'Usually (4)', 'Almost always (5)']
+
+	_ = plt.yticks(np.arange(1, 5+1, step=1), new_ticks)
 	_ = plt.ylim(0.9, 5.1)
 	_ = plt.xlabel('Supervision categories')
 	_ = plt.ylabel('responses')
@@ -209,9 +242,9 @@ def question2add(df):
 	_ = plt.close()
 
 	os.chdir('..')
-
+	
 	return
-
+	'''
 	
 if __name__ == '__main__':
 	main()

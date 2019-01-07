@@ -87,7 +87,7 @@ def question3(df, demo_lst, bx_lst, plot):
 			positions = list(range(1,length))
 			grouped_list = list(grouped[bx])
 			grouped_df = pd.DataFrame.from_items(grouped_list)
-	
+			print(grouped_df)	
 			# How many columns: n_cols
 			n_cols = len(grouped_df.columns)
 			
@@ -97,11 +97,19 @@ def question3(df, demo_lst, bx_lst, plot):
 			# Initialize degrees of freedom denominator (dfd)
 			dfd = 0
 
+			# Make list to hold the average
+			#avg = []
+
 			# Make a list of columns from the dataframe and add up how many values are in each column (dfd)
 			for col in range(0, n_cols):
 				column=grouped_df.iloc[:,col].dropna().tolist()
 				col_list.append(column)
 				dfd += len(column)
+				#avg.append(round(np.mean(col), 3))
+
+			# Convert list to dataframe
+			#statistics = pd.DataFrame({'mean':avg}, index=df.columns)
+			#print(statistics)
 
 			# Drop empty lists
 			col_list = list(filter(None, col_list))
@@ -134,8 +142,16 @@ def question3(df, demo_lst, bx_lst, plot):
 			fig.set_size_inches(12, 10)
 
 			# Create boxplot from the lists made from the dataframe columns: col_list
-			bp = plt.boxplot(col_list, patch_artist=True)
-
+			# bp = plt.boxplot(col_list, patch_artist=True)
+			
+			############# NEW #################
+			# Sort dataframe in descending order
+			grouped_df = grouped_df.reindex(grouped_df.mean().sort_values(ascending=False).index, axis=1)
+			
+			color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
+			meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
+			_ = grouped_df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
+			'''
 			# Chance color of boxes
 			for box in bp['boxes']:
 				box.set(facecolor = 'gray')
@@ -143,14 +159,16 @@ def question3(df, demo_lst, bx_lst, plot):
 			# Change color of median line
 			for median in bp['medians']:
 				median.set(color = 'black')
-
+			'''
 			if plot == 'regular':
 				_ = plt.xticks(positions, names, rotation=90)
 
 			else:
 				_ = plt.xticks(positions, names, rotation=90)
 
-			_ = plt.yticks(np.arange(1, 5+1, step=1))
+			new_yticks = ['Almost never (1)', 'Rarely (2)', 'Sometimes (3)', 'Usually (4)', 'Almost always (5)']
+
+			_ = plt.yticks(np.arange(1, 5+1, step=1), new_yticks)
 			#_ = plt.suptitle(bx + ' responses grouped by ' + demo)
 			_ = plt.title(bx + ' responses grouped by ' + demo + \
                           ' (F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p + ')')

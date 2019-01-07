@@ -48,7 +48,7 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*[Ss]tate.*', value='Other-state', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Cc]ommunity.*', value='Other-community program', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*No longer provide.*', value='Other', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*Work place.*', value='Other-clinic', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Workplace.*', value='Other-clinic', inplace=True, regex=True)
 
 	if demo == 'Supervision training':
 		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Other-literature', inplace=True, regex=True)
@@ -61,7 +61,7 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*BACB.*', value='Other-BACB requirements', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*Mentoring.*', value='Individual mentoring', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*experience.*', value='Other-personal experience', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*BCBA.*', value='Other-BCBA requirements', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*BCBA.*', value='Other-BACB requirements', inplace=True, regex=True)
 
 	if demo == 'Supervision resources':
 		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True)
@@ -96,7 +96,7 @@ def combine_text(df, demo):
 		df[demo].replace(to_replace='.*doctoral studies.*', value='Other-literature', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Bb][Aa][Cc][Bb].*', value='Other-BACB materials', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*Task list.*', value='Other-BACB materials', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*articles.*', value='Other-iterature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*articles.*', value='Other-literature', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Cc]ooper.*', value='Other-Cooper book', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Pp]odcasts.*', value='Other-podcasts', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Cc]ompany.*', value='Other-company developed', inplace=True, regex=True)
