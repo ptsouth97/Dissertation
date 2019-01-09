@@ -39,43 +39,77 @@ def main():
 def combine_text(df, demo):
 	''' Replaces user text in Other fields with common values'''
 
-	#print(df[demo])
+	print('MERGING TEXT VALUES')
 
 	if demo == 'Supervision mode':
-		df[demo].replace(to_replace='.*[Ss]chool.*', value='School', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*district.*', value='School', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ss]chool.*', value='Other-school', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*district.*', value='Other-school', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]linic.*', value='Other-clinic', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ss]tate.*', value='Other-state', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]ommunity.*', value='Other-community program', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*No longer provide.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Workplace.*', value='Other-clinic', inplace=True, regex=True)
 
 	if demo == 'Supervision training':
-		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Literature', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*employer.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*agency.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*training at work.*', value='Company-based', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*etc.*', value='Other-not specified', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*Materials.*', value='Other-not specified', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ll]iterature.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Jj]ournal.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*employer.*', value='Other-company based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*agency.*', value='Other-company based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*training at work.*', value='Other-company based', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*etc.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Materials.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*BACB.*', value='Other-BACB requirements', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Mentoring.*', value='Individual mentoring', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*experience.*', value='Other-personal experience', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*BCBA.*', value='Other-BACB requirements', inplace=True, regex=True)
 
 	if demo == 'Supervision resources':
 		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*[Nn]othing.*', value='None', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*paid.*', value='Monetary compensation', inplace=True, regex=True)
 		df[demo].replace(to_replace='.*funds.*', value='Monetary compensation', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Ss]elf.*', value='Self', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ss]elf.*', value='Other-self', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*mentor ship.*', value='Other-mentorship', inplace=True, regex=True)     
+		df[demo].replace(to_replace='.*meeting.*', value='Other-meetings', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*40 hours.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*email.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*school ID.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*unfortunately.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*organization.*', value='Administrative assistance', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*CE.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*conference.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Data based.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*directly for.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*receive no.*', value='None', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Interms.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*OtherNa.*', value='None', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Team-based.*', value='Other-meetings', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Other BCBAs.*', value='Other-meetings', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*experience.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*online training.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*web-based.*', value='Other', inplace=True, regex=True)
 
 	if demo == 'Supervision fieldwork protocol source':
 		df[demo].replace(to_replace='.*[Nn]one.*', value='None', inplace=True, regex=True) 
-		df[demo].replace(to_replace='.*lit.*', value='Literature', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Bb][Aa][Cc][Bb].*', value='BACB materials', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*articles.*', value='Literature', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Cc]ooper.*', value='Cooper book', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Pp]odcasts.*', value='Podcasts', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Cc]ompany.*', value='Company-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Aa]gency.*', value='Company-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*[Ee]mployer.*', value='Company-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*own.*', value='Company-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*experience.*', value='Self-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*self.*', value='Self-developed', inplace=True, regex=True)
-		df[demo].replace(to_replace='^Other$', value='Other-not specified', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*I did not.*', value='Other-not specified', inplace=True, regex=True)
-		df[demo].replace(to_replace='.*Professional.*', value='Professional collaboration', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*lit.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Research.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*doctoral studies.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Bb][Aa][Cc][Bb].*', value='Other-BACB materials', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Task list.*', value='Other-BACB materials', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*articles.*', value='Other-literature', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]ooper.*', value='Other-Cooper book', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Pp]odcasts.*', value='Other-podcasts', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Cc]ompany.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Aa]gency.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*[Ee]mployer.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*clinic.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*own.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*experience.*', value='Other-self developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*self.*', value='Other-self developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='^Other$', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*I did not.*', value='Other', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Not sure.*', value='Other-company developed', inplace=True, regex=True)
+		df[demo].replace(to_replace='.*Professional.*', value='Other-professional collaboration', inplace=True, regex=True)
 
 	#print(df[demo])
 
@@ -132,7 +166,9 @@ def drop_bx(df):
 def make_demographics_list():
 	''' Create list of demographics'''
 
-	demog = ['Area of study', \
+	demog = ['Years certified', \
+             'Years supervisor', \
+             'Area of study', \
              'Job classification', \
              'Place of employment', \
              'State', \
@@ -151,11 +187,11 @@ def make_demographics_list():
 def make_supervision_behaviors_list():
 	''' Create the list of supervision behaviors'''
 
-	sup = ['Literature for new competency area', \
+	sup = ['Literature for new competency', \
            'Professional groups', \
-           'Outside training area - credentialing requirements', \
+           'Credentialing requirements', \
            'Supervision schedule', \
-           'Outside training area - training and supervision', \
+           'Training and supervision', \
            'Schedule contacts', \
            '60% fieldwork hours', \
            'Confirm required skill set', \
@@ -178,7 +214,7 @@ def make_supervision_behaviors_list():
            'BST case presentation', \
            'Send agenda', \
            'Meeting notes', \
-           'Return communications within 48 hours', \
+           'Return communications within 48', \
            'Discourage distractions', \
            'Observe body language', \
            'Maintain positive rapport', \
@@ -189,8 +225,8 @@ def make_supervision_behaviors_list():
            'Arrive on time', \
            'Discuss how to give feedback', \
            'Schedule direct observations', \
-           'Schedule standing supervision appointments', \
-           'Continue professional relationship', \
+           'Schedule standing appointments', \
+           'Continue relationship', \
            'Review literature', \
            'Attend conferences', \
            'Participate in peer review', \
@@ -239,8 +275,6 @@ def drop_metadata(df):
 
 	df.drop(['Start Date', \
              'End Date', \
-             'Response Type', \
-             'IP Address', \
              'Progress', \
              'Duration (in seconds)', \
              'Finished', \
