@@ -1,0 +1,11 @@
+group1,group2,meandiff,lower,upper,reject
+10% of patient's direct services,15% of patient's direct services,-0.0284,-0.3467,0.2899,False
+10% of patient's direct services,20% of patient's direct services,0.1155,-0.1907,0.4216,False
+10% of patient's direct services,5% of patient's direct services,-0.2081,-0.4764,0.0601,False
+10% of patient's direct services,I do not supervise RBTs.,-0.0797,-0.3097,0.1502,False
+15% of patient's direct services,20% of patient's direct services,0.1439,-0.2069,0.4947,False
+15% of patient's direct services,5% of patient's direct services,-0.1797,-0.498,0.1386,False
+15% of patient's direct services,I do not supervise RBTs.,-0.0513,-0.338,0.2354,False
+20% of patient's direct services,5% of patient's direct services,-0.3236,-0.6297,-0.0175,True
+20% of patient's direct services,I do not supervise RBTs.,-0.1952,-0.4684,0.078,False
+5% of patient's direct services,I do not supervise RBTs.,0.1284,-0.1015,0.3583,False

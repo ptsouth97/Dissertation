@@ -228,7 +228,9 @@ def make_supervision_behaviors_list():
            'Attend conferences', \
            'Participate in peer review', \
            'Seek mentorship', \
-           'Supervisory study groups']
+           'Supervisory study groups', \
+           'Review supervision contract']
+
 
 	return sup
 

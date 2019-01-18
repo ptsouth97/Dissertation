@@ -1,0 +1,7 @@
+ group1 group2 meandiff lower upper reject
+0 "Group and Individual fieldwork" "Group fieldwork" -0.4139 -0.8816 0.0538 False
+1 "Group and Individual fieldwork" "Individual fieldwork" -0.142 -0.2321 -0.0518 True
+2 "Group and Individual fieldwork" "Intensive practicum" -0.1243 -0.2955 0.047 False
+3 "Group fieldwork" "Individual fieldwork" 0.2719 -0.194 0.7379 False
+4 "Group fieldwork" "Intensive practicum" 0.2896 -0.1985 0.7778 False
+5 "Individual fieldwork" "Intensive practicum" 0.0177 -0.1487 0.1841 False

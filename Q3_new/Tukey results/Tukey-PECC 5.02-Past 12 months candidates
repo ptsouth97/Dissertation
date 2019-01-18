@@ -1,0 +1,7 @@
+	group1	group2	meandiff	lower	upper	reject
+0	1-3 candidates	12+ candidates	0.3598	-0.0769	0.7965	False
+1	1-3 candidates	4-7 candidates	0.0788	-0.1365	0.2941	False
+2	1-3 candidates	7-11 candidates	0.3842	-0.066	0.8344	False
+3	12+ candidates	4-7 candidates	-0.281	-0.744	0.182	False
+4	12+ candidates	7-11 candidates	0.0245	-0.5844	0.6333	False
+5	4-7 candidates	7-11 candidates	0.3054	-0.1703	0.7811	False

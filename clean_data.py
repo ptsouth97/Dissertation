@@ -143,6 +143,63 @@ def text_to_int(df):
 	return df
 	
 
+def state_to_region(df):
+	''' Changes state initials to region'''
+
+	df.replace('Alabama', 'South', inplace=True)
+	df.replace('Alaska', 'West', inplace=True)
+	df.replace('Arizona', 'West', inplace=True)
+	df.replace('Arkansas', 'South', inplace=True)
+	df.replace('California', 'West', inplace=True)
+	df.replace('Colorado', 'West', inplace=True)
+	df.replace('Connecticut', 'Northeast', inplace=True)
+	df.replace('Delaware', 'South', inplace=True)
+	df.replace('Florida', 'South', inplace=True)
+	df.replace('Georgia', 'South', inplace=True)
+	df.replace('Hawaii', 'West', inplace=True)
+	df.replace('Idaho', 'West', inplace=True)
+	df.replace('Illinois', 'Midwest', inplace=True)
+	df.replace('Indiana', 'Midwest', inplace=True)
+	df.replace('Iowa', 'Midwest', inplace=True)
+	df.replace('Kansas', 'Midwest', inplace=True)
+	df.replace('Kentucky', 'South', inplace=True)
+	df.replace('Louisiana', 'South', inplace=True)
+	df.replace('Maine', 'Northeast', inplace=True)
+	df.replace('Maryland', 'South', inplace=True)
+	df.replace('Massachusetts', 'Northeast', inplace=True)
+	df.replace('Michigan', 'Midwest', inplace=True)
+	df.replace('Minnesota', 'Midwest', inplace=True)
+	df.replace('Mississippi', 'South', inplace=True)
+	df.replace('Missouri', 'Midwest', inplace=True)
+	df.replace('Montana', 'West', inplace=True)
+	df.replace('Nebraska', 'Midwest', inplace=True)
+	df.replace('Nevada', 'West', inplace=True)
+	df.replace('New Hampshire', 'Northeast', inplace=True)
+	df.replace('New Jersey', 'Northeast', inplace=True)
+	df.replace('New Mexico', 'West', inplace=True)
+	df.replace('New York', 'Northeast', inplace=True)
+	df.replace('North Carolina', 'South', inplace=True)
+	df.replace('North Dakota', 'Midwest', inplace=True)
+	df.replace('Ohio', 'Midwest', inplace=True)
+	df.replace('Oklahoma', 'South', inplace=True)
+	df.replace('Oregon', 'West', inplace=True)
+	df.replace('Pennsylvania', 'Northeast', inplace=True)
+	df.replace('Rhode Island', 'Northeast', inplace=True)
+	df.replace('South Carolina', 'South', inplace=True)
+	df.replace('South Dakota', 'Midwest', inplace=True)
+	df.replace('Tennessee', 'South', inplace=True)
+	df.replace('Texas', 'South', inplace=True)
+	df.replace('Utah', 'West', inplace=True)
+	df.replace('Vermont', 'Northeast', inplace=True)
+	df.replace('Virginia', 'South', inplace=True)
+	df.replace('Washington', 'West', inplace=True)
+	df.replace('West Virginia', 'South', inplace=True)
+	df.replace('Wisconsin', 'Midwest', inplace=True)
+	df.replace('Wyoming', 'West', inplace=True)
+
+	return df
+
+
 def drop_bx(df):
 	''' drop non-supervisor behaviors'''
 
@@ -231,7 +288,8 @@ def make_supervision_behaviors_list():
            'Attend conferences', \
            'Participate in peer review', \
            'Seek mentorship', \
-           'Supervisory study groups']
+           'Supervisory study groups', \
+           'Review supervision contract']
 
 	return sup
 

@@ -1,0 +1,69 @@
+,M,SD,F,p
+0-5 years,3.49,0.76,1.37,0.23
+11-15 years,3.36,0.78,1.37,0.23
+16-20 years,3.81,1.11,1.37,0.23
+21-25 years,3.48,0.02,1.37,0.23
+26-30 years,3.25,0.0,1.37,0.23
+6-10 years,3.35,0.87,1.37,0.23
+0-5 years,3.47,0.78,0.43,0.83
+11-15 years,3.26,0.84,0.43,0.83
+16-20 years,3.24,0.9,0.43,0.83
+21-25 years,3.45,0.0,0.43,0.83
+26-30 years,3.25,0.0,0.43,0.83
+6-10 years,3.41,0.89,0.43,0.83
+Behavior analysis,3.41,0.78,0.98,0.42
+Counseling,3.56,0.92,0.98,0.42
+Education,3.49,0.73,0.98,0.42
+Other,3.26,0.84,0.98,0.42
+Psychology,3.51,0.9,0.98,0.42
+Behavior analyst,3.41,0.82,1.33,0.24
+Counselor,3.88,1.12,1.33,0.24
+Other,3.66,0.85,1.33,0.24
+Professor,3.62,0.64,1.33,0.24
+Psychologist,3.38,0.47,1.33,0.24
+Researcher,3.8,0.61,1.33,0.24
+Teacher,3.78,0.53,1.33,0.24
+Clinic,3.33,0.78,1.85,0.14
+Home-based,3.47,0.84,1.85,0.14
+Other,3.49,0.81,1.85,0.14
+University or college,3.59,0.67,1.85,0.14
+Midwest,3.4,0.86,0.46,0.77
+Northeast,3.44,0.83,0.46,0.77
+Outside US,3.37,0.69,0.46,0.77
+South,3.44,0.91,0.46,0.77
+West,3.55,0.83,0.46,0.77
+Group and Individual fieldwork,3.56,0.83,1.77,0.15
+Group fieldwork,3.66,0.82,1.77,0.15
+Individual fieldwork,3.38,0.87,1.77,0.15
+Intensive practicum,3.41,0.72,1.77,0.15
+1-3 candidates,3.41,0.93,2.13,0.1
+12+ candidates,4.49,0.63,2.13,0.1
+4-7 candidates,3.55,0.94,2.13,0.1
+7-11 candidates,3.46,0.88,2.13,0.1
+1-3 candidates,3.4,0.98,2.34,0.07
+12+ candidates,4.04,0.77,2.34,0.07
+4-7 candidates,3.5,0.93,2.34,0.07
+7-11 candidates,3.45,1.04,2.34,0.07
+0 hours,3.31,1.01,3.2,0.01
+1-5 hours a week,3.38,0.92,3.2,0.01
+11-15 hours a week,4.02,0.86,3.2,0.01
+16+ hours a week,3.67,1.17,3.2,0.01
+6-10 hours a week,3.66,0.86,3.2,0.01
+0 hours,2.99,0.63,4.79,.00
+1-5 hours a week,3.33,0.99,4.79,.00
+11-15 hours a week,3.58,1.08,4.79,.00
+16+ hours a week,4.29,0.65,4.79,.00
+6-10 hours a week,3.63,0.9,4.79,.00
+1-3 clients/consumers,3.22,0.93,1.19,0.32
+12+ clients/consumers,3.43,0.97,1.19,0.32
+4-7 clients/consumers,3.57,0.81,1.19,0.32
+7-11 clients/consumer,3.38,1.06,1.19,0.32
+I do not provide consultation to clients/consumers,3.67,0.88,1.19,0.32
+Employer,3.47,0.94,0.11,0.9
+I do not provide consultation to clients/consumers,3.45,1.02,0.11,0.9
+Self,3.42,1.01,0.11,0.9
+10% of patient's direct services,3.48,1.02,1.71,0.15
+15% of patient's direct services,3.63,0.96,1.71,0.15
+20% of patient's direct services,3.6,1.07,1.71,0.15
+5% of patient's direct services,3.21,0.83,1.71,0.15
+I do not supervise RBTs.,3.46,0.96,1.71,0.15

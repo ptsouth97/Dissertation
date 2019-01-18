@@ -1,0 +1,11 @@
+ group1 group2 meandiff lower upper reject
+0 Midwest Northeast -0.0933 -0.2815 0.0949 False
+1 Midwest "Outside US" -0.0533 -0.2974 0.1908 False
+2 Midwest South -0.0005 -0.1691 0.1682 False
+3 Midwest West -0.1547 -0.3421 0.0326 False
+4 Northeast "Outside US" 0.0399 -0.1928 0.2727 False
+5 Northeast South 0.0928 -0.0589 0.2445 False
+6 Northeast West -0.0615 -0.2337 0.1108 False
+7 "Outside US" South 0.0529 -0.1643 0.2701 False
+8 "Outside US" West -0.1014 -0.3335 0.1306 False
+9 South West -0.1543 -0.3049 -0.0036 True

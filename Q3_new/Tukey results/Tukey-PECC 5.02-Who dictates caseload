@@ -1,0 +1,4 @@
+	group1	group2	meandiff	lower	upper	reject
+0	Employer	I do not provide consultation to clients/consumers	0.5469	0.2348	0.8591	True
+1	Employer	Self	0.1613	-0.0069	0.3294	False
+2	I do not provide consultation to clients/consumers	Self	-0.3857	-0.7059	-0.0654	True

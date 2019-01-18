@@ -1,0 +1,82 @@
+Demographic,Demographic sub-type,M,SD,F,p
+Years certified,0-5 years,3.98,0.70,0.26,0.93
+,11-15 years,3.92,0.70,,
+,16-20 years,4.03,0.81,,
+,21-25 years,3.74,0.24,,
+,26-30 years,4.50,0.00,,
+,6-10 years,4.00,0.71,,
+,,,,,
+Years supervisor,0-5 years,3.97,0.68,1.24,0.29
+,11-15 years,3.80,0.80,,
+,16-20 years,3.50,0.61,,
+,21-25 years,3.98,0.00,,
+,26-30 years,4.50,0.00,,
+,6-10 years,4.09,0.75,,
+,,,,,
+Area of study,Behavior analysis,4.00,0.70,0.41,0.80
+,Counseling,3.98,0.47,,
+,Education,3.94,0.73,,
+,Other,3.94,0.75,,
+,Psychology,4.04,0.69,,
+,,,,,
+Job classification,Behavior analyst,3.98,0.72,0.52,0.80
+,Counselor,3.75,1.25,,
+,Other,4.05,0.74,,
+,Professor,3.96,0.53,,
+,Psychologist,3.83,0.60,,
+,Researcher,4.15,0.51,,
+,Teacher,4.25,0.36,,
+,,,,,
+Place of employment,Clinic,3.99,0.70,0.09,0.97
+,Home-based,3.96,0.76,,
+,Other,4.00,0.67,,
+,University or college,3.99,0.64,,
+,,,,,
+Region,Midwest,4.04,0.63,0.74,0.57
+,Northeast,3.91,0.74,,
+,Outside US,3.89,0.60,,
+,South,4.03,0.75,,
+,West,3.95,0.87,,
+,,,,,
+Supervision format,Group and Individual fieldwork,3.98,0.75,0.12,0.95
+,Group fieldwork,3.87,0.89,,
+,Individual fieldwork,4.00,0.73,,
+,Intensive practicum,3.93,0.81,,
+,,,,,
+Number of candidates,1-3 candidates,3.96,0.84,1.22,0.30
+,12+ candidates,4.26,1.02,,
+,4-7 candidates,4.11,0.68,,
+,7-11 candidates,3.70,0.93,,
+,,,,,
+Past 12 months candidates,1-3 candidates,3.93,0.87,0.92,0.43
+,12+ candidates,4.19,0.74,,
+,4-7 candidates,4.04,0.74,,
+,7-11 candidates,4.14,0.89,,
+,,,,,
+Allotted hours,0 hours,3.87,0.89,4.21,0.00
+,1-5 hours a week,3.89,0.83,,
+,11-15 hours a week,4.06,0.95,,
+,16+ hours a week,4.43,0.68,,
+,6-10 hours a week,4.25,0.67,,
+,,,,,
+Scheduled hours,0 hours,2.88,1.32,6.80,0.00
+,1-5 hours a week,3.89,0.81,,
+,11-15 hours a week,4.30,0.86,,
+,16+ hours a week,4.39,0.63,,
+,6-10 hours a week,4.11,0.77,,
+,,,,,
+Number of clients,1-3 clients/consumers,4.00,0.71,0.99,0.41
+,12+ clients/consumers,3.95,0.84,,
+,4-7 clients/consumers,4.09,0.75,,
+,7-11 clients/consumer,4.05,0.84,,
+,I do not provide consultation to clients/consumers,3.77,0.99,,
+,,,,,
+Who dictates caseload,Employer,3.95,0.82,0.34,0.71
+,I do not provide consultation to clients/consumers,3.94,0.77,,
+,Self,4.02,0.88,,
+,,,,,
+RBT supervision %,10% of patient's direct services,3.99,0.96,1.20,0.31
+,15% of patient's direct services,4.08,0.69,,
+,20% of patient's direct services,4.19,0.80,,
+,5% of patient's direct services,3.87,0.78,,
+,I do not supervise RBTs.,3.93,0.85,,

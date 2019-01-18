@@ -4,6 +4,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+from statsmodels.stats.multicomp import MultiComparison
 import numpy as np
 import clean_data
 
@@ -48,7 +50,7 @@ def q2_prep():
 	# RESEARCH QUESTION 2
 	statistics, avg  = question2(integers, 100)
 
-	q2_narrow(integers, statistics, avg)
+	#q2_narrow(integers, statistics, avg)
 	
 
 def q2_narrow(integers, statistics, avg):
@@ -99,10 +101,17 @@ def question2(df, n):
 	# change directory
 	os.chdir('./Q2_graphs')	
 
-	# Run ANOVA
+	# Run ANOVA using Scipy stats
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
-	
+	'''
+	# Run posthoc Tukey test if applicable
+	if p <= .05:
+		mc = MultiComparison(df, df.columns)
+		result = mc.tukeyhsd()
+		print(result)
+		print(mc.groupsunique)
+	'''
 	# Account for extremely small p-value
 	if p < 0.001:
 		p = '<.001'
@@ -131,7 +140,7 @@ def question2(df, n):
 	# Convert the lists to dataframe
 	statistics = pd.DataFrame({'mean':avg, 'median':med, 'std':stdev}, index=df.columns)
 	statistics = statistics.sort_values(by='mean', ascending=False)
-	print(statistics)
+	#print(statistics)
 
 	# Find the average of the averages
 	tot_avg = statistics['mean'].mean()
@@ -144,6 +153,42 @@ def question2(df, n):
 	# Calculate the critical F value
 	Fcrit = stats.f.ppf(q=1-0.05, dfn=dfn, dfd=dfd)
 
+	# Calculate Sum of Squares Between groups
+	SSbetween = 10.533
+ 
+	# Calculate Sum of Squares Within groups
+	SSwithin = 12.8
+
+	# Calculate Mean Square Between groups
+	MSbetween = 5.267
+
+	# Create result table
+	result_table = pd.DataFrame(index=['Between Groups', 'Within Groups', 'Total'], \
+                              columns=['Sum of Squares', 'df', 'Mean Square', 'F', 'Sig.'])
+
+	result_table.loc['Between Groups', 'Sum of Squares'] = SSbetween
+	result_table.loc['Between Groups', 'df'] = dfn
+	result_table.loc['Between Groups', 'Mean Square'] = MSbetween
+	result_table.loc['Between Groups', 'F'] = f
+	result_table.loc['Between Groups', 'Sig.'] = p
+
+
+	print(result_table)
+	result_table.to_csv('result_table.csv')
+
+	fig, ax = plt.subplots()
+
+	fig.patch.set_visible(False)
+	ax.axis('off')
+	ax.axis('tight')
+
+	ax.table(cellText=result_table.values, colLabels=result_table.columns, loc='center')
+	#fig.tight_layout()
+	fig.savefig('results.png')
+	plt.show()
+	plt.close()
+
+#########################################################
 	# Sort dataframe in descending order
 	df = df.reindex(df.mean().sort_values(ascending=False).index, axis=1)
 

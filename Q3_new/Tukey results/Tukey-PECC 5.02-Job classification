@@ -1,0 +1,22 @@
+	group1	group2	meandiff	lower	upper	reject
+0	Behavior analyst	Counselor	-0.3954	-1.5358	0.7449	False
+1	Behavior analyst	Other	0.1987	-0.0768	0.4743	False
+2	Behavior analyst	Professor	0.2998	-0.0139	0.6135	False
+3	Behavior analyst	Psychologist	-0.0628	-0.4223	0.2967	False
+4	Behavior analyst	Researcher	0.1815	-0.4316	0.7945	False
+5	Behavior analyst	Teacher	0.2016	-0.3725	0.7757	False
+6	Counselor	Other	0.5942	-0.5739	1.7622	False
+7	Counselor	Professor	0.6952	-0.4824	1.8729	False
+8	Counselor	Psychologist	0.3326	-0.858	1.5233	False
+9	Counselor	Researcher	0.5769	-0.7132	1.867	False
+10	Counselor	Teacher	0.597	-0.675	1.869	False
+11	Other	Professor	0.1011	-0.3019	0.5041	False
+12	Other	Psychologist	-0.2615	-0.7011	0.1781	False
+13	Other	Researcher	-0.0173	-0.6804	0.6459	False
+14	Other	Teacher	0.0028	-0.6245	0.6302	False
+15	Professor	Psychologist	-0.3626	-0.8271	0.1019	False
+16	Professor	Researcher	-0.1183	-0.7983	0.5616	False
+17	Professor	Teacher	-0.0982	-0.7433	0.5468	False
+18	Psychologist	Researcher	0.2443	-0.458	0.9465	False
+19	Psychologist	Teacher	0.2644	-0.4041	0.9329	False
+20	Researcher	Teacher	0.0201	-0.8126	0.8528	False

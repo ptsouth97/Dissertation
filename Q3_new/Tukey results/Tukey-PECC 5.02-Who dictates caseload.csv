@@ -1,0 +1,4 @@
+group1,group2,meandiff,lower,upper,reject
+Employer,I do not provide consultation to clients/consumers,0.5469,0.2348,0.8591,True
+Employer,Self,0.1613,-0.0069,0.3294,False
+I do not provide consultation to clients/consumers,Self,-0.3857,-0.7059,-0.0654,True

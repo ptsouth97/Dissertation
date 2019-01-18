@@ -1,0 +1,7 @@
+group1,group2,meandiff,lower,upper,reject
+Clinic,Home-based,-0.0969,-0.2531,0.0593,False
+Clinic,Other,0.1517,-0.0001,0.3035,False
+Clinic,University or college,0.3033,0.0828,0.5238,True
+Home-based,Other,0.2486,0.0965,0.4007,True
+Home-based,University or college,0.4002,0.1795,0.6209,True
+Other,University or college,0.1516,-0.066,0.3693,False

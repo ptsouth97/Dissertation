@@ -46,13 +46,16 @@ def q2_add_prep():
 	# Make list of supervision behaviors
 	supervision_list = clean_data.make_supervision_behaviors_list()
 
+	# Make list of demographics
+	demo_list = clean_data.make_demographics_list()
+
 	# RESEARCH QUESTION 2 ADDENUM
 	df = question2add(integers)
 
 	# SEND BACK TO ORIGINAL QUESTION
-	statistics, avg = question_2.question2(df, 100)
+	#statistics, avg = question_2.question2(df, 100)
 		
-	question_2.q2_narrow(df, statistics, avg)
+	#question_2.q2_narrow(df, statistics, avg)
 	
 
 def question2add(df):
@@ -167,10 +170,11 @@ def question2add(df):
 	os.chdir('..')
 
 	return df
-	'''
+
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
+	print(stats.f_oneway(*data)
 
 	# Account for extremely small p-value
 	if p < 0.001:
@@ -244,7 +248,7 @@ def question2add(df):
 	os.chdir('..')
 	
 	return
-	'''
+	
 	
 if __name__ == '__main__':
 	main()

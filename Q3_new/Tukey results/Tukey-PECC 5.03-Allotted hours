@@ -1,0 +1,11 @@
+	group1	group2	meandiff	lower	upper	reject
+0	0 hours	1-5 hours a week	0.0186	-0.2741	0.3112	False
+1	0 hours	11-15 hours a week	0.1966	-0.417	0.8103	False
+2	0 hours	16+ hours a week	0.5588	-0.0007	1.1183	False
+3	0 hours	6-10 hours a week	0.3798	0.006	0.7535	True
+4	1-5 hours a week	11-15 hours a week	0.1781	-0.4085	0.7647	False
+5	1-5 hours a week	16+ hours a week	0.5403	0.0106	1.07	True
+6	1-5 hours a week	6-10 hours a week	0.3612	0.0338	0.6887	True
+7	11-15 hours a week	16+ hours a week	0.3622	-0.3938	1.1181	False
+8	11-15 hours a week	6-10 hours a week	0.1832	-0.4478	0.8141	False
+9	16+ hours a week	6-10 hours a week	-0.179	-0.7575	0.3994	False

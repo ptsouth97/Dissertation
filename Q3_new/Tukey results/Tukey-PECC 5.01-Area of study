@@ -1,0 +1,11 @@
+	group1	group2	meandiff	lower	upper	reject
+0	Behavior analysis	Counseling	-0.0489	-0.3258	0.228	False
+1	Behavior analysis	Education	-0.1388	-0.278	0.0003	False
+2	Behavior analysis	Other	-0.2468	-0.4869	-0.0066	True
+3	Behavior analysis	Psychology	-0.017	-0.1789	0.1449	False
+4	Counseling	Education	-0.0899	-0.372	0.1922	False
+5	Counseling	Other	-0.1978	-0.5412	0.1455	False
+6	Counseling	Psychology	0.0319	-0.2621	0.3259	False
+7	Education	Other	-0.1079	-0.354	0.1382	False
+8	Education	Psychology	0.1218	-0.0487	0.2924	False
+9	Other	Psychology	0.2298	-0.0299	0.4894	False
