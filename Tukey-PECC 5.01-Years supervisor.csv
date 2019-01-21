@@ -1,0 +1,16 @@
+group1,group2,meandiff,lower,upper,reject
+0-5 years,11-15 years,0.0701,-0.2278,0.3679,False
+0-5 years,16-20 years,0.4543,-0.2442,1.1528,False
+0-5 years,21-25 years,0.0417,-1.3503,1.4337,False
+0-5 years,26-30 years,-0.4082,-1.8002,0.9838,False
+0-5 years,6-10 years,0.2034,0.0452,0.3616,True
+11-15 years,16-20 years,0.3842,-0.369,1.1374,False
+11-15 years,21-25 years,-0.0284,-1.4486,1.3918,False
+11-15 years,26-30 years,-0.4782,-1.8984,0.942,False
+11-15 years,6-10 years,0.1333,-0.1898,0.4564,False
+16-20 years,21-25 years,-0.4126,-1.967,1.1418,False
+16-20 years,26-30 years,-0.8625,-2.4169,0.6919,False
+16-20 years,6-10 years,-0.2509,-0.9605,0.4587,False
+21-25 years,26-30 years,-0.4499,-2.416,1.5163,False
+21-25 years,6-10 years,0.1617,-1.2359,1.5593,False
+26-30 years,6-10 years,0.6116,-0.786,2.0092,False

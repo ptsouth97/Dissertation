@@ -7,6 +7,7 @@ from scipy import stats
 import numpy as np
 import clean_data
 import question_2
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 
 def main():
@@ -19,14 +20,14 @@ def q2_add_prep():
 	''' Prepares data for research question 3'''
 	
 	# Move up one directory level
-	os.chdir('..')
+	#os.chdir('..')
 
 	# Read the survey results file into a pandas dataframe
 	file_name = 'responses.csv'
 	df = pd.read_csv(file_name, header=1, skiprows=[2])
 
 	# Move back into question 2 directory
-	os.chdir('./Q2')
+	#os.chdir('./Q2')
 
 	# Drop un-finished responses
 	finished = df.drop(df[df['Finished'] == False].index)
@@ -51,6 +52,8 @@ def q2_add_prep():
 
 	# RESEARCH QUESTION 2 ADDENUM
 	df = question2add(integers)
+	print(df)
+	run_stats(df)
 
 	# SEND BACK TO ORIGINAL QUESTION
 	#statistics, avg = question_2.question2(df, 100)
@@ -61,14 +64,14 @@ def q2_add_prep():
 def question2add(df):
 	''' Changes column labels from supervision behavior to the category it falls in'''
  
-	os.chdir('./Q2_graphs')
+	#os.chdir('./Q2_graphs')
 
 	# SUPERVISING WITHIN YOUR SCOPE
-	group1 = pd.concat([df['Literature for new competency area'], \
+	group1 = pd.concat([df['Literature for new competency'], \
                         df['Supervisory study groups'], \
                         df['Professional groups'], \
-                        df['Outside training area - credentialing requirements'], \
-                        df['Outside training area - training and supervision'], \
+                        df['Credentialing requirements'], \
+                        df['Training and supervision'], \
                         df['Supervisory study groups']], ignore_index=True)
 
 	group1.dropna(inplace=True)
@@ -125,12 +128,12 @@ def question2add(df):
 
 	# MISC
 	group8 = pd.concat([df['Peer evaluate'], \
-                        df['Return communications within 48 hours'], \
+                        df['Return communications within 48'], \
                         df['Take baseline'], \
                         df['Detect barriers to supervision'], \
                         df['BST case presentation'], \
                         df['Send agenda'], \
-                        df['Continue professional relationship'], \
+                        df['Continue relationship'], \
                         df['Observe body language'], \
                         df['Maintain positive rapport'], \
                         df['Self-assess interpersonal skills'], \
@@ -141,7 +144,7 @@ def question2add(df):
                         df['Arrive on time'], \
                         df['Discuss how to give feedback'], \
                         df['Schedule direct observations'], \
-                        df['Schedule standing supervision appointments'], \
+                        df['Schedule standing appointments'], \
                         df['Review literature'], \
                         df['Meeting notes'], \
                         df['Attend conferences'], \
@@ -167,14 +170,39 @@ def question2add(df):
 	df = pd.concat([group1, group2, group3, group4, group5, group6, group7, group8], axis=1, ignore_index=True)
 	df.columns = columns
 
-	os.chdir('..')
+	# os.chdir('..')
 
 	return df
+
+
+def run_stats(df):
+	''' Do the stats for q2 addendum'''
 
 	# Run ANOVA
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
-	print(stats.f_oneway(*data)
+	print(stats.f_oneway(*data))
+
+	# Initialize new dataframe to hold results for tukey test
+	tukey_df = pd.DataFrame()
+
+	for col_name in df.columns:
+		temp = df.loc[:, [col_name]]
+		temp['identity'] = col_name
+		temp = temp.rename(columns={col_name:'score'})
+		tukey_df = tukey_df.append(temp)
+
+	print('HERE IS THE FINAL DF FOR TUKEY')
+	tukey_df = tukey_df.dropna()
+	tukey_df = tukey_df.reset_index(drop=True)
+	print(tukey_df)
+
+	posthoc = pairwise_tukeyhsd(tukey_df['score'], tukey_df['identity'])
+	tukey_results = pd.DataFrame(data=posthoc._results_table.data[1:],
+                              columns=posthoc._results_table.data[0])
+	tukey_results.to_csv('Q2-Tukey.csv', index=False)
+	print(posthoc)
+
 
 	# Account for extremely small p-value
 	if p < 0.001:
@@ -187,10 +215,10 @@ def question2add(df):
 	n_lists = len(data)
 	dfn = n_lists - 1
 
-	# Make lists to hold averages, median, and standard deviation
+	# Make lists to hold averages, medians, and standard deviations
 	avg = []
 	med = []
-	stdev = []
+	std = []
 
 	# Sum up the number of data points in each list then subtract the number of lists
 	dfd = 0
@@ -199,15 +227,18 @@ def question2add(df):
 		dfd += len(col)
 		avg.append(round(np.mean(col), 3))
 		med.append(round(np.median(col), 3))
-		stdev.append(round(np.std(col), 3))
+		std.append(round(np.std(col), 3))
 
 	# Convert the lists to dataframe
-	statistics = pd.DataFrame({'mean':avg, 'median':med, 'std':stdev}, index=df.columns)
-	statistics = statistics.sort_values(by='mean', ascending=False)
+	statistics = pd.DataFrame({'M':avg, 'MD':med, 'SD':std}, index=df.columns)
+	statistics = statistics.sort_values(by='M', ascending=False)
+
+	# Assign F and p values to dataframe position
+	statistics = statistics.assign(F=f, p=p)
 	print(statistics)
 
 	# Find the average of the averages
-	tot_avg = statistics['mean'].mean()
+	tot_avg = statistics['M'].mean()
 
 	# Save the stats to a .csv file
 	statistics.to_csv('addendum_stats.csv')

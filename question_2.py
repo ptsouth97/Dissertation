@@ -5,7 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
-from statsmodels.stats.multicomp import MultiComparison
 import numpy as np
 import clean_data
 
@@ -104,14 +103,27 @@ def question2(df, n):
 	# Run ANOVA using Scipy stats
 	data = [df[col].dropna() for col in df]
 	f, p = stats.f_oneway(*data)
-	'''
-	# Run posthoc Tukey test if applicable
-	if p <= .05:
-		mc = MultiComparison(df, df.columns)
-		result = mc.tukeyhsd()
-		print(result)
-		print(mc.groupsunique)
-	'''
+
+	# Initialize new dataframe to hold results for tukey test
+	tukey_df = pd.DataFrame()
+
+	for col_name in df.columns:
+		temp = df.loc[:, [col_name]]
+		temp['identity'] = col_name
+		temp = temp.rename(columns={col_name:'score'})
+		tukey_df = tukey_df.append(temp)
+
+	print('HERE IS THE FINAL DF FOR TUKEY')
+	tukey_df = tukey_df.dropna()
+	tukey_df = tukey_df.reset_index(drop=True)
+	print(tukey_df)
+
+	posthoc = pairwise_tukeyhsd(tukey_df['score'], tukey_df['identity'])
+	tukey_results = pd.DataFrame(data=posthoc._results_table.data[1:],
+                              columns=posthoc._results_table.data[0])
+	tukey_results.to_csv('Q2-Tukey.csv', index=False)
+	print(posthoc)
+	
 	# Account for extremely small p-value
 	if p < 0.001:
 		p = '<.001'

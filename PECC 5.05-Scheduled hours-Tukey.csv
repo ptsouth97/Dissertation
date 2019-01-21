@@ -1,0 +1,11 @@
+group1,group2,meandiff,lower,upper,reject
+0 hours,1-5 hours a week,0.304,-0.1863,0.7943,False
+0 hours,11-15 hours a week,0.4619,-0.0844,1.0082,False
+0 hours,16+ hours a week,0.4951,-0.1089,1.099,False
+0 hours,6-10 hours a week,0.4236,-0.0809,0.9281,False
+1-5 hours a week,11-15 hours a week,0.1579,-0.1152,0.431,False
+1-5 hours a week,16+ hours a week,0.1911,-0.1843,0.5664,False
+1-5 hours a week,6-10 hours a week,0.1196,-0.0554,0.2946,False
+11-15 hours a week,16+ hours a week,0.0332,-0.4129,0.4792,False
+11-15 hours a week,6-10 hours a week,-0.0383,-0.3362,0.2595,False
+16+ hours a week,6-10 hours a week,-0.0715,-0.4652,0.3222,False

@@ -1,0 +1,1036 @@
+group1,group2,meandiff,lower,upper,reject
+60% fieldwork hours,Arrive on time,1.0,0.657,1.343,True
+60% fieldwork hours,Attend conferences,0.4448,0.1018,0.7878,True
+60% fieldwork hours,BST case presentation,-0.1104,-0.4534,0.2326,False
+60% fieldwork hours,Behavior skills training,0.5142,0.1712,0.8572,True
+60% fieldwork hours,Confirm required skill set,0.1325,-0.2105,0.4755,False
+60% fieldwork hours,Continue relationship,0.2839,-0.0591,0.6269,False
+60% fieldwork hours,Create group activities,-1.3281,-1.671,-0.9851,True
+60% fieldwork hours,Credentialing requirements,0.6508,0.0871,1.2145,True
+60% fieldwork hours,Detect barriers to supervision,0.6025,0.2596,0.9455,True
+60% fieldwork hours,Discourage distractions,0.7539,0.411,1.0969,True
+60% fieldwork hours,Discuss how to give feedback,0.7287,0.3857,1.0717,True
+60% fieldwork hours,Document feedback,0.0599,-0.283,0.4029,False
+60% fieldwork hours,Evaluate client performance,-0.5457,-0.8887,-0.2028,True
+60% fieldwork hours,Evaluate supervisee performance,-0.4132,-0.7562,-0.0703,True
+60% fieldwork hours,Group supervision,-1.3028,-1.6458,-0.9599,True
+60% fieldwork hours,Immediate feedback,0.4858,0.1428,0.8288,True
+60% fieldwork hours,Include ethics,0.8833,0.5403,1.2263,True
+60% fieldwork hours,Instructions and demonstration,0.7445,0.4015,1.0874,True
+60% fieldwork hours,Literature for new competency,0.2366,-0.1064,0.5796,False
+60% fieldwork hours,Maintain positive rapport,1.0757,0.7327,1.4187,True
+60% fieldwork hours,Meeting notes,-0.2555,-0.5985,0.0874,False
+60% fieldwork hours,Observe body language,0.6088,0.2659,0.9518,True
+60% fieldwork hours,Participate in peer review,-0.4827,-0.9041,-0.0613,True
+60% fieldwork hours,Peer evaluate,-1.5647,-1.9076,-1.2217,True
+60% fieldwork hours,Performance expectations,0.7697,0.4267,1.1127,True
+60% fieldwork hours,Positive and corrective feedback,0.9369,0.5939,1.2799,True
+60% fieldwork hours,Practice skill set,0.2808,-0.0622,0.6237,False
+60% fieldwork hours,Professional groups,-0.8991,-1.242,-0.5561,True
+60% fieldwork hours,Return communications within 48,1.0252,0.6823,1.3682,True
+60% fieldwork hours,Review literature,0.4953,0.1523,0.8382,True
+60% fieldwork hours,Review supervision contract,0.9085,0.5655,1.2515,True
+60% fieldwork hours,Schedule contacts,0.5678,0.2249,0.9108,True
+60% fieldwork hours,Schedule direct observations,0.8391,0.4961,1.1821,True
+60% fieldwork hours,Schedule standing appointments,0.4227,0.0797,0.7657,True
+60% fieldwork hours,Seek mentorship,-0.1262,-0.4692,0.2168,False
+60% fieldwork hours,Self-assess interpersonal skills,0.7035,0.3605,1.0464,True
+60% fieldwork hours,Send agenda,-1.1514,-1.4944,-0.8084,True
+60% fieldwork hours,Supervision fidelity,-1.0379,-1.3808,-0.6949,True
+60% fieldwork hours,Supervision schedule,-0.4795,-0.8225,-0.1365,True
+60% fieldwork hours,Supervision termination clause,1.082,0.739,1.425,True
+60% fieldwork hours,Supervisory study groups,-1.4259,-1.7688,-1.0829,True
+60% fieldwork hours,Take baseline,-0.5868,-0.9297,-0.2438,True
+60% fieldwork hours,Training and supervision,0.7202,0.1565,1.2839,True
+60% fieldwork hours,Written evaluation system,-0.1104,-0.4534,0.2326,False
+60% fieldwork hours,Written supervision contract,1.1136,0.7706,1.4565,True
+Arrive on time,Attend conferences,-0.5552,-0.8982,-0.2122,True
+Arrive on time,BST case presentation,-1.1104,-1.4534,-0.7674,True
+Arrive on time,Behavior skills training,-0.4858,-0.8288,-0.1428,True
+Arrive on time,Confirm required skill set,-0.8675,-1.2105,-0.5245,True
+Arrive on time,Continue relationship,-0.7161,-1.0591,-0.3731,True
+Arrive on time,Create group activities,-2.3281,-2.671,-1.9851,True
+Arrive on time,Credentialing requirements,-0.3492,-0.9129,0.2145,False
+Arrive on time,Detect barriers to supervision,-0.3975,-0.7404,-0.0545,True
+Arrive on time,Discourage distractions,-0.2461,-0.589,0.0969,False
+Arrive on time,Discuss how to give feedback,-0.2713,-0.6143,0.0717,False
+Arrive on time,Document feedback,-0.9401,-1.283,-0.5971,True
+Arrive on time,Evaluate client performance,-1.5457,-1.8887,-1.2028,True
+Arrive on time,Evaluate supervisee performance,-1.4132,-1.7562,-1.0703,True
+Arrive on time,Group supervision,-2.3028,-2.6458,-1.9599,True
+Arrive on time,Immediate feedback,-0.5142,-0.8572,-0.1712,True
+Arrive on time,Include ethics,-0.1167,-0.4597,0.2263,False
+Arrive on time,Instructions and demonstration,-0.2555,-0.5985,0.0874,False
+Arrive on time,Literature for new competency,-0.7634,-1.1064,-0.4204,True
+Arrive on time,Maintain positive rapport,0.0757,-0.2673,0.4187,False
+Arrive on time,Meeting notes,-1.2555,-1.5985,-0.9126,True
+Arrive on time,Observe body language,-0.3912,-0.7341,-0.0482,True
+Arrive on time,Participate in peer review,-1.4827,-1.9041,-1.0613,True
+Arrive on time,Peer evaluate,-2.5647,-2.9076,-2.2217,True
+Arrive on time,Performance expectations,-0.2303,-0.5733,0.1127,False
+Arrive on time,Positive and corrective feedback,-0.0631,-0.4061,0.2799,False
+Arrive on time,Practice skill set,-0.7192,-1.0622,-0.3763,True
+Arrive on time,Professional groups,-1.8991,-2.242,-1.5561,True
+Arrive on time,Return communications within 48,0.0252,-0.3177,0.3682,False
+Arrive on time,Review literature,-0.5047,-0.8477,-0.1618,True
+Arrive on time,Review supervision contract,-0.0915,-0.4345,0.2515,False
+Arrive on time,Schedule contacts,-0.4322,-0.7751,-0.0892,True
+Arrive on time,Schedule direct observations,-0.1609,-0.5039,0.1821,False
+Arrive on time,Schedule standing appointments,-0.5773,-0.9203,-0.2343,True
+Arrive on time,Seek mentorship,-1.1262,-1.4692,-0.7832,True
+Arrive on time,Self-assess interpersonal skills,-0.2965,-0.6395,0.0464,False
+Arrive on time,Send agenda,-2.1514,-2.4944,-1.8084,True
+Arrive on time,Supervision fidelity,-2.0379,-2.3808,-1.6949,True
+Arrive on time,Supervision schedule,-1.4795,-1.8225,-1.1365,True
+Arrive on time,Supervision termination clause,0.082,-0.261,0.425,False
+Arrive on time,Supervisory study groups,-2.4259,-2.7688,-2.0829,True
+Arrive on time,Take baseline,-1.5868,-1.9297,-1.2438,True
+Arrive on time,Training and supervision,-0.2798,-0.8435,0.2839,False
+Arrive on time,Written evaluation system,-1.1104,-1.4534,-0.7674,True
+Arrive on time,Written supervision contract,0.1136,-0.2294,0.4565,False
+Attend conferences,BST case presentation,-0.5552,-0.8982,-0.2122,True
+Attend conferences,Behavior skills training,0.0694,-0.2736,0.4124,False
+Attend conferences,Confirm required skill set,-0.3123,-0.6553,0.0307,False
+Attend conferences,Continue relationship,-0.1609,-0.5039,0.1821,False
+Attend conferences,Create group activities,-1.7729,-2.1158,-1.4299,True
+Attend conferences,Credentialing requirements,0.206,-0.3577,0.7697,False
+Attend conferences,Detect barriers to supervision,0.1577,-0.1852,0.5007,False
+Attend conferences,Discourage distractions,0.3091,-0.0338,0.6521,False
+Attend conferences,Discuss how to give feedback,0.2839,-0.0591,0.6269,False
+Attend conferences,Document feedback,-0.3849,-0.7278,-0.0419,True
+Attend conferences,Evaluate client performance,-0.9905,-1.3335,-0.6476,True
+Attend conferences,Evaluate supervisee performance,-0.858,-1.201,-0.5151,True
+Attend conferences,Group supervision,-1.7476,-2.0906,-1.4047,True
+Attend conferences,Immediate feedback,0.041,-0.302,0.384,False
+Attend conferences,Include ethics,0.4385,0.0955,0.7815,True
+Attend conferences,Instructions and demonstration,0.2997,-0.0433,0.6427,False
+Attend conferences,Literature for new competency,-0.2082,-0.5512,0.1348,False
+Attend conferences,Maintain positive rapport,0.6309,0.2879,0.9739,True
+Attend conferences,Meeting notes,-0.7003,-1.0433,-0.3573,True
+Attend conferences,Observe body language,0.164,-0.1789,0.507,False
+Attend conferences,Participate in peer review,-0.9275,-1.3489,-0.5061,True
+Attend conferences,Peer evaluate,-2.0095,-2.3524,-1.6665,True
+Attend conferences,Performance expectations,0.3249,-0.018,0.6679,False
+Attend conferences,Positive and corrective feedback,0.4921,0.1491,0.8351,True
+Attend conferences,Practice skill set,-0.164,-0.507,0.1789,False
+Attend conferences,Professional groups,-1.3438,-1.6868,-1.0009,True
+Attend conferences,Return communications within 48,0.5804,0.2375,0.9234,True
+Attend conferences,Review literature,0.0505,-0.2925,0.3934,False
+Attend conferences,Review supervision contract,0.4637,0.1208,0.8067,True
+Attend conferences,Schedule contacts,0.123,-0.2199,0.466,False
+Attend conferences,Schedule direct observations,0.3943,0.0514,0.7373,True
+Attend conferences,Schedule standing appointments,-0.0221,-0.3651,0.3209,False
+Attend conferences,Seek mentorship,-0.571,-0.9139,-0.228,True
+Attend conferences,Self-assess interpersonal skills,0.2587,-0.0843,0.6016,False
+Attend conferences,Send agenda,-1.5962,-1.9392,-1.2532,True
+Attend conferences,Supervision fidelity,-1.4826,-1.8256,-1.1397,True
+Attend conferences,Supervision schedule,-0.9243,-1.2673,-0.5813,True
+Attend conferences,Supervision termination clause,0.6372,0.2943,0.9802,True
+Attend conferences,Supervisory study groups,-1.8707,-2.2136,-1.5277,True
+Attend conferences,Take baseline,-1.0315,-1.3745,-0.6886,True
+Attend conferences,Training and supervision,0.2754,-0.2883,0.8391,False
+Attend conferences,Written evaluation system,-0.5552,-0.8982,-0.2122,True
+Attend conferences,Written supervision contract,0.6688,0.3258,1.0117,True
+BST case presentation,Behavior skills training,0.6246,0.2816,0.9676,True
+BST case presentation,Confirm required skill set,0.2429,-0.1001,0.5859,False
+BST case presentation,Continue relationship,0.3943,0.0514,0.7373,True
+BST case presentation,Create group activities,-1.2177,-1.5606,-0.8747,True
+BST case presentation,Credentialing requirements,0.7612,0.1975,1.3249,True
+BST case presentation,Detect barriers to supervision,0.7129,0.37,1.0559,True
+BST case presentation,Discourage distractions,0.8644,0.5214,1.2073,True
+BST case presentation,Discuss how to give feedback,0.8391,0.4961,1.1821,True
+BST case presentation,Document feedback,0.1703,-0.1726,0.5133,False
+BST case presentation,Evaluate client performance,-0.4353,-0.7783,-0.0924,True
+BST case presentation,Evaluate supervisee performance,-0.3028,-0.6458,0.0401,False
+BST case presentation,Group supervision,-1.1924,-1.5354,-0.8495,True
+BST case presentation,Immediate feedback,0.5962,0.2532,0.9392,True
+BST case presentation,Include ethics,0.9937,0.6507,1.3367,True
+BST case presentation,Instructions and demonstration,0.8549,0.5119,1.1979,True
+BST case presentation,Literature for new competency,0.347,0.004,0.69,True
+BST case presentation,Maintain positive rapport,1.1861,0.8431,1.5291,True
+BST case presentation,Meeting notes,-0.1451,-0.4881,0.1979,False
+BST case presentation,Observe body language,0.7192,0.3763,1.0622,True
+BST case presentation,Participate in peer review,-0.3723,-0.7937,0.0491,False
+BST case presentation,Peer evaluate,-1.4543,-1.7972,-1.1113,True
+BST case presentation,Performance expectations,0.8801,0.5372,1.2231,True
+BST case presentation,Positive and corrective feedback,1.0473,0.7043,1.3903,True
+BST case presentation,Practice skill set,0.3912,0.0482,0.7341,True
+BST case presentation,Professional groups,-0.7886,-1.1316,-0.4457,True
+BST case presentation,Return communications within 48,1.1356,0.7927,1.4786,True
+BST case presentation,Review literature,0.6057,0.2627,0.9486,True
+BST case presentation,Review supervision contract,1.0189,0.676,1.3619,True
+BST case presentation,Schedule contacts,0.6782,0.3353,1.0212,True
+BST case presentation,Schedule direct observations,0.9495,0.6066,1.2925,True
+BST case presentation,Schedule standing appointments,0.5331,0.1902,0.8761,True
+BST case presentation,Seek mentorship,-0.0158,-0.3587,0.3272,False
+BST case presentation,Self-assess interpersonal skills,0.8139,0.4709,1.1569,True
+BST case presentation,Send agenda,-1.041,-1.384,-0.698,True
+BST case presentation,Supervision fidelity,-0.9274,-1.2704,-0.5845,True
+BST case presentation,Supervision schedule,-0.3691,-0.7121,-0.0261,True
+BST case presentation,Supervision termination clause,1.1924,0.8495,1.5354,True
+BST case presentation,Supervisory study groups,-1.3155,-1.6584,-0.9725,True
+BST case presentation,Take baseline,-0.4763,-0.8193,-0.1334,True
+BST case presentation,Training and supervision,0.8306,0.2669,1.3943,True
+BST case presentation,Written evaluation system,0.0,-0.343,0.343,False
+BST case presentation,Written supervision contract,1.224,0.881,1.5669,True
+Behavior skills training,Confirm required skill set,-0.3817,-0.7247,-0.0387,True
+Behavior skills training,Continue relationship,-0.2303,-0.5733,0.1127,False
+Behavior skills training,Create group activities,-1.8423,-2.1852,-1.4993,True
+Behavior skills training,Credentialing requirements,0.1366,-0.4271,0.7003,False
+Behavior skills training,Detect barriers to supervision,0.0883,-0.2546,0.4313,False
+Behavior skills training,Discourage distractions,0.2397,-0.1032,0.5827,False
+Behavior skills training,Discuss how to give feedback,0.2145,-0.1285,0.5575,False
+Behavior skills training,Document feedback,-0.4543,-0.7972,-0.1113,True
+Behavior skills training,Evaluate client performance,-1.0599,-1.4029,-0.717,True
+Behavior skills training,Evaluate supervisee performance,-0.9274,-1.2704,-0.5845,True
+Behavior skills training,Group supervision,-1.817,-2.16,-1.4741,True
+Behavior skills training,Immediate feedback,-0.0284,-0.3714,0.3146,False
+Behavior skills training,Include ethics,0.3691,0.0261,0.7121,True
+Behavior skills training,Instructions and demonstration,0.2303,-0.1127,0.5733,False
+Behavior skills training,Literature for new competency,-0.2776,-0.6206,0.0654,False
+Behavior skills training,Maintain positive rapport,0.5615,0.2185,0.9045,True
+Behavior skills training,Meeting notes,-0.7697,-1.1127,-0.4267,True
+Behavior skills training,Observe body language,0.0946,-0.2483,0.4376,False
+Behavior skills training,Participate in peer review,-0.9969,-1.4183,-0.5755,True
+Behavior skills training,Peer evaluate,-2.0789,-2.4218,-1.7359,True
+Behavior skills training,Performance expectations,0.2555,-0.0874,0.5985,False
+Behavior skills training,Positive and corrective feedback,0.4227,0.0797,0.7657,True
+Behavior skills training,Practice skill set,-0.2334,-0.5764,0.1095,False
+Behavior skills training,Professional groups,-1.4132,-1.7562,-1.0703,True
+Behavior skills training,Return communications within 48,0.511,0.1681,0.854,True
+Behavior skills training,Review literature,-0.0189,-0.3619,0.324,False
+Behavior skills training,Review supervision contract,0.3943,0.0514,0.7373,True
+Behavior skills training,Schedule contacts,0.0536,-0.2893,0.3966,False
+Behavior skills training,Schedule direct observations,0.3249,-0.018,0.6679,False
+Behavior skills training,Schedule standing appointments,-0.0915,-0.4345,0.2515,False
+Behavior skills training,Seek mentorship,-0.6404,-0.9833,-0.2974,True
+Behavior skills training,Self-assess interpersonal skills,0.1893,-0.1537,0.5322,False
+Behavior skills training,Send agenda,-1.6656,-2.0086,-1.3226,True
+Behavior skills training,Supervision fidelity,-1.5521,-1.895,-1.2091,True
+Behavior skills training,Supervision schedule,-0.9937,-1.3367,-0.6507,True
+Behavior skills training,Supervision termination clause,0.5678,0.2249,0.9108,True
+Behavior skills training,Supervisory study groups,-1.9401,-2.283,-1.5971,True
+Behavior skills training,Take baseline,-1.1009,-1.4439,-0.758,True
+Behavior skills training,Training and supervision,0.206,-0.3577,0.7697,False
+Behavior skills training,Written evaluation system,-0.6246,-0.9676,-0.2816,True
+Behavior skills training,Written supervision contract,0.5994,0.2564,0.9423,True
+Confirm required skill set,Continue relationship,0.1514,-0.1916,0.4944,False
+Confirm required skill set,Create group activities,-1.4606,-1.8035,-1.1176,True
+Confirm required skill set,Credentialing requirements,0.5183,-0.0454,1.082,False
+Confirm required skill set,Detect barriers to supervision,0.47,0.1271,0.813,True
+Confirm required skill set,Discourage distractions,0.6215,0.2785,0.9644,True
+Confirm required skill set,Discuss how to give feedback,0.5962,0.2532,0.9392,True
+Confirm required skill set,Document feedback,-0.0726,-0.4155,0.2704,False
+Confirm required skill set,Evaluate client performance,-0.6782,-1.0212,-0.3353,True
+Confirm required skill set,Evaluate supervisee performance,-0.5457,-0.8887,-0.2028,True
+Confirm required skill set,Group supervision,-1.4353,-1.7783,-1.0924,True
+Confirm required skill set,Immediate feedback,0.3533,0.0103,0.6963,True
+Confirm required skill set,Include ethics,0.7508,0.4078,1.0938,True
+Confirm required skill set,Instructions and demonstration,0.612,0.269,0.955,True
+Confirm required skill set,Literature for new competency,0.1041,-0.2389,0.4471,False
+Confirm required skill set,Maintain positive rapport,0.9432,0.6002,1.2862,True
+Confirm required skill set,Meeting notes,-0.388,-0.731,-0.045,True
+Confirm required skill set,Observe body language,0.4763,0.1334,0.8193,True
+Confirm required skill set,Participate in peer review,-0.6152,-1.0366,-0.1938,True
+Confirm required skill set,Peer evaluate,-1.6972,-2.0401,-1.3542,True
+Confirm required skill set,Performance expectations,0.6372,0.2943,0.9802,True
+Confirm required skill set,Positive and corrective feedback,0.8044,0.4614,1.1474,True
+Confirm required skill set,Practice skill set,0.1483,-0.1947,0.4912,False
+Confirm required skill set,Professional groups,-1.0315,-1.3745,-0.6886,True
+Confirm required skill set,Return communications within 48,0.8927,0.5498,1.2357,True
+Confirm required skill set,Review literature,0.3628,0.0198,0.7057,True
+Confirm required skill set,Review supervision contract,0.776,0.4331,1.119,True
+Confirm required skill set,Schedule contacts,0.4353,0.0924,0.7783,True
+Confirm required skill set,Schedule direct observations,0.7066,0.3637,1.0496,True
+Confirm required skill set,Schedule standing appointments,0.2902,-0.0527,0.6332,False
+Confirm required skill set,Seek mentorship,-0.2587,-0.6016,0.0843,False
+Confirm required skill set,Self-assess interpersonal skills,0.571,0.228,0.9139,True
+Confirm required skill set,Send agenda,-1.2839,-1.6269,-0.9409,True
+Confirm required skill set,Supervision fidelity,-1.1703,-1.5133,-0.8274,True
+Confirm required skill set,Supervision schedule,-0.612,-0.955,-0.269,True
+Confirm required skill set,Supervision termination clause,0.9495,0.6066,1.2925,True
+Confirm required skill set,Supervisory study groups,-1.5584,-1.9013,-1.2154,True
+Confirm required skill set,Take baseline,-0.7192,-1.0622,-0.3763,True
+Confirm required skill set,Training and supervision,0.5877,0.024,1.1514,True
+Confirm required skill set,Written evaluation system,-0.2429,-0.5859,0.1001,False
+Confirm required skill set,Written supervision contract,0.9811,0.6381,1.324,True
+Continue relationship,Create group activities,-1.612,-1.955,-1.269,True
+Continue relationship,Credentialing requirements,0.3669,-0.1969,0.9306,False
+Continue relationship,Detect barriers to supervision,0.3186,-0.0244,0.6616,False
+Continue relationship,Discourage distractions,0.47,0.1271,0.813,True
+Continue relationship,Discuss how to give feedback,0.4448,0.1018,0.7878,True
+Continue relationship,Document feedback,-0.224,-0.5669,0.119,False
+Continue relationship,Evaluate client performance,-0.8297,-1.1726,-0.4867,True
+Continue relationship,Evaluate supervisee performance,-0.6972,-1.0401,-0.3542,True
+Continue relationship,Group supervision,-1.5868,-1.9297,-1.2438,True
+Continue relationship,Immediate feedback,0.2019,-0.1411,0.5449,False
+Continue relationship,Include ethics,0.5994,0.2564,0.9423,True
+Continue relationship,Instructions and demonstration,0.4606,0.1176,0.8035,True
+Continue relationship,Literature for new competency,-0.0473,-0.3903,0.2957,False
+Continue relationship,Maintain positive rapport,0.7918,0.4488,1.1348,True
+Continue relationship,Meeting notes,-0.5394,-0.8824,-0.1965,True
+Continue relationship,Observe body language,0.3249,-0.018,0.6679,False
+Continue relationship,Participate in peer review,-0.7666,-1.188,-0.3453,True
+Continue relationship,Peer evaluate,-1.8486,-2.1916,-1.5056,True
+Continue relationship,Performance expectations,0.4858,0.1428,0.8288,True
+Continue relationship,Positive and corrective feedback,0.653,0.31,0.996,True
+Continue relationship,Practice skill set,-0.0032,-0.3461,0.3398,False
+Continue relationship,Professional groups,-1.183,-1.5259,-0.84,True
+Continue relationship,Return communications within 48,0.7413,0.3984,1.0843,True
+Continue relationship,Review literature,0.2114,-0.1316,0.5543,False
+Continue relationship,Review supervision contract,0.6246,0.2816,0.9676,True
+Continue relationship,Schedule contacts,0.2839,-0.0591,0.6269,False
+Continue relationship,Schedule direct observations,0.5552,0.2122,0.8982,True
+Continue relationship,Schedule standing appointments,0.1388,-0.2042,0.4818,False
+Continue relationship,Seek mentorship,-0.4101,-0.7531,-0.0671,True
+Continue relationship,Self-assess interpersonal skills,0.4196,0.0766,0.7625,True
+Continue relationship,Send agenda,-1.4353,-1.7783,-1.0924,True
+Continue relationship,Supervision fidelity,-1.3218,-1.6647,-0.9788,True
+Continue relationship,Supervision schedule,-0.7634,-1.1064,-0.4204,True
+Continue relationship,Supervision termination clause,0.7981,0.4551,1.1411,True
+Continue relationship,Supervisory study groups,-1.7098,-2.0527,-1.3668,True
+Continue relationship,Take baseline,-0.8707,-1.2136,-0.5277,True
+Continue relationship,Training and supervision,0.4363,-0.1274,1.0,False
+Continue relationship,Written evaluation system,-0.3943,-0.7373,-0.0514,True
+Continue relationship,Written supervision contract,0.8297,0.4867,1.1726,True
+Create group activities,Credentialing requirements,1.9788,1.4151,2.5425,True
+Create group activities,Detect barriers to supervision,1.9306,1.5876,2.2736,True
+Create group activities,Discourage distractions,2.082,1.739,2.425,True
+Create group activities,Discuss how to give feedback,2.0568,1.7138,2.3998,True
+Create group activities,Document feedback,1.388,1.045,1.731,True
+Create group activities,Evaluate client performance,0.7823,0.4394,1.1253,True
+Create group activities,Evaluate supervisee performance,0.9148,0.5719,1.2578,True
+Create group activities,Group supervision,0.0252,-0.3177,0.3682,False
+Create group activities,Immediate feedback,1.8139,1.4709,2.1569,True
+Create group activities,Include ethics,2.2114,1.8684,2.5543,True
+Create group activities,Instructions and demonstration,2.0726,1.7296,2.4155,True
+Create group activities,Literature for new competency,1.5647,1.2217,1.9076,True
+Create group activities,Maintain positive rapport,2.4038,2.0608,2.7468,True
+Create group activities,Meeting notes,1.0726,0.7296,1.4155,True
+Create group activities,Observe body language,1.9369,1.5939,2.2799,True
+Create group activities,Participate in peer review,0.8453,0.424,1.2667,True
+Create group activities,Peer evaluate,-0.2366,-0.5796,0.1064,False
+Create group activities,Performance expectations,2.0978,1.7548,2.4408,True
+Create group activities,Positive and corrective feedback,2.265,1.922,2.608,True
+Create group activities,Practice skill set,1.6088,1.2659,1.9518,True
+Create group activities,Professional groups,0.429,0.0861,0.772,True
+Create group activities,Return communications within 48,2.3533,2.0103,2.6963,True
+Create group activities,Review literature,1.8233,1.4804,2.1663,True
+Create group activities,Review supervision contract,2.2366,1.8936,2.5796,True
+Create group activities,Schedule contacts,1.8959,1.5529,2.2389,True
+Create group activities,Schedule direct observations,2.1672,1.8242,2.5102,True
+Create group activities,Schedule standing appointments,1.7508,1.4078,2.0938,True
+Create group activities,Seek mentorship,1.2019,0.8589,1.5449,True
+Create group activities,Self-assess interpersonal skills,2.0315,1.6886,2.3745,True
+Create group activities,Send agenda,0.1767,-0.1663,0.5196,False
+Create group activities,Supervision fidelity,0.2902,-0.0527,0.6332,False
+Create group activities,Supervision schedule,0.8486,0.5056,1.1916,True
+Create group activities,Supervision termination clause,2.4101,2.0671,2.7531,True
+Create group activities,Supervisory study groups,-0.0978,-0.4408,0.2452,False
+Create group activities,Take baseline,0.7413,0.3984,1.0843,True
+Create group activities,Training and supervision,2.0483,1.4846,2.612,True
+Create group activities,Written evaluation system,1.2177,0.8747,1.5606,True
+Create group activities,Written supervision contract,2.4416,2.0987,2.7846,True
+Credentialing requirements,Detect barriers to supervision,-0.0482,-0.6119,0.5155,False
+Credentialing requirements,Discourage distractions,0.1032,-0.4605,0.6669,False
+Credentialing requirements,Discuss how to give feedback,0.0779,-0.4858,0.6416,False
+Credentialing requirements,Document feedback,-0.5908,-1.1545,-0.0271,True
+Credentialing requirements,Evaluate client performance,-1.1965,-1.7602,-0.6328,True
+Credentialing requirements,Evaluate supervisee performance,-1.064,-1.6277,-0.5003,True
+Credentialing requirements,Group supervision,-1.9536,-2.5173,-1.3899,True
+Credentialing requirements,Immediate feedback,-0.165,-0.7287,0.3987,False
+Credentialing requirements,Include ethics,0.2325,-0.3312,0.7962,False
+Credentialing requirements,Instructions and demonstration,0.0937,-0.47,0.6574,False
+Credentialing requirements,Literature for new competency,-0.4142,-0.9779,0.1495,False
+Credentialing requirements,Maintain positive rapport,0.4249,-0.1388,0.9887,False
+Credentialing requirements,Meeting notes,-0.9063,-1.47,-0.3426,True
+Credentialing requirements,Observe body language,-0.0419,-0.6056,0.5218,False
+Credentialing requirements,Participate in peer review,-1.1335,-1.7481,-0.5189,True
+Credentialing requirements,Peer evaluate,-2.2154,-2.7791,-1.6517,True
+Credentialing requirements,Performance expectations,0.119,-0.4447,0.6827,False
+Credentialing requirements,Positive and corrective feedback,0.2861,-0.2776,0.8498,False
+Credentialing requirements,Practice skill set,-0.37,-0.9337,0.1937,False
+Credentialing requirements,Professional groups,-1.5498,-2.1135,-0.9861,True
+Credentialing requirements,Return communications within 48,0.3745,-0.1892,0.9382,False
+Credentialing requirements,Review literature,-0.1555,-0.7192,0.4082,False
+Credentialing requirements,Review supervision contract,0.2578,-0.3059,0.8215,False
+Credentialing requirements,Schedule contacts,-0.0829,-0.6466,0.4808,False
+Credentialing requirements,Schedule direct observations,0.1884,-0.3753,0.7521,False
+Credentialing requirements,Schedule standing appointments,-0.228,-0.7918,0.3357,False
+Credentialing requirements,Seek mentorship,-0.7769,-1.3406,-0.2132,True
+Credentialing requirements,Self-assess interpersonal skills,0.0527,-0.511,0.6164,False
+Credentialing requirements,Send agenda,-1.8022,-2.3659,-1.2385,True
+Credentialing requirements,Supervision fidelity,-1.6886,-2.2523,-1.1249,True
+Credentialing requirements,Supervision schedule,-1.1303,-1.694,-0.5666,True
+Credentialing requirements,Supervision termination clause,0.4313,-0.1324,0.995,False
+Credentialing requirements,Supervisory study groups,-2.0766,-2.6403,-1.5129,True
+Credentialing requirements,Take baseline,-1.2375,-1.8012,-0.6738,True
+Credentialing requirements,Training and supervision,0.0694,-0.6502,0.7891,False
+Credentialing requirements,Written evaluation system,-0.7612,-1.3249,-0.1975,True
+Credentialing requirements,Written supervision contract,0.4628,-0.1009,1.0265,False
+Detect barriers to supervision,Discourage distractions,0.1514,-0.1916,0.4944,False
+Detect barriers to supervision,Discuss how to give feedback,0.1262,-0.2168,0.4692,False
+Detect barriers to supervision,Document feedback,-0.5426,-0.8856,-0.1996,True
+Detect barriers to supervision,Evaluate client performance,-1.1483,-1.4912,-0.8053,True
+Detect barriers to supervision,Evaluate supervisee performance,-1.0158,-1.3587,-0.6728,True
+Detect barriers to supervision,Group supervision,-1.9054,-2.2483,-1.5624,True
+Detect barriers to supervision,Immediate feedback,-0.1167,-0.4597,0.2263,False
+Detect barriers to supervision,Include ethics,0.2808,-0.0622,0.6237,False
+Detect barriers to supervision,Instructions and demonstration,0.142,-0.201,0.4849,False
+Detect barriers to supervision,Literature for new competency,-0.3659,-0.7089,-0.023,True
+Detect barriers to supervision,Maintain positive rapport,0.4732,0.1302,0.8162,True
+Detect barriers to supervision,Meeting notes,-0.858,-1.201,-0.5151,True
+Detect barriers to supervision,Observe body language,0.0063,-0.3367,0.3493,False
+Detect barriers to supervision,Participate in peer review,-1.0853,-1.5066,-0.6639,True
+Detect barriers to supervision,Peer evaluate,-2.1672,-2.5102,-1.8242,True
+Detect barriers to supervision,Performance expectations,0.1672,-0.1758,0.5102,False
+Detect barriers to supervision,Positive and corrective feedback,0.3344,-0.0086,0.6774,False
+Detect barriers to supervision,Practice skill set,-0.3218,-0.6647,0.0212,False
+Detect barriers to supervision,Professional groups,-1.5016,-1.8445,-1.1586,True
+Detect barriers to supervision,Return communications within 48,0.4227,0.0797,0.7657,True
+Detect barriers to supervision,Review literature,-0.1073,-0.4502,0.2357,False
+Detect barriers to supervision,Review supervision contract,0.306,-0.037,0.649,False
+Detect barriers to supervision,Schedule contacts,-0.0347,-0.3777,0.3083,False
+Detect barriers to supervision,Schedule direct observations,0.2366,-0.1064,0.5796,False
+Detect barriers to supervision,Schedule standing appointments,-0.1798,-0.5228,0.1632,False
+Detect barriers to supervision,Seek mentorship,-0.7287,-1.0717,-0.3857,True
+Detect barriers to supervision,Self-assess interpersonal skills,0.1009,-0.242,0.4439,False
+Detect barriers to supervision,Send agenda,-1.7539,-2.0969,-1.411,True
+Detect barriers to supervision,Supervision fidelity,-1.6404,-1.9833,-1.2974,True
+Detect barriers to supervision,Supervision schedule,-1.082,-1.425,-0.739,True
+Detect barriers to supervision,Supervision termination clause,0.4795,0.1365,0.8225,True
+Detect barriers to supervision,Supervisory study groups,-2.0284,-2.3714,-1.6854,True
+Detect barriers to supervision,Take baseline,-1.1893,-1.5322,-0.8463,True
+Detect barriers to supervision,Training and supervision,0.1177,-0.446,0.6814,False
+Detect barriers to supervision,Written evaluation system,-0.7129,-1.0559,-0.37,True
+Detect barriers to supervision,Written supervision contract,0.511,0.1681,0.854,True
+Discourage distractions,Discuss how to give feedback,-0.0252,-0.3682,0.3177,False
+Discourage distractions,Document feedback,-0.694,-1.037,-0.351,True
+Discourage distractions,Evaluate client performance,-1.2997,-1.6427,-0.9567,True
+Discourage distractions,Evaluate supervisee performance,-1.1672,-1.5102,-0.8242,True
+Discourage distractions,Group supervision,-2.0568,-2.3998,-1.7138,True
+Discourage distractions,Immediate feedback,-0.2681,-0.6111,0.0748,False
+Discourage distractions,Include ethics,0.1293,-0.2136,0.4723,False
+Discourage distractions,Instructions and demonstration,-0.0095,-0.3524,0.3335,False
+Discourage distractions,Literature for new competency,-0.5174,-0.8603,-0.1744,True
+Discourage distractions,Maintain positive rapport,0.3218,-0.0212,0.6647,False
+Discourage distractions,Meeting notes,-1.0095,-1.3524,-0.6665,True
+Discourage distractions,Observe body language,-0.1451,-0.4881,0.1979,False
+Discourage distractions,Participate in peer review,-1.2367,-1.6581,-0.8153,True
+Discourage distractions,Peer evaluate,-2.3186,-2.6616,-1.9756,True
+Discourage distractions,Performance expectations,0.0158,-0.3272,0.3587,False
+Discourage distractions,Positive and corrective feedback,0.183,-0.16,0.5259,False
+Discourage distractions,Practice skill set,-0.4732,-0.8162,-0.1302,True
+Discourage distractions,Professional groups,-1.653,-1.996,-1.31,True
+Discourage distractions,Return communications within 48,0.2713,-0.0717,0.6143,False
+Discourage distractions,Review literature,-0.2587,-0.6016,0.0843,False
+Discourage distractions,Review supervision contract,0.1546,-0.1884,0.4975,False
+Discourage distractions,Schedule contacts,-0.1861,-0.5291,0.1569,False
+Discourage distractions,Schedule direct observations,0.0852,-0.2578,0.4281,False
+Discourage distractions,Schedule standing appointments,-0.3312,-0.6742,0.0117,False
+Discourage distractions,Seek mentorship,-0.8801,-1.2231,-0.5372,True
+Discourage distractions,Self-assess interpersonal skills,-0.0505,-0.3934,0.2925,False
+Discourage distractions,Send agenda,-1.9054,-2.2483,-1.5624,True
+Discourage distractions,Supervision fidelity,-1.7918,-2.1348,-1.4488,True
+Discourage distractions,Supervision schedule,-1.2334,-1.5764,-0.8905,True
+Discourage distractions,Supervision termination clause,0.3281,-0.0149,0.671,False
+Discourage distractions,Supervisory study groups,-2.1798,-2.5228,-1.8368,True
+Discourage distractions,Take baseline,-1.3407,-1.6837,-0.9977,True
+Discourage distractions,Training and supervision,-0.0337,-0.5974,0.53,False
+Discourage distractions,Written evaluation system,-0.8644,-1.2073,-0.5214,True
+Discourage distractions,Written supervision contract,0.3596,0.0167,0.7026,True
+Discuss how to give feedback,Document feedback,-0.6688,-1.0117,-0.3258,True
+Discuss how to give feedback,Evaluate client performance,-1.2744,-1.6174,-0.9315,True
+Discuss how to give feedback,Evaluate supervisee performance,-1.142,-1.4849,-0.799,True
+Discuss how to give feedback,Group supervision,-2.0315,-2.3745,-1.6886,True
+Discuss how to give feedback,Immediate feedback,-0.2429,-0.5859,0.1001,False
+Discuss how to give feedback,Include ethics,0.1546,-0.1884,0.4975,False
+Discuss how to give feedback,Instructions and demonstration,0.0158,-0.3272,0.3587,False
+Discuss how to give feedback,Literature for new competency,-0.4921,-0.8351,-0.1491,True
+Discuss how to give feedback,Maintain positive rapport,0.347,0.004,0.69,True
+Discuss how to give feedback,Meeting notes,-0.9842,-1.3272,-0.6413,True
+Discuss how to give feedback,Observe body language,-0.1199,-0.4628,0.2231,False
+Discuss how to give feedback,Participate in peer review,-1.2114,-1.6328,-0.7901,True
+Discuss how to give feedback,Peer evaluate,-2.2934,-2.6363,-1.9504,True
+Discuss how to give feedback,Performance expectations,0.041,-0.302,0.384,False
+Discuss how to give feedback,Positive and corrective feedback,0.2082,-0.1348,0.5512,False
+Discuss how to give feedback,Practice skill set,-0.4479,-0.7909,-0.105,True
+Discuss how to give feedback,Professional groups,-1.6278,-1.9707,-1.2848,True
+Discuss how to give feedback,Return communications within 48,0.2965,-0.0464,0.6395,False
+Discuss how to give feedback,Review literature,-0.2334,-0.5764,0.1095,False
+Discuss how to give feedback,Review supervision contract,0.1798,-0.1632,0.5228,False
+Discuss how to give feedback,Schedule contacts,-0.1609,-0.5039,0.1821,False
+Discuss how to give feedback,Schedule direct observations,0.1104,-0.2326,0.4534,False
+Discuss how to give feedback,Schedule standing appointments,-0.306,-0.649,0.037,False
+Discuss how to give feedback,Seek mentorship,-0.8549,-1.1979,-0.5119,True
+Discuss how to give feedback,Self-assess interpersonal skills,-0.0252,-0.3682,0.3177,False
+Discuss how to give feedback,Send agenda,-1.8801,-2.2231,-1.5372,True
+Discuss how to give feedback,Supervision fidelity,-1.7666,-2.1095,-1.4236,True
+Discuss how to give feedback,Supervision schedule,-1.2082,-1.5512,-0.8652,True
+Discuss how to give feedback,Supervision termination clause,0.3533,0.0103,0.6963,True
+Discuss how to give feedback,Supervisory study groups,-2.1546,-2.4975,-1.8116,True
+Discuss how to give feedback,Take baseline,-1.3155,-1.6584,-0.9725,True
+Discuss how to give feedback,Training and supervision,-0.0085,-0.5722,0.5552,False
+Discuss how to give feedback,Written evaluation system,-0.8391,-1.1821,-0.4961,True
+Discuss how to give feedback,Written supervision contract,0.3849,0.0419,0.7278,True
+Document feedback,Evaluate client performance,-0.6057,-0.9486,-0.2627,True
+Document feedback,Evaluate supervisee performance,-0.4732,-0.8162,-0.1302,True
+Document feedback,Group supervision,-1.3628,-1.7057,-1.0198,True
+Document feedback,Immediate feedback,0.4259,0.0829,0.7688,True
+Document feedback,Include ethics,0.8233,0.4804,1.1663,True
+Document feedback,Instructions and demonstration,0.6845,0.3416,1.0275,True
+Document feedback,Literature for new competency,0.1767,-0.1663,0.5196,False
+Document feedback,Maintain positive rapport,1.0158,0.6728,1.3587,True
+Document feedback,Meeting notes,-0.3155,-0.6584,0.0275,False
+Document feedback,Observe body language,0.5489,0.2059,0.8919,True
+Document feedback,Participate in peer review,-0.5427,-0.9641,-0.1213,True
+Document feedback,Peer evaluate,-1.6246,-1.9676,-1.2816,True
+Document feedback,Performance expectations,0.7098,0.3668,1.0527,True
+Document feedback,Positive and corrective feedback,0.877,0.534,1.2199,True
+Document feedback,Practice skill set,0.2208,-0.1222,0.5638,False
+Document feedback,Professional groups,-0.959,-1.302,-0.616,True
+Document feedback,Return communications within 48,0.9653,0.6223,1.3083,True
+Document feedback,Review literature,0.4353,0.0924,0.7783,True
+Document feedback,Review supervision contract,0.8486,0.5056,1.1916,True
+Document feedback,Schedule contacts,0.5079,0.1649,0.8509,True
+Document feedback,Schedule direct observations,0.7792,0.4362,1.1222,True
+Document feedback,Schedule standing appointments,0.3628,0.0198,0.7057,True
+Document feedback,Seek mentorship,-0.1861,-0.5291,0.1569,False
+Document feedback,Self-assess interpersonal skills,0.6435,0.3006,0.9865,True
+Document feedback,Send agenda,-1.2114,-1.5543,-0.8684,True
+Document feedback,Supervision fidelity,-1.0978,-1.4408,-0.7548,True
+Document feedback,Supervision schedule,-0.5394,-0.8824,-0.1965,True
+Document feedback,Supervision termination clause,1.0221,0.6791,1.3651,True
+Document feedback,Supervisory study groups,-1.4858,-1.8288,-1.1428,True
+Document feedback,Take baseline,-0.6467,-0.9897,-0.3037,True
+Document feedback,Training and supervision,0.6603,0.0966,1.224,True
+Document feedback,Written evaluation system,-0.1703,-0.5133,0.1726,False
+Document feedback,Written supervision contract,1.0536,0.7107,1.3966,True
+Evaluate client performance,Evaluate supervisee performance,0.1325,-0.2105,0.4755,False
+Evaluate client performance,Group supervision,-0.7571,-1.1001,-0.4141,True
+Evaluate client performance,Immediate feedback,1.0315,0.6886,1.3745,True
+Evaluate client performance,Include ethics,1.429,1.0861,1.772,True
+Evaluate client performance,Instructions and demonstration,1.2902,0.9473,1.6332,True
+Evaluate client performance,Literature for new competency,0.7823,0.4394,1.1253,True
+Evaluate client performance,Maintain positive rapport,1.6215,1.2785,1.9644,True
+Evaluate client performance,Meeting notes,0.2902,-0.0527,0.6332,False
+Evaluate client performance,Observe body language,1.1546,0.8116,1.4975,True
+Evaluate client performance,Participate in peer review,0.063,-0.3584,0.4844,False
+Evaluate client performance,Peer evaluate,-1.0189,-1.3619,-0.676,True
+Evaluate client performance,Performance expectations,1.3155,0.9725,1.6584,True
+Evaluate client performance,Positive and corrective feedback,1.4826,1.1397,1.8256,True
+Evaluate client performance,Practice skill set,0.8265,0.4835,1.1695,True
+Evaluate client performance,Professional groups,-0.3533,-0.6963,-0.0103,True
+Evaluate client performance,Return communications within 48,1.571,1.228,1.9139,True
+Evaluate client performance,Review literature,1.041,0.698,1.384,True
+Evaluate client performance,Review supervision contract,1.4543,1.1113,1.7972,True
+Evaluate client performance,Schedule contacts,1.1136,0.7706,1.4565,True
+Evaluate client performance,Schedule direct observations,1.3849,1.0419,1.7278,True
+Evaluate client performance,Schedule standing appointments,0.9685,0.6255,1.3114,True
+Evaluate client performance,Seek mentorship,0.4196,0.0766,0.7625,True
+Evaluate client performance,Self-assess interpersonal skills,1.2492,0.9062,1.5922,True
+Evaluate client performance,Send agenda,-0.6057,-0.9486,-0.2627,True
+Evaluate client performance,Supervision fidelity,-0.4921,-0.8351,-0.1491,True
+Evaluate client performance,Supervision schedule,0.0662,-0.2767,0.4092,False
+Evaluate client performance,Supervision termination clause,1.6278,1.2848,1.9707,True
+Evaluate client performance,Supervisory study groups,-0.8801,-1.2231,-0.5372,True
+Evaluate client performance,Take baseline,-0.041,-0.384,0.302,False
+Evaluate client performance,Training and supervision,1.2659,0.7022,1.8297,True
+Evaluate client performance,Written evaluation system,0.4353,0.0924,0.7783,True
+Evaluate client performance,Written supervision contract,1.6593,1.3163,2.0023,True
+Evaluate supervisee performance,Group supervision,-0.8896,-1.2326,-0.5466,True
+Evaluate supervisee performance,Immediate feedback,0.8991,0.5561,1.242,True
+Evaluate supervisee performance,Include ethics,1.2965,0.9536,1.6395,True
+Evaluate supervisee performance,Instructions and demonstration,1.1577,0.8148,1.5007,True
+Evaluate supervisee performance,Literature for new competency,0.6498,0.3069,0.9928,True
+Evaluate supervisee performance,Maintain positive rapport,1.489,1.146,1.8319,True
+Evaluate supervisee performance,Meeting notes,0.1577,-0.1852,0.5007,False
+Evaluate supervisee performance,Observe body language,1.0221,0.6791,1.3651,True
+Evaluate supervisee performance,Participate in peer review,-0.0695,-0.4909,0.3519,False
+Evaluate supervisee performance,Peer evaluate,-1.1514,-1.4944,-0.8084,True
+Evaluate supervisee performance,Performance expectations,1.183,0.84,1.5259,True
+Evaluate supervisee performance,Positive and corrective feedback,1.3502,1.0072,1.6931,True
+Evaluate supervisee performance,Practice skill set,0.694,0.351,1.037,True
+Evaluate supervisee performance,Professional groups,-0.4858,-0.8288,-0.1428,True
+Evaluate supervisee performance,Return communications within 48,1.4385,1.0955,1.7815,True
+Evaluate supervisee performance,Review literature,0.9085,0.5655,1.2515,True
+Evaluate supervisee performance,Review supervision contract,1.3218,0.9788,1.6647,True
+Evaluate supervisee performance,Schedule contacts,0.9811,0.6381,1.324,True
+Evaluate supervisee performance,Schedule direct observations,1.2524,0.9094,1.5953,True
+Evaluate supervisee performance,Schedule standing appointments,0.836,0.493,1.1789,True
+Evaluate supervisee performance,Seek mentorship,0.2871,-0.0559,0.63,False
+Evaluate supervisee performance,Self-assess interpersonal skills,1.1167,0.7737,1.4597,True
+Evaluate supervisee performance,Send agenda,-0.7382,-1.0811,-0.3952,True
+Evaluate supervisee performance,Supervision fidelity,-0.6246,-0.9676,-0.2816,True
+Evaluate supervisee performance,Supervision schedule,-0.0662,-0.4092,0.2767,False
+Evaluate supervisee performance,Supervision termination clause,1.4953,1.1523,1.8382,True
+Evaluate supervisee performance,Supervisory study groups,-1.0126,-1.3556,-0.6696,True
+Evaluate supervisee performance,Take baseline,-0.1735,-0.5165,0.1695,False
+Evaluate supervisee performance,Training and supervision,1.1335,0.5698,1.6972,True
+Evaluate supervisee performance,Written evaluation system,0.3028,-0.0401,0.6458,False
+Evaluate supervisee performance,Written supervision contract,1.5268,1.1838,1.8698,True
+Group supervision,Immediate feedback,1.7886,1.4457,2.1316,True
+Group supervision,Include ethics,2.1861,1.8431,2.5291,True
+Group supervision,Instructions and demonstration,2.0473,1.7043,2.3903,True
+Group supervision,Literature for new competency,1.5394,1.1965,1.8824,True
+Group supervision,Maintain positive rapport,2.3785,2.0356,2.7215,True
+Group supervision,Meeting notes,1.0473,0.7043,1.3903,True
+Group supervision,Observe body language,1.9117,1.5687,2.2546,True
+Group supervision,Participate in peer review,0.8201,0.3987,1.2415,True
+Group supervision,Peer evaluate,-0.2618,-0.6048,0.0811,False
+Group supervision,Performance expectations,2.0726,1.7296,2.4155,True
+Group supervision,Positive and corrective feedback,2.2397,1.8968,2.5827,True
+Group supervision,Practice skill set,1.5836,1.2406,1.9266,True
+Group supervision,Professional groups,0.4038,0.0608,0.7468,True
+Group supervision,Return communications within 48,2.3281,1.9851,2.671,True
+Group supervision,Review literature,1.7981,1.4551,2.1411,True
+Group supervision,Review supervision contract,2.2114,1.8684,2.5543,True
+Group supervision,Schedule contacts,1.8707,1.5277,2.2136,True
+Group supervision,Schedule direct observations,2.142,1.799,2.4849,True
+Group supervision,Schedule standing appointments,1.7256,1.3826,2.0685,True
+Group supervision,Seek mentorship,1.1767,0.8337,1.5196,True
+Group supervision,Self-assess interpersonal skills,2.0063,1.6633,2.3493,True
+Group supervision,Send agenda,0.1514,-0.1916,0.4944,False
+Group supervision,Supervision fidelity,0.265,-0.078,0.608,False
+Group supervision,Supervision schedule,0.8233,0.4804,1.1663,True
+Group supervision,Supervision termination clause,2.3849,2.0419,2.7278,True
+Group supervision,Supervisory study groups,-0.123,-0.466,0.2199,False
+Group supervision,Take baseline,0.7161,0.3731,1.0591,True
+Group supervision,Training and supervision,2.023,1.4593,2.5867,True
+Group supervision,Written evaluation system,1.1924,0.8495,1.5354,True
+Group supervision,Written supervision contract,2.4164,2.0734,2.7594,True
+Immediate feedback,Include ethics,0.3975,0.0545,0.7404,True
+Immediate feedback,Instructions and demonstration,0.2587,-0.0843,0.6016,False
+Immediate feedback,Literature for new competency,-0.2492,-0.5922,0.0938,False
+Immediate feedback,Maintain positive rapport,0.5899,0.2469,0.9329,True
+Immediate feedback,Meeting notes,-0.7413,-1.0843,-0.3984,True
+Immediate feedback,Observe body language,0.123,-0.2199,0.466,False
+Immediate feedback,Participate in peer review,-0.9685,-1.3899,-0.5471,True
+Immediate feedback,Peer evaluate,-2.0505,-2.3934,-1.7075,True
+Immediate feedback,Performance expectations,0.2839,-0.0591,0.6269,False
+Immediate feedback,Positive and corrective feedback,0.4511,0.1081,0.7941,True
+Immediate feedback,Practice skill set,-0.205,-0.548,0.1379,False
+Immediate feedback,Professional groups,-1.3849,-1.7278,-1.0419,True
+Immediate feedback,Return communications within 48,0.5394,0.1965,0.8824,True
+Immediate feedback,Review literature,0.0095,-0.3335,0.3524,False
+Immediate feedback,Review supervision contract,0.4227,0.0797,0.7657,True
+Immediate feedback,Schedule contacts,0.082,-0.261,0.425,False
+Immediate feedback,Schedule direct observations,0.3533,0.0103,0.6963,True
+Immediate feedback,Schedule standing appointments,-0.0631,-0.4061,0.2799,False
+Immediate feedback,Seek mentorship,-0.612,-0.955,-0.269,True
+Immediate feedback,Self-assess interpersonal skills,0.2177,-0.1253,0.5606,False
+Immediate feedback,Send agenda,-1.6372,-1.9802,-1.2943,True
+Immediate feedback,Supervision fidelity,-1.5237,-1.8666,-1.1807,True
+Immediate feedback,Supervision schedule,-0.9653,-1.3083,-0.6223,True
+Immediate feedback,Supervision termination clause,0.5962,0.2532,0.9392,True
+Immediate feedback,Supervisory study groups,-1.9117,-2.2546,-1.5687,True
+Immediate feedback,Take baseline,-1.0726,-1.4155,-0.7296,True
+Immediate feedback,Training and supervision,0.2344,-0.3293,0.7981,False
+Immediate feedback,Written evaluation system,-0.5962,-0.9392,-0.2532,True
+Immediate feedback,Written supervision contract,0.6278,0.2848,0.9707,True
+Include ethics,Instructions and demonstration,-0.1388,-0.4818,0.2042,False
+Include ethics,Literature for new competency,-0.6467,-0.9897,-0.3037,True
+Include ethics,Maintain positive rapport,0.1924,-0.1505,0.5354,False
+Include ethics,Meeting notes,-1.1388,-1.4818,-0.7958,True
+Include ethics,Observe body language,-0.2744,-0.6174,0.0685,False
+Include ethics,Participate in peer review,-1.366,-1.7874,-0.9446,True
+Include ethics,Peer evaluate,-2.4479,-2.7909,-2.105,True
+Include ethics,Performance expectations,-0.1136,-0.4565,0.2294,False
+Include ethics,Positive and corrective feedback,0.0536,-0.2893,0.3966,False
+Include ethics,Practice skill set,-0.6025,-0.9455,-0.2596,True
+Include ethics,Professional groups,-1.7823,-2.1253,-1.4394,True
+Include ethics,Return communications within 48,0.142,-0.201,0.4849,False
+Include ethics,Review literature,-0.388,-0.731,-0.045,True
+Include ethics,Review supervision contract,0.0252,-0.3177,0.3682,False
+Include ethics,Schedule contacts,-0.3155,-0.6584,0.0275,False
+Include ethics,Schedule direct observations,-0.0442,-0.3871,0.2988,False
+Include ethics,Schedule standing appointments,-0.4606,-0.8035,-0.1176,True
+Include ethics,Seek mentorship,-1.0095,-1.3524,-0.6665,True
+Include ethics,Self-assess interpersonal skills,-0.1798,-0.5228,0.1632,False
+Include ethics,Send agenda,-2.0347,-2.3777,-1.6917,True
+Include ethics,Supervision fidelity,-1.9211,-2.2641,-1.5782,True
+Include ethics,Supervision schedule,-1.3628,-1.7057,-1.0198,True
+Include ethics,Supervision termination clause,0.1987,-0.1442,0.5417,False
+Include ethics,Supervisory study groups,-2.3091,-2.6521,-1.9662,True
+Include ethics,Take baseline,-1.47,-1.813,-1.1271,True
+Include ethics,Training and supervision,-0.1631,-0.7268,0.4006,False
+Include ethics,Written evaluation system,-0.9937,-1.3367,-0.6507,True
+Include ethics,Written supervision contract,0.2303,-0.1127,0.5733,False
+Instructions and demonstration,Literature for new competency,-0.5079,-0.8509,-0.1649,True
+Instructions and demonstration,Maintain positive rapport,0.3312,-0.0117,0.6742,False
+Instructions and demonstration,Meeting notes,-1.0,-1.343,-0.657,True
+Instructions and demonstration,Observe body language,-0.1356,-0.4786,0.2073,False
+Instructions and demonstration,Participate in peer review,-1.2272,-1.6486,-0.8058,True
+Instructions and demonstration,Peer evaluate,-2.3091,-2.6521,-1.9662,True
+Instructions and demonstration,Performance expectations,0.0252,-0.3177,0.3682,False
+Instructions and demonstration,Positive and corrective feedback,0.1924,-0.1505,0.5354,False
+Instructions and demonstration,Practice skill set,-0.4637,-0.8067,-0.1208,True
+Instructions and demonstration,Professional groups,-1.6435,-1.9865,-1.3006,True
+Instructions and demonstration,Return communications within 48,0.2808,-0.0622,0.6237,False
+Instructions and demonstration,Review literature,-0.2492,-0.5922,0.0938,False
+Instructions and demonstration,Review supervision contract,0.164,-0.1789,0.507,False
+Instructions and demonstration,Schedule contacts,-0.1767,-0.5196,0.1663,False
+Instructions and demonstration,Schedule direct observations,0.0946,-0.2483,0.4376,False
+Instructions and demonstration,Schedule standing appointments,-0.3218,-0.6647,0.0212,False
+Instructions and demonstration,Seek mentorship,-0.8707,-1.2136,-0.5277,True
+Instructions and demonstration,Self-assess interpersonal skills,-0.041,-0.384,0.302,False
+Instructions and demonstration,Send agenda,-1.8959,-2.2389,-1.5529,True
+Instructions and demonstration,Supervision fidelity,-1.7823,-2.1253,-1.4394,True
+Instructions and demonstration,Supervision schedule,-1.224,-1.5669,-0.881,True
+Instructions and demonstration,Supervision termination clause,0.3375,-0.0054,0.6805,False
+Instructions and demonstration,Supervisory study groups,-2.1703,-2.5133,-1.8274,True
+Instructions and demonstration,Take baseline,-1.3312,-1.6742,-0.9883,True
+Instructions and demonstration,Training and supervision,-0.0243,-0.588,0.5394,False
+Instructions and demonstration,Written evaluation system,-0.8549,-1.1979,-0.5119,True
+Instructions and demonstration,Written supervision contract,0.3691,0.0261,0.7121,True
+Literature for new competency,Maintain positive rapport,0.8391,0.4961,1.1821,True
+Literature for new competency,Meeting notes,-0.4921,-0.8351,-0.1491,True
+Literature for new competency,Observe body language,0.3722,0.0293,0.7152,True
+Literature for new competency,Participate in peer review,-0.7193,-1.1407,-0.2979,True
+Literature for new competency,Peer evaluate,-1.8013,-2.1442,-1.4583,True
+Literature for new competency,Performance expectations,0.5331,0.1902,0.8761,True
+Literature for new competency,Positive and corrective feedback,0.7003,0.3573,1.0433,True
+Literature for new competency,Practice skill set,0.0442,-0.2988,0.3871,False
+Literature for new competency,Professional groups,-1.1356,-1.4786,-0.7927,True
+Literature for new competency,Return communications within 48,0.7886,0.4457,1.1316,True
+Literature for new competency,Review literature,0.2587,-0.0843,0.6016,False
+Literature for new competency,Review supervision contract,0.6719,0.329,1.0149,True
+Literature for new competency,Schedule contacts,0.3312,-0.0117,0.6742,False
+Literature for new competency,Schedule direct observations,0.6025,0.2596,0.9455,True
+Literature for new competency,Schedule standing appointments,0.1861,-0.1569,0.5291,False
+Literature for new competency,Seek mentorship,-0.3628,-0.7057,-0.0198,True
+Literature for new competency,Self-assess interpersonal skills,0.4669,0.1239,0.8098,True
+Literature for new competency,Send agenda,-1.388,-1.731,-1.045,True
+Literature for new competency,Supervision fidelity,-1.2744,-1.6174,-0.9315,True
+Literature for new competency,Supervision schedule,-0.7161,-1.0591,-0.3731,True
+Literature for new competency,Supervision termination clause,0.8454,0.5025,1.1884,True
+Literature for new competency,Supervisory study groups,-1.6625,-2.0054,-1.3195,True
+Literature for new competency,Take baseline,-0.8233,-1.1663,-0.4804,True
+Literature for new competency,Training and supervision,0.4836,-0.0801,1.0473,False
+Literature for new competency,Written evaluation system,-0.347,-0.69,-0.004,True
+Literature for new competency,Written supervision contract,0.877,0.534,1.2199,True
+Maintain positive rapport,Meeting notes,-1.3312,-1.6742,-0.9883,True
+Maintain positive rapport,Observe body language,-0.4669,-0.8098,-0.1239,True
+Maintain positive rapport,Participate in peer review,-1.5584,-1.9798,-1.1371,True
+Maintain positive rapport,Peer evaluate,-2.6404,-2.9833,-2.2974,True
+Maintain positive rapport,Performance expectations,-0.306,-0.649,0.037,False
+Maintain positive rapport,Positive and corrective feedback,-0.1388,-0.4818,0.2042,False
+Maintain positive rapport,Practice skill set,-0.795,-1.1379,-0.452,True
+Maintain positive rapport,Professional groups,-1.9748,-2.3177,-1.6318,True
+Maintain positive rapport,Return communications within 48,-0.0505,-0.3934,0.2925,False
+Maintain positive rapport,Review literature,-0.5804,-0.9234,-0.2375,True
+Maintain positive rapport,Review supervision contract,-0.1672,-0.5102,0.1758,False
+Maintain positive rapport,Schedule contacts,-0.5079,-0.8509,-0.1649,True
+Maintain positive rapport,Schedule direct observations,-0.2366,-0.5796,0.1064,False
+Maintain positive rapport,Schedule standing appointments,-0.653,-0.996,-0.31,True
+Maintain positive rapport,Seek mentorship,-1.2019,-1.5449,-0.8589,True
+Maintain positive rapport,Self-assess interpersonal skills,-0.3722,-0.7152,-0.0293,True
+Maintain positive rapport,Send agenda,-2.2271,-2.5701,-1.8842,True
+Maintain positive rapport,Supervision fidelity,-2.1136,-2.4565,-1.7706,True
+Maintain positive rapport,Supervision schedule,-1.5552,-1.8982,-1.2122,True
+Maintain positive rapport,Supervision termination clause,0.0063,-0.3367,0.3493,False
+Maintain positive rapport,Supervisory study groups,-2.5016,-2.8445,-2.1586,True
+Maintain positive rapport,Take baseline,-1.6625,-2.0054,-1.3195,True
+Maintain positive rapport,Training and supervision,-0.3555,-0.9192,0.2082,False
+Maintain positive rapport,Written evaluation system,-1.1861,-1.5291,-0.8431,True
+Maintain positive rapport,Written supervision contract,0.0379,-0.3051,0.3808,False
+Meeting notes,Observe body language,0.8644,0.5214,1.2073,True
+Meeting notes,Participate in peer review,-0.2272,-0.6486,0.1942,False
+Meeting notes,Peer evaluate,-1.3091,-1.6521,-0.9662,True
+Meeting notes,Performance expectations,1.0252,0.6823,1.3682,True
+Meeting notes,Positive and corrective feedback,1.1924,0.8495,1.5354,True
+Meeting notes,Practice skill set,0.5363,0.1933,0.8792,True
+Meeting notes,Professional groups,-0.6435,-0.9865,-0.3006,True
+Meeting notes,Return communications within 48,1.2808,0.9378,1.6237,True
+Meeting notes,Review literature,0.7508,0.4078,1.0938,True
+Meeting notes,Review supervision contract,1.164,0.8211,1.507,True
+Meeting notes,Schedule contacts,0.8233,0.4804,1.1663,True
+Meeting notes,Schedule direct observations,1.0946,0.7517,1.4376,True
+Meeting notes,Schedule standing appointments,0.6782,0.3353,1.0212,True
+Meeting notes,Seek mentorship,0.1293,-0.2136,0.4723,False
+Meeting notes,Self-assess interpersonal skills,0.959,0.616,1.302,True
+Meeting notes,Send agenda,-0.8959,-1.2389,-0.5529,True
+Meeting notes,Supervision fidelity,-0.7823,-1.1253,-0.4394,True
+Meeting notes,Supervision schedule,-0.224,-0.5669,0.119,False
+Meeting notes,Supervision termination clause,1.3375,0.9946,1.6805,True
+Meeting notes,Supervisory study groups,-1.1703,-1.5133,-0.8274,True
+Meeting notes,Take baseline,-0.3312,-0.6742,0.0117,False
+Meeting notes,Training and supervision,0.9757,0.412,1.5394,True
+Meeting notes,Written evaluation system,0.1451,-0.1979,0.4881,False
+Meeting notes,Written supervision contract,1.3691,1.0261,1.7121,True
+Observe body language,Participate in peer review,-1.0916,-1.5129,-0.6702,True
+Observe body language,Peer evaluate,-2.1735,-2.5165,-1.8305,True
+Observe body language,Performance expectations,0.1609,-0.1821,0.5039,False
+Observe body language,Positive and corrective feedback,0.3281,-0.0149,0.671,False
+Observe body language,Practice skill set,-0.3281,-0.671,0.0149,False
+Observe body language,Professional groups,-1.5079,-1.8509,-1.1649,True
+Observe body language,Return communications within 48,0.4164,0.0734,0.7594,True
+Observe body language,Review literature,-0.1136,-0.4565,0.2294,False
+Observe body language,Review supervision contract,0.2997,-0.0433,0.6427,False
+Observe body language,Schedule contacts,-0.041,-0.384,0.302,False
+Observe body language,Schedule direct observations,0.2303,-0.1127,0.5733,False
+Observe body language,Schedule standing appointments,-0.1861,-0.5291,0.1569,False
+Observe body language,Seek mentorship,-0.735,-1.078,-0.392,True
+Observe body language,Self-assess interpersonal skills,0.0946,-0.2483,0.4376,False
+Observe body language,Send agenda,-1.7603,-2.1032,-1.4173,True
+Observe body language,Supervision fidelity,-1.6467,-1.9897,-1.3037,True
+Observe body language,Supervision schedule,-1.0883,-1.4313,-0.7454,True
+Observe body language,Supervision termination clause,0.4732,0.1302,0.8162,True
+Observe body language,Supervisory study groups,-2.0347,-2.3777,-1.6917,True
+Observe body language,Take baseline,-1.1956,-1.5386,-0.8526,True
+Observe body language,Training and supervision,0.1114,-0.4523,0.6751,False
+Observe body language,Written evaluation system,-0.7192,-1.0622,-0.3763,True
+Observe body language,Written supervision contract,0.5047,0.1618,0.8477,True
+Participate in peer review,Peer evaluate,-1.0819,-1.5033,-0.6606,True
+Participate in peer review,Performance expectations,1.2524,0.8311,1.6738,True
+Participate in peer review,Positive and corrective feedback,1.4196,0.9983,1.841,True
+Participate in peer review,Practice skill set,0.7635,0.3421,1.1849,True
+Participate in peer review,Professional groups,-0.4163,-0.8377,0.0051,False
+Participate in peer review,Return communications within 48,1.508,1.0866,1.9294,True
+Participate in peer review,Review literature,0.978,0.5566,1.3994,True
+Participate in peer review,Review supervision contract,1.3912,0.9699,1.8126,True
+Participate in peer review,Schedule contacts,1.0506,0.6292,1.4719,True
+Participate in peer review,Schedule direct observations,1.3218,0.9005,1.7432,True
+Participate in peer review,Schedule standing appointments,0.9054,0.4841,1.3268,True
+Participate in peer review,Seek mentorship,0.3565,-0.0648,0.7779,False
+Participate in peer review,Self-assess interpersonal skills,1.1862,0.7648,1.6076,True
+Participate in peer review,Send agenda,-0.6687,-1.0901,-0.2473,True
+Participate in peer review,Supervision fidelity,-0.5551,-0.9765,-0.1337,True
+Participate in peer review,Supervision schedule,0.0032,-0.4182,0.4246,False
+Participate in peer review,Supervision termination clause,1.5647,1.1434,1.9861,True
+Participate in peer review,Supervisory study groups,-0.9431,-1.3645,-0.5218,True
+Participate in peer review,Take baseline,-0.104,-0.5254,0.3174,False
+Participate in peer review,Training and supervision,1.2029,0.5884,1.8175,True
+Participate in peer review,Written evaluation system,0.3723,-0.0491,0.7937,False
+Participate in peer review,Written supervision contract,1.5963,1.1749,2.0177,True
+Peer evaluate,Performance expectations,2.3344,1.9914,2.6774,True
+Peer evaluate,Positive and corrective feedback,2.5016,2.1586,2.8445,True
+Peer evaluate,Practice skill set,1.8454,1.5025,2.1884,True
+Peer evaluate,Professional groups,0.6656,0.3226,1.0086,True
+Peer evaluate,Return communications within 48,2.5899,2.2469,2.9329,True
+Peer evaluate,Review literature,2.0599,1.717,2.4029,True
+Peer evaluate,Review supervision contract,2.4732,2.1302,2.8162,True
+Peer evaluate,Schedule contacts,2.1325,1.7895,2.4755,True
+Peer evaluate,Schedule direct observations,2.4038,2.0608,2.7468,True
+Peer evaluate,Schedule standing appointments,1.9874,1.6444,2.3304,True
+Peer evaluate,Seek mentorship,1.4385,1.0955,1.7815,True
+Peer evaluate,Self-assess interpersonal skills,2.2681,1.9252,2.6111,True
+Peer evaluate,Send agenda,0.4132,0.0703,0.7562,True
+Peer evaluate,Supervision fidelity,0.5268,0.1838,0.8698,True
+Peer evaluate,Supervision schedule,1.0852,0.7422,1.4281,True
+Peer evaluate,Supervision termination clause,2.6467,2.3037,2.9897,True
+Peer evaluate,Supervisory study groups,0.1388,-0.2042,0.4818,False
+Peer evaluate,Take baseline,0.9779,0.6349,1.3209,True
+Peer evaluate,Training and supervision,2.2849,1.7212,2.8486,True
+Peer evaluate,Written evaluation system,1.4543,1.1113,1.7972,True
+Peer evaluate,Written supervision contract,2.6782,2.3353,3.0212,True
+Performance expectations,Positive and corrective feedback,0.1672,-0.1758,0.5102,False
+Performance expectations,Practice skill set,-0.489,-0.8319,-0.146,True
+Performance expectations,Professional groups,-1.6688,-2.0117,-1.3258,True
+Performance expectations,Return communications within 48,0.2555,-0.0874,0.5985,False
+Performance expectations,Review literature,-0.2744,-0.6174,0.0685,False
+Performance expectations,Review supervision contract,0.1388,-0.2042,0.4818,False
+Performance expectations,Schedule contacts,-0.2019,-0.5449,0.1411,False
+Performance expectations,Schedule direct observations,0.0694,-0.2736,0.4124,False
+Performance expectations,Schedule standing appointments,-0.347,-0.69,-0.004,True
+Performance expectations,Seek mentorship,-0.8959,-1.2389,-0.5529,True
+Performance expectations,Self-assess interpersonal skills,-0.0662,-0.4092,0.2767,False
+Performance expectations,Send agenda,-1.9211,-2.2641,-1.5782,True
+Performance expectations,Supervision fidelity,-1.8076,-2.1505,-1.4646,True
+Performance expectations,Supervision schedule,-1.2492,-1.5922,-0.9062,True
+Performance expectations,Supervision termination clause,0.3123,-0.0307,0.6553,False
+Performance expectations,Supervisory study groups,-2.1956,-2.5386,-1.8526,True
+Performance expectations,Take baseline,-1.3565,-1.6994,-1.0135,True
+Performance expectations,Training and supervision,-0.0495,-0.6132,0.5142,False
+Performance expectations,Written evaluation system,-0.8801,-1.2231,-0.5372,True
+Performance expectations,Written supervision contract,0.3438,0.0009,0.6868,True
+Positive and corrective feedback,Practice skill set,-0.6562,-0.9991,-0.3132,True
+Positive and corrective feedback,Professional groups,-1.836,-2.1789,-1.493,True
+Positive and corrective feedback,Return communications within 48,0.0883,-0.2546,0.4313,False
+Positive and corrective feedback,Review literature,-0.4416,-0.7846,-0.0987,True
+Positive and corrective feedback,Review supervision contract,-0.0284,-0.3714,0.3146,False
+Positive and corrective feedback,Schedule contacts,-0.3691,-0.7121,-0.0261,True
+Positive and corrective feedback,Schedule direct observations,-0.0978,-0.4408,0.2452,False
+Positive and corrective feedback,Schedule standing appointments,-0.5142,-0.8572,-0.1712,True
+Positive and corrective feedback,Seek mentorship,-1.0631,-1.4061,-0.7201,True
+Positive and corrective feedback,Self-assess interpersonal skills,-0.2334,-0.5764,0.1095,False
+Positive and corrective feedback,Send agenda,-2.0883,-2.4313,-1.7454,True
+Positive and corrective feedback,Supervision fidelity,-1.9748,-2.3177,-1.6318,True
+Positive and corrective feedback,Supervision schedule,-1.4164,-1.7594,-1.0734,True
+Positive and corrective feedback,Supervision termination clause,0.1451,-0.1979,0.4881,False
+Positive and corrective feedback,Supervisory study groups,-2.3628,-2.7057,-2.0198,True
+Positive and corrective feedback,Take baseline,-1.5237,-1.8666,-1.1807,True
+Positive and corrective feedback,Training and supervision,-0.2167,-0.7804,0.347,False
+Positive and corrective feedback,Written evaluation system,-1.0473,-1.3903,-0.7043,True
+Positive and corrective feedback,Written supervision contract,0.1767,-0.1663,0.5196,False
+Practice skill set,Professional groups,-1.1798,-1.5228,-0.8368,True
+Practice skill set,Return communications within 48,0.7445,0.4015,1.0874,True
+Practice skill set,Review literature,0.2145,-0.1285,0.5575,False
+Practice skill set,Review supervision contract,0.6278,0.2848,0.9707,True
+Practice skill set,Schedule contacts,0.2871,-0.0559,0.63,False
+Practice skill set,Schedule direct observations,0.5584,0.2154,0.9013,True
+Practice skill set,Schedule standing appointments,0.142,-0.201,0.4849,False
+Practice skill set,Seek mentorship,-0.4069,-0.7499,-0.064,True
+Practice skill set,Self-assess interpersonal skills,0.4227,0.0797,0.7657,True
+Practice skill set,Send agenda,-1.4322,-1.7751,-1.0892,True
+Practice skill set,Supervision fidelity,-1.3186,-1.6616,-0.9756,True
+Practice skill set,Supervision schedule,-0.7603,-1.1032,-0.4173,True
+Practice skill set,Supervision termination clause,0.8013,0.4583,1.1442,True
+Practice skill set,Supervisory study groups,-1.7066,-2.0496,-1.3637,True
+Practice skill set,Take baseline,-0.8675,-1.2105,-0.5245,True
+Practice skill set,Training and supervision,0.4394,-0.1243,1.0032,False
+Practice skill set,Written evaluation system,-0.3912,-0.7341,-0.0482,True
+Practice skill set,Written supervision contract,0.8328,0.4898,1.1758,True
+Professional groups,Return communications within 48,1.9243,1.5813,2.2673,True
+Professional groups,Review literature,1.3943,1.0514,1.7373,True
+Professional groups,Review supervision contract,1.8076,1.4646,2.1505,True
+Professional groups,Schedule contacts,1.4669,1.1239,1.8098,True
+Professional groups,Schedule direct observations,1.7382,1.3952,2.0811,True
+Professional groups,Schedule standing appointments,1.3218,0.9788,1.6647,True
+Professional groups,Seek mentorship,0.7729,0.4299,1.1158,True
+Professional groups,Self-assess interpersonal skills,1.6025,1.2596,1.9455,True
+Professional groups,Send agenda,-0.2524,-0.5953,0.0906,False
+Professional groups,Supervision fidelity,-0.1388,-0.4818,0.2042,False
+Professional groups,Supervision schedule,0.4196,0.0766,0.7625,True
+Professional groups,Supervision termination clause,1.9811,1.6381,2.324,True
+Professional groups,Supervisory study groups,-0.5268,-0.8698,-0.1838,True
+Professional groups,Take baseline,0.3123,-0.0307,0.6553,False
+Professional groups,Training and supervision,1.6193,1.0556,2.183,True
+Professional groups,Written evaluation system,0.7886,0.4457,1.1316,True
+Professional groups,Written supervision contract,2.0126,1.6696,2.3556,True
+Return communications within 48,Review literature,-0.53,-0.8729,-0.187,True
+Return communications within 48,Review supervision contract,-0.1167,-0.4597,0.2263,False
+Return communications within 48,Schedule contacts,-0.4574,-0.8004,-0.1144,True
+Return communications within 48,Schedule direct observations,-0.1861,-0.5291,0.1569,False
+Return communications within 48,Schedule standing appointments,-0.6025,-0.9455,-0.2596,True
+Return communications within 48,Seek mentorship,-1.1514,-1.4944,-0.8084,True
+Return communications within 48,Self-assess interpersonal skills,-0.3218,-0.6647,0.0212,False
+Return communications within 48,Send agenda,-2.1767,-2.5196,-1.8337,True
+Return communications within 48,Supervision fidelity,-2.0631,-2.4061,-1.7201,True
+Return communications within 48,Supervision schedule,-1.5047,-1.8477,-1.1618,True
+Return communications within 48,Supervision termination clause,0.0568,-0.2862,0.3998,False
+Return communications within 48,Supervisory study groups,-2.4511,-2.7941,-2.1081,True
+Return communications within 48,Take baseline,-1.612,-1.955,-1.269,True
+Return communications within 48,Training and supervision,-0.305,-0.8687,0.2587,False
+Return communications within 48,Written evaluation system,-1.1356,-1.4786,-0.7927,True
+Return communications within 48,Written supervision contract,0.0883,-0.2546,0.4313,False
+Review literature,Review supervision contract,0.4132,0.0703,0.7562,True
+Review literature,Schedule contacts,0.0726,-0.2704,0.4155,False
+Review literature,Schedule direct observations,0.3438,0.0009,0.6868,True
+Review literature,Schedule standing appointments,-0.0726,-0.4155,0.2704,False
+Review literature,Seek mentorship,-0.6215,-0.9644,-0.2785,True
+Review literature,Self-assess interpersonal skills,0.2082,-0.1348,0.5512,False
+Review literature,Send agenda,-1.6467,-1.9897,-1.3037,True
+Review literature,Supervision fidelity,-1.5331,-1.8761,-1.1902,True
+Review literature,Supervision schedule,-0.9748,-1.3177,-0.6318,True
+Review literature,Supervision termination clause,0.5868,0.2438,0.9297,True
+Review literature,Supervisory study groups,-1.9211,-2.2641,-1.5782,True
+Review literature,Take baseline,-1.082,-1.425,-0.739,True
+Review literature,Training and supervision,0.2249,-0.3388,0.7886,False
+Review literature,Written evaluation system,-0.6057,-0.9486,-0.2627,True
+Review literature,Written supervision contract,0.6183,0.2753,0.9613,True
+Review supervision contract,Schedule contacts,-0.3407,-0.6837,0.0023,False
+Review supervision contract,Schedule direct observations,-0.0694,-0.4124,0.2736,False
+Review supervision contract,Schedule standing appointments,-0.4858,-0.8288,-0.1428,True
+Review supervision contract,Seek mentorship,-1.0347,-1.3777,-0.6917,True
+Review supervision contract,Self-assess interpersonal skills,-0.205,-0.548,0.1379,False
+Review supervision contract,Send agenda,-2.0599,-2.4029,-1.717,True
+Review supervision contract,Supervision fidelity,-1.9464,-2.2893,-1.6034,True
+Review supervision contract,Supervision schedule,-1.388,-1.731,-1.045,True
+Review supervision contract,Supervision termination clause,0.1735,-0.1695,0.5165,False
+Review supervision contract,Supervisory study groups,-2.3344,-2.6774,-1.9914,True
+Review supervision contract,Take baseline,-1.4953,-1.8382,-1.1523,True
+Review supervision contract,Training and supervision,-0.1883,-0.752,0.3754,False
+Review supervision contract,Written evaluation system,-1.0189,-1.3619,-0.676,True
+Review supervision contract,Written supervision contract,0.205,-0.1379,0.548,False
+Schedule contacts,Schedule direct observations,0.2713,-0.0717,0.6143,False
+Schedule contacts,Schedule standing appointments,-0.1451,-0.4881,0.1979,False
+Schedule contacts,Seek mentorship,-0.694,-1.037,-0.351,True
+Schedule contacts,Self-assess interpersonal skills,0.1356,-0.2073,0.4786,False
+Schedule contacts,Send agenda,-1.7192,-2.0622,-1.3763,True
+Schedule contacts,Supervision fidelity,-1.6057,-1.9486,-1.2627,True
+Schedule contacts,Supervision schedule,-1.0473,-1.3903,-0.7043,True
+Schedule contacts,Supervision termination clause,0.5142,0.1712,0.8572,True
+Schedule contacts,Supervisory study groups,-1.9937,-2.3367,-1.6507,True
+Schedule contacts,Take baseline,-1.1546,-1.4975,-0.8116,True
+Schedule contacts,Training and supervision,0.1524,-0.4113,0.7161,False
+Schedule contacts,Written evaluation system,-0.6782,-1.0212,-0.3353,True
+Schedule contacts,Written supervision contract,0.5457,0.2028,0.8887,True
+Schedule direct observations,Schedule standing appointments,-0.4164,-0.7594,-0.0734,True
+Schedule direct observations,Seek mentorship,-0.9653,-1.3083,-0.6223,True
+Schedule direct observations,Self-assess interpersonal skills,-0.1356,-0.4786,0.2073,False
+Schedule direct observations,Send agenda,-1.9905,-2.3335,-1.6476,True
+Schedule direct observations,Supervision fidelity,-1.877,-2.2199,-1.534,True
+Schedule direct observations,Supervision schedule,-1.3186,-1.6616,-0.9756,True
+Schedule direct observations,Supervision termination clause,0.2429,-0.1001,0.5859,False
+Schedule direct observations,Supervisory study groups,-2.265,-2.608,-1.922,True
+Schedule direct observations,Take baseline,-1.4259,-1.7688,-1.0829,True
+Schedule direct observations,Training and supervision,-0.1189,-0.6826,0.4448,False
+Schedule direct observations,Written evaluation system,-0.9495,-1.2925,-0.6066,True
+Schedule direct observations,Written supervision contract,0.2744,-0.0685,0.6174,False
+Schedule standing appointments,Seek mentorship,-0.5489,-0.8919,-0.2059,True
+Schedule standing appointments,Self-assess interpersonal skills,0.2808,-0.0622,0.6237,False
+Schedule standing appointments,Send agenda,-1.5741,-1.9171,-1.2312,True
+Schedule standing appointments,Supervision fidelity,-1.4606,-1.8035,-1.1176,True
+Schedule standing appointments,Supervision schedule,-0.9022,-1.2452,-0.5592,True
+Schedule standing appointments,Supervision termination clause,0.6593,0.3163,1.0023,True
+Schedule standing appointments,Supervisory study groups,-1.8486,-2.1916,-1.5056,True
+Schedule standing appointments,Take baseline,-1.0095,-1.3524,-0.6665,True
+Schedule standing appointments,Training and supervision,0.2975,-0.2662,0.8612,False
+Schedule standing appointments,Written evaluation system,-0.5331,-0.8761,-0.1902,True
+Schedule standing appointments,Written supervision contract,0.6909,0.3479,1.0338,True
+Seek mentorship,Self-assess interpersonal skills,0.8297,0.4867,1.1726,True
+Seek mentorship,Send agenda,-1.0252,-1.3682,-0.6823,True
+Seek mentorship,Supervision fidelity,-0.9117,-1.2546,-0.5687,True
+Seek mentorship,Supervision schedule,-0.3533,-0.6963,-0.0103,True
+Seek mentorship,Supervision termination clause,1.2082,0.8652,1.5512,True
+Seek mentorship,Supervisory study groups,-1.2997,-1.6427,-0.9567,True
+Seek mentorship,Take baseline,-0.4606,-0.8035,-0.1176,True
+Seek mentorship,Training and supervision,0.8464,0.2827,1.4101,True
+Seek mentorship,Written evaluation system,0.0158,-0.3272,0.3587,False
+Seek mentorship,Written supervision contract,1.2397,0.8968,1.5827,True
+Self-assess interpersonal skills,Send agenda,-1.8549,-2.1979,-1.5119,True
+Self-assess interpersonal skills,Supervision fidelity,-1.7413,-2.0843,-1.3984,True
+Self-assess interpersonal skills,Supervision schedule,-1.183,-1.5259,-0.84,True
+Self-assess interpersonal skills,Supervision termination clause,0.3785,0.0356,0.7215,True
+Self-assess interpersonal skills,Supervisory study groups,-2.1293,-2.4723,-1.7864,True
+Self-assess interpersonal skills,Take baseline,-1.2902,-1.6332,-0.9473,True
+Self-assess interpersonal skills,Training and supervision,0.0167,-0.547,0.5804,False
+Self-assess interpersonal skills,Written evaluation system,-0.8139,-1.1569,-0.4709,True
+Self-assess interpersonal skills,Written supervision contract,0.4101,0.0671,0.7531,True
+Send agenda,Supervision fidelity,0.1136,-0.2294,0.4565,False
+Send agenda,Supervision schedule,0.6719,0.329,1.0149,True
+Send agenda,Supervision termination clause,2.2334,1.8905,2.5764,True
+Send agenda,Supervisory study groups,-0.2744,-0.6174,0.0685,False
+Send agenda,Take baseline,0.5647,0.2217,0.9076,True
+Send agenda,Training and supervision,1.8716,1.3079,2.4353,True
+Send agenda,Written evaluation system,1.041,0.698,1.384,True
+Send agenda,Written supervision contract,2.265,1.922,2.608,True
+Supervision fidelity,Supervision schedule,0.5584,0.2154,0.9013,True
+Supervision fidelity,Supervision termination clause,2.1199,1.7769,2.4628,True
+Supervision fidelity,Supervisory study groups,-0.388,-0.731,-0.045,True
+Supervision fidelity,Take baseline,0.4511,0.1081,0.7941,True
+Supervision fidelity,Training and supervision,1.7581,1.1944,2.3218,True
+Supervision fidelity,Written evaluation system,0.9274,0.5845,1.2704,True
+Supervision fidelity,Written supervision contract,2.1514,1.8084,2.4944,True
+Supervision schedule,Supervision termination clause,1.5615,1.2185,1.9045,True
+Supervision schedule,Supervisory study groups,-0.9464,-1.2893,-0.6034,True
+Supervision schedule,Take baseline,-0.1073,-0.4502,0.2357,False
+Supervision schedule,Training and supervision,1.1997,0.636,1.7634,True
+Supervision schedule,Written evaluation system,0.3691,0.0261,0.7121,True
+Supervision schedule,Written supervision contract,1.5931,1.2501,1.936,True
+Supervision termination clause,Supervisory study groups,-2.5079,-2.8509,-2.1649,True
+Supervision termination clause,Take baseline,-1.6688,-2.0117,-1.3258,True
+Supervision termination clause,Training and supervision,-0.3618,-0.9255,0.2019,False
+Supervision termination clause,Written evaluation system,-1.1924,-1.5354,-0.8495,True
+Supervision termination clause,Written supervision contract,0.0315,-0.3114,0.3745,False
+Supervisory study groups,Take baseline,0.8391,0.4961,1.1821,True
+Supervisory study groups,Training and supervision,2.1461,1.5824,2.7098,True
+Supervisory study groups,Written evaluation system,1.3155,0.9725,1.6584,True
+Supervisory study groups,Written supervision contract,2.5394,2.1965,2.8824,True
+Take baseline,Training and supervision,1.307,0.7433,1.8707,True
+Take baseline,Written evaluation system,0.4763,0.1334,0.8193,True
+Take baseline,Written supervision contract,1.7003,1.3573,2.0433,True
+Training and supervision,Written evaluation system,-0.8306,-1.3943,-0.2669,True
+Training and supervision,Written supervision contract,0.3934,-0.1703,0.9571,False
+Written evaluation system,Written supervision contract,1.224,0.881,1.5669,True

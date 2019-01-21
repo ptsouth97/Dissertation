@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 from statsmodels.stats.multicomp import pairwise_tukeyhsd, MultiComparison
 import numpy as np
+from numpy import nan as Nan
 import clean_data
 import question_2
 
@@ -57,7 +58,7 @@ def q3_new_prep():
 
 	# Add PEC columns that average behaviors based on domain
 	df = add_pecc_columns(metadata)
-	df.to_csv('q3_new.csv')
+	#df.to_csv('q3_new.csv')
 
 	# Run stats and make charts for new question 3
 	q3_new(df, demo_list)
@@ -163,7 +164,6 @@ def q3_new(df, demo_lst):
 
 	for domain in domains:
 
-
 		for demo in demo_lst:
 
 			df_current = df.replace('', np.nan)
@@ -193,6 +193,9 @@ def q3_new(df, demo_lst):
 			# Make list to hold the standard deviation
 			std = []
 
+			# Make list to hold the n values
+			n = []
+
 			# Make a list of columns from the dataframe and add up how many values are in each column (dfd)
 			for col in range(0, n_cols):
 				column=grouped_df.iloc[:,col].dropna().tolist()
@@ -200,9 +203,10 @@ def q3_new(df, demo_lst):
 				dfd += len(column)
 				avg.append(round(np.mean(column), 2))
 				std.append(round(np.std(column), 2))
+				n.append(len(column))
 
 			# Convert list to dataframe
-			statistics = pd.DataFrame({'M':avg, 'SD':std}, index=names)
+			statistics = pd.DataFrame({'n':n, 'M':avg, 'SD':std}, index=names)
 				
 			# Drop empty lists
 			col_list = list(filter(None, col_list))
@@ -239,11 +243,17 @@ def q3_new(df, demo_lst):
 				posthoc = pairwise_tukeyhsd(tukey_df['score'], tukey_df['identity'])
 				tukey_results = pd.DataFrame(data=posthoc._results_table.data[1:],
                                           columns=posthoc._results_table.data[0])
-				tukey_results.to_csv('Tukey-'+domain+'-'+demo+'.csv', index=False)
+				tukey_results.to_csv(domain+'-'+demo+'-Tukey.csv', index=False)
 				print(posthoc)
-				
-				#mod = MultiComparison(tukey_df['score'], tukey_df['identity'])
-				#print(mod.tukeyhsd())
+
+				# Create a boxplot for significant results				
+				plot_chart(grouped_df, f, p, domain, demo, dfn, dfd)
+
+				statistics = statistics.assign(text='A one-way between groups ANOVA was conducted to compare the effect of '+
+                                                     demo+' on '+domain+'. There was a significant effect of IV '+demo+' on DV '
+                                                    +domain+' at the p<.05 level [F('+str(dfn)+', '+str(dfd)+')='+
+                                                     str(round(f,2))+', p='+str(round(p,2))+'].')
+
 
 			# Round F value
 			f = str(round(f, 2))
@@ -260,72 +270,79 @@ def q3_new(df, demo_lst):
 
 			# Assign F and p values to dataframe position
 			statistics = statistics.assign(F=f, p=p)
+			#statistics = statistics.assign(text='A one-way between groups ANOVA was conducted to compare the effect of '+
+            #                                     demo+' on '+domain+'.
+                                                 
 			#statistics.to_csv(domain + '-' + demo + '.csv')
 			print(demo)
 			print(statistics)
 
 			# Append statistics to final domain results
 			domain_results = domain_results.append(statistics)
+			print(domain_results)
+			# Add a blank row
+			blank_row = pd.Series([Nan, Nan, Nan, Nan, Nan, Nan, Nan])
+			domain_results = domain_results.append(blank_row, ignore_index=True)
 
-			# Sort dataframe in descending order
-			grouped_df = grouped_df.reindex(grouped_df.mean().sort_values(ascending=False).index, axis=1)
-
-			#print('Sorted grouped_df for ' + domain)
-			#print(grouped_df)			
-			color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
-			meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
-			_ = grouped_df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
-
-			_ = plt.xticks(rotation=90)
-
-			new_yticks = ['Almost never (1)', 'Rarely (2)', 'Sometimes (3)', 'Usually (4)', 'Almost always (5)']
-
-			
-			_ = plt.yticks(np.arange(1, 5+1, step=1), new_yticks)
-			#_ = plt.suptitle(bx + ' responses grouped by ' + demo)
-			_ = plt.title(domain + ' responses grouped by ' + demo + \
-                          ', F=' + f + ' (F critical='+str(round(Fcrit, 3))+'), p' + p)
-			_ = plt.xlabel(demo)
-			_ = plt.ylabel(domain + ' responses')
-			_ = plt.ylim(0.9, 5.1)
-
-			#if plot == 'regular':
-			if (domain != 'Credentialing requirements' and domain != 'Training and supervision'):
-				_ = plt.tight_layout()
-
-			
-			fig = plt.gcf()
-			fig.set_size_inches(12, 10)
-			_ = plt.savefig(demo+'-'+domain+'.png', dpi=100)
-			#_ = plt.show()
-			_ = plt.close()
-
+		# Write statistics for this domain to csv then delete current dataframe
 		domain_results.to_csv(domain + '.csv')
 		domain_results.drop(domain_results.index, inplace=True)
+
+	return
+
+
+def plot_chart(grouped_df, f, p, domain, demo, dfn, dfd):
+	''' Plots box chart for significant results'''
+
+	# Sort dataframe in descending order
+	grouped_df = grouped_df.reindex(grouped_df.mean().sort_values(ascending=False).index, axis=1)
+
+	#print('Sorted grouped_df for ' + domain)
+	#print(grouped_df)			
+	color = dict(boxes='gray', whiskers='black', medians='black', caps='black')
+	meanpointprops = dict(marker='s', markeredgecolor='black', markerfacecolor='black')
+	_ = grouped_df.plot.box(color=color, patch_artist=True, meanprops=meanpointprops, showmeans=True)
+
+	_ = plt.xticks(rotation=90)
+
+	new_yticks = ['Almost never (1)', 'Rarely (2)', 'Sometimes (3)', 'Usually (4)', 'Almost always (5)']
+
+			
+	_ = plt.yticks(np.arange(1, 5+1, step=1), new_yticks)
+	#_ = plt.suptitle(bx + ' responses grouped by ' + demo)
+	_ = plt.title(domain + ' responses grouped by ' + demo +
+                          ', [F('+str(dfn)+', '+str(dfd)+')='+str(f)+', p='+str(round(p, 2))+']')
+	_ = plt.xlabel(demo)
+	_ = plt.ylabel(domain + ' responses')
+	_ = plt.ylim(0.9, 5.1)
+
+	#if plot == 'regular':
+	if (domain != 'Credentialing requirements' and domain != 'Training and supervision'):
+		_ = plt.tight_layout()
+
+			
+	fig = plt.gcf()
+	fig.set_size_inches(12, 10)
+	_ = plt.savefig(domain+'-'+demo+'.png', dpi=100)
+	#_ = plt.show()
+	_ = plt.close()
 
 	return 
 	
 
 def oddballs(df, d_list):
 	'''Handles 'Years certified' and 'Years supervisor' that need histogram instead of bar chart'''
-	
-	for demo in d_list:
-		df[demo] = np.where(df[demo].between(0,5), 0, df[demo])
-		df[demo] = np.where(df[demo].between(5,10), 5, df[demo])
-		df[demo] = np.where(df[demo].between(10,15), 10, df[demo])
-		df[demo] = np.where(df[demo].between(15,20), 15, df[demo])
-		df[demo] = np.where(df[demo].between(20,25), 20, df[demo])
-		df[demo] = np.where(df[demo].between(25,30), 25, df[demo])
 
-		df[demo].replace(0, '0-5 years', inplace=True)
-		df[demo].replace(5, '6-10 years', inplace=True)
-		df[demo].replace(10, '11-15 years', inplace=True)
-		df[demo].replace(15, '16-20 years', inplace=True)
-		df[demo].replace(20, '21-25 years', inplace=True)
-		df[demo].replace(25, '26-30 years', inplace=True)
+	for demo in d_list:
+		df[demo] = np.where(df[demo].between(0,2), 0, df[demo])
+		df[demo] = np.where(df[demo].between(2.1,5), 5, df[demo])
+		df[demo] = np.where(df[demo].between(5.1,100), 10, df[demo])
+
+		df[demo].replace(0, '0-2 years', inplace=True)
+		df[demo].replace(5, '3-5 years', inplace=True)
+		df[demo].replace(10, '>5 years', inplace=True)
 
 	return df
-
 	
 def p_value(columns):
 	''' Peform ANOVA based on the number of columns'''

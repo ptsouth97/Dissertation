@@ -1,0 +1,4 @@
+group1,group2,meandiff,lower,upper,reject
+0-2 years,3-5 years,0.0751,-0.0379,0.188,False
+0-2 years,>5 years,0.222,0.0895,0.3544,True
+3-5 years,>5 years,0.1469,0.0196,0.2742,True

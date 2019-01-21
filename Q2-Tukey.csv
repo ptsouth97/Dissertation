@@ -1,0 +1,29 @@
+group1,group2,meandiff,lower,upper,reject
+Communication of supervision conditions (5.05),Designing effective training (5.04),-0.6454,-0.7902,-0.5007,True
+Communication of supervision conditions (5.05),Evaluating the effects of supervision (5.07),-0.8678,-1.0213,-0.7143,True
+Communication of supervision conditions (5.05),Misc,-0.4525,-0.5644,-0.3406,True
+Communication of supervision conditions (5.05),Providing feedback to supervisees (5.06),-0.0902,-0.2288,0.0483,False
+Communication of supervision conditions (5.05),Supervising within your scope (5.01),-1.2635,-1.4126,-1.1144,True
+Communication of supervision conditions (5.05),Supervisory delegation (5.03),-0.3379,-0.5293,-0.1464,True
+Communication of supervision conditions (5.05),Supervisory volume (5.02),-0.2724,-0.4259,-0.1189,True
+Designing effective training (5.04),Evaluating the effects of supervision (5.07),-0.2224,-0.3759,-0.0689,True
+Designing effective training (5.04),Misc,0.1929,0.081,0.3048,True
+Designing effective training (5.04),Providing feedback to supervisees (5.06),0.5552,0.4166,0.6938,True
+Designing effective training (5.04),Supervising within your scope (5.01),-0.6181,-0.7672,-0.469,True
+Designing effective training (5.04),Supervisory delegation (5.03),0.3076,0.1161,0.499,True
+Designing effective training (5.04),Supervisory volume (5.02),0.373,0.2195,0.5265,True
+Evaluating the effects of supervision (5.07),Misc,0.4153,0.2922,0.5384,True
+Evaluating the effects of supervision (5.07),Providing feedback to supervisees (5.06),0.7776,0.6299,0.9253,True
+Evaluating the effects of supervision (5.07),Supervising within your scope (5.01),-0.3957,-0.5533,-0.2381,True
+Evaluating the effects of supervision (5.07),Supervisory delegation (5.03),0.53,0.3318,0.7281,True
+Evaluating the effects of supervision (5.07),Supervisory volume (5.02),0.5954,0.4336,0.7572,True
+Misc,Providing feedback to supervisees (5.06),0.3623,0.2585,0.4661,True
+Misc,Supervising within your scope (5.01),-0.811,-0.9285,-0.6935,True
+Misc,Supervisory delegation (5.03),0.1147,-0.0534,0.2827,False
+Misc,Supervisory volume (5.02),0.1801,0.0571,0.3032,True
+Providing feedback to supervisees (5.06),Supervising within your scope (5.01),-1.1733,-1.3164,-1.0302,True
+Providing feedback to supervisees (5.06),Supervisory delegation (5.03),-0.2476,-0.4345,-0.0608,True
+Providing feedback to supervisees (5.06),Supervisory volume (5.02),-0.1822,-0.3299,-0.0345,True
+Supervising within your scope (5.01),Supervisory delegation (5.03),0.9257,0.7309,1.1205,True
+Supervising within your scope (5.01),Supervisory volume (5.02),0.9911,0.8335,1.1488,True
+Supervisory delegation (5.03),Supervisory volume (5.02),0.0655,-0.1327,0.2636,False

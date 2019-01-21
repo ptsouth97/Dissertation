@@ -1,0 +1,11 @@
+group1,group2,meandiff,lower,upper,reject
+Midwest,Northeast,-0.1719,-0.3973,0.0536,False
+Midwest,Outside US,0.123,-0.1694,0.4154,False
+Midwest,South,-0.0726,-0.2746,0.1294,False
+Midwest,West,-0.0466,-0.271,0.1779,False
+Northeast,Outside US,0.2949,0.0161,0.5736,True
+Northeast,South,0.0993,-0.0824,0.281,False
+Northeast,West,0.1253,-0.0811,0.3317,False
+Outside US,South,-0.1956,-0.4557,0.0646,False
+Outside US,West,-0.1696,-0.4475,0.1084,False
+South,West,0.026,-0.1544,0.2065,False

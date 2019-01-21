@@ -192,19 +192,19 @@ def oddballs(df, d_list):
 	'''Handles 'Years certified' and 'Years supervisor' that need histogram instead of bar chart'''
  
 	for demo in d_list:
-		df[demo] = np.where(df[demo].between(0,5), 0, df[demo])
-		df[demo] = np.where(df[demo].between(5,10), 5, df[demo])
-		df[demo] = np.where(df[demo].between(10,15), 10, df[demo])
+		df[demo] = np.where(df[demo].between(0,2), 0, df[demo])
+		df[demo] = np.where(df[demo].between(3,5), 5, df[demo])
+		df[demo] = np.where(df[demo].greater(5), 10, df[demo])
 		df[demo] = np.where(df[demo].between(15,20), 15, df[demo])
 		df[demo] = np.where(df[demo].between(20,25), 20, df[demo])
 		df[demo] = np.where(df[demo].between(25,30), 25, df[demo])
 
-		df[demo].replace(0, '0-5 years', inplace=True)
-		df[demo].replace(5, '6-10 years', inplace=True)
-		df[demo].replace(10, '11-15 years', inplace=True)
-		df[demo].replace(15, '16-20 years', inplace=True)
-		df[demo].replace(20, '21-25 years', inplace=True)
-		df[demo].replace(25, '26-30 years', inplace=True)
+		df[demo].replace(0, '0-2 years', inplace=True)
+		df[demo].replace(5, '3-5 years', inplace=True)
+		df[demo].replace(10, '>5 years', inplace=True)
+		#df[demo].replace(15, '16-20 years', inplace=True)
+		#df[demo].replace(20, '21-25 years', inplace=True)
+		#df[demo].replace(25, '26-30 years', inplace=True)
 
 	return df
 

@@ -1,0 +1,22 @@
+group1,group2,meandiff,lower,upper,reject
+Behavior analyst,Counselor,-0.4991,-1.2171,0.2189,False
+Behavior analyst,Other,0.089,-0.0845,0.2625,False
+Behavior analyst,Professor,0.1279,-0.0697,0.3254,False
+Behavior analyst,Psychologist,-0.0568,-0.2831,0.1695,False
+Behavior analyst,Researcher,0.1761,-0.2099,0.562,False
+Behavior analyst,Teacher,0.0765,-0.2849,0.4379,False
+Counselor,Other,0.5881,-0.1473,1.3235,False
+Counselor,Professor,0.627,-0.1145,1.3684,False
+Counselor,Psychologist,0.4423,-0.3073,1.1919,False
+Counselor,Researcher,0.6752,-0.1371,1.4874,False
+Counselor,Teacher,0.5756,-0.2252,1.3765,False
+Other,Professor,0.0389,-0.2149,0.2926,False
+Other,Psychologist,-0.1458,-0.4226,0.131,False
+Other,Researcher,0.0871,-0.3305,0.5046,False
+Other,Teacher,-0.0125,-0.4075,0.3825,False
+Professor,Psychologist,-0.1847,-0.4771,0.1078,False
+Professor,Researcher,0.0482,-0.3799,0.4763,False
+Professor,Teacher,-0.0513,-0.4575,0.3548,False
+Psychologist,Researcher,0.2329,-0.2093,0.675,False
+Psychologist,Teacher,0.1333,-0.2876,0.5542,False
+Researcher,Teacher,-0.0996,-0.6238,0.4247,False
